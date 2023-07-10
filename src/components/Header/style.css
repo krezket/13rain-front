@@ -1,0 +1,71 @@
+body {
+  background-color: black;
+  margin: 0;
+  min-height: 100%;
+}
+
+.header {
+  /* border: 1px dashed white; */
+
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  /* background-image: url("../../assets/backgrounds/chaso.png"); */
+  background-image: url("../../assets/backgrounds/bg-12.gif");
+  /* background-image: url("../../assets/backgrounds/back-2.jpeg"); */
+  /* background-image: url("../../assets/sparklebg.gif"); */
+}
+
+.home-link {
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  height: 80px;
+}
+
+.title {
+  /* border: 1px dashed white; */
+  color: white;
+  text-shadow: 0px 0px 15px white;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.title:hover {
+  color: black;
+  text-shadow: 0px -1px 4px white;
+  box-shadow: 0px 5px 10px;
+  /* background-image: url("../../assets/lightning/storm.gif"); */
+  /* background-image: url("../../assets/daftavatar.gif"); */
+  /* background-image: url("../../assets/neutron.gif"); */
+  /* background-image: url("../../assets/fire/fire-1.gif"); */
+  background-image: url("../../assets/backgrounds/bg-27.gif");
+  /* background-image: url("../../assets/death/smokeskull.gif"); */
+}
+
+/* @media only screen and (min-width : 1824px)  {
+  main {
+      height: 77vh;
+  }
+} */
+
+/* @media only screen and (min-width : 1024px)  {
+  main {
+      height: 77vh;
+  }
+} */
+
+/* @media only screen
+and (min-width : 480px)
+and (max-width : 1024px) {
+  main {
+    height: 77vh;
+}
+} */
+
+@media only screen
+and (min-width : 480px) {
+  main {
+    min-height: 0vh;
+}
+}

@@ -1,0 +1,78 @@
+.navbar {
+  /* border: 1px dashed red; */
+  /* background-color: rgb(13, 13, 13); */
+  background-image: linear-gradient(rgb(77, 0, 0), black);
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 100px;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+}
+
+.currenttime {
+  color: white;
+}
+
+@media only screen
+and (min-width : 480px)
+and (max-width : 1024px) {
+  .navbar {
+    padding: 0;
+}
+}
+
+#navbar {
+  display: flex;
+}
+
+#nav-links {
+  display: flex;
+}
+  
+.nav-p {
+  border: 1px dashed white;
+  padding: 5px 5px 5px 5px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#nav-p-user:hover {
+  background-image: url('../../assets/backgrounds/bg-27.gif');
+  color: white;
+  text-shadow: 1px 1px 1px black;;
+}
+
+#nav-p-log:hover {
+  background-image: url('../../assets/backgrounds/staticbackground-1.gif');
+  color: white;
+  text-shadow: 1px 1px 1px black;;
+}
+
+#login-link {
+  color: red;
+}
+
+#login-link:hover {
+  color: white;
+  text-shadow: 1px 1px 1px black;;
+}
+
+#username {
+  color: red;
+  text-align: center;
+}
+
+#username:hover {
+  color: white;
+  text-shadow: 1px 1px 1px black;;
+}
+
+#logout-btn {
+  color: red
+}
+
+#logout-btn:hover {
+  color: white;
+  text-shadow: 1px 1px 1px black;;
+}

@@ -1,0 +1,97 @@
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.main {
+    /* border: 1px dashed white; */
+    /* align-items: center; */
+    /* padding-left: 50px; */
+    /* padding-right: 50px; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    text-align: center;
+}
+
+.fire-div {
+    display: flex;
+    justify-content: center;
+}
+
+.aside-left {
+    width: 100px;
+    /* background-image: url(../../assets/earth/earth-2.gif); */
+    padding-left: 30px;
+    padding-right: 30px;
+    color: red;
+    border-right: 1px dashed darkred;
+}
+
+.aside-right {
+    width: 100px;
+    /* background-image: url(../../assets/earth/earth-2.gif); */
+    padding-left: 30px;
+    padding-right: 30px;
+    color: red;
+    border-left: 1px dashed darkred;
+
+}
+
+.hp-header {
+    /* border: 1px dashed white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#welcome {
+    /* border: 1px dashed white; */
+  
+}
+
+#hp-article {
+    border: 1px dashed red;
+    width: 900px;
+    color: white;
+    padding-left: 20px; 
+    padding-right: 20px;
+    margin-bottom: 20px; 
+}
+
+@media only screen and (max-width : 1265px)  {
+    #hp-article {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width : 880px)  {
+    #hp-article {
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width : 735px)  {
+
+    .main {
+        display: flex;
+        justify-content: center;
+    }
+
+    .aside-right {
+        display: none;
+    }
+
+    .aside-left {
+        display: none;
+    }
+}

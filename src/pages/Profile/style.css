@@ -1,0 +1,25 @@
+.pr-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-username {
+    color: red;
+}
+
+.profile-fullname {
+    color: red;
+}
+
+.profile-email {
+    color: red;
+}
+
+.profile-pages {
+    color: red;
+}
+
+marquee {
+    color:aliceblue;
+}
