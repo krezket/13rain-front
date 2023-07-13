@@ -8,7 +8,7 @@ import './style.css'
 
 
 function SignUp(props) {
-  console.log(props)
+  // console.log(props)
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
   const [fullName, setFullName] = useState("")
@@ -51,7 +51,7 @@ function SignUp(props) {
       props.setUserId(data.user.id)
       props.setUsername(data.user.username)
       props.setToken(data.token)
-      localStorage.setItem("token", data.token)
+      window.sessionStorage.setItem("token", data.token)
       window.sessionStorage.setItem("userId", data.user.id);
 
       navigate("/" + username)
@@ -61,22 +61,6 @@ function SignUp(props) {
       localStorage.removeItem("token")
       alert(err)
     })
-
-    const storedId = window.sessionStorage.getItem("userId");
-    
-    API.getProfile(storedId)
-    .then((data) => {
-      // console.log("Profile Data:",data)
-      const pageData = JSON.stringify(data)
-      localStorage.setItem("pageData", pageData)
-      props.setPages(data.pages)  
-    }
-    )
-    .catch((err) => {
-      console.log("oh noes");
-      console.log(err);
-    }
-    );
   }
 
   return (

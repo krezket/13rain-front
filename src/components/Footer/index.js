@@ -6,7 +6,7 @@ import './style.css';
 export default function Header() {
     return (    
     <footer className='footer'>
-      <h1 className='outro'>&copy;<DayJS format="YYYY"></DayJS> Krezket</h1>
+      <h1 className='outro'>&copy;<DayJS format="YYYY"></DayJS></h1>
       
       <div className='footerbar'>
         <p className='footer-p'>

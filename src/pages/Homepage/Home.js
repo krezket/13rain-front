@@ -10,22 +10,21 @@ import Footer from '../../components/Footer/';
 import './style.css';
 
 export default function Home(props) {
-    // console.log("home:", props)
+    // console.log("home props:", props)
 
-    // const pageData = localStorage.getItem("pageData");
-    // const parsedData = JSON.parse(pageData);
-    // console.log("Home Parsed Data",parsedData)
+    let LinkComponents = undefined;
 
-    // let LinkComponents = undefined;
+    const pagesData = window.sessionStorage.getItem("pageData");
+    const parsedData = JSON.parse(pagesData);
 
-    // !parsedData ?
-    // LinkComponents = undefined
-    // :
-    // LinkComponents = parsedData.pages.map(({title, id}) => (
-    //     <Link key={title} to={"/" + props.username + "/" + id}>
-    //         <p>{title}</p>
-    //     </Link>
-    // ));
+    parsedData === null ?
+    LinkComponents = undefined
+    :
+    LinkComponents = parsedData.map(({title, id}) => (
+        <Link key={title} to={"/" + props.username + "/" + id}>
+            <p>{title}</p>
+        </Link>
+    ));
 
     return (
         <div className='page-container'>
@@ -42,12 +41,12 @@ export default function Home(props) {
         </nav>
         <main className="main">
             <aside className='aside-left'>
-                {/* <p>Links</p>
+                <h1>Links</h1>
                 {!parsedData && !props.username ?
                 <p> No links yet </p>
                 :
-                <p>{LinkComponents}</p>
-                } */}
+                <div>{LinkComponents}</div>
+                }
             </aside>
             <section className='main-section'>
                 <header className='hp-header'>
@@ -58,8 +57,14 @@ export default function Home(props) {
                 </article>
             </section>
             <aside className='aside-right'>
-                <p>Other Links</p>
+                {!props.token ?
+                <p> Sign In To Create A Page </p>
+                :
+                <>
+                <h1>Other Links</h1>
                 <Link to={"/create"}>Create a Page</Link>
+                </>
+                }
             </aside>
         </main>
             <div className='fire-div'>

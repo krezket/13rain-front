@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 
 
 function UserPage(props) {
-    console.log("UserPage:", props)
+    console.log("UserPage Props:", props)
 
   return (
     <div>

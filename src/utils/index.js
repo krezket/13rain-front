@@ -6,5 +6,10 @@ module.exports = {
     passwordCheck(x) {
         const password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
         return x.match(password)
+    },
+    pageData() {
+        const pagesData = localStorage.getItem("pageData");
+        const parsedData = JSON.parse(pagesData);
+        return (parsedData)
     }
 }

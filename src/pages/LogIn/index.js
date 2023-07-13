@@ -28,23 +28,20 @@ function LogIn(props) {
       password:password
     })
     .then(data => {
-      console.log('login data:',data)
+      // console.log('login data:',data)
       props.setUserId(data.user.id)
       props.setEmail(data.user.email)
       props.setFullName(data.user.fullName)
       props.setUsername(data.user.username)
       props.setToken(data.token)
-      localStorage.setItem("token", data.token)
+      window.sessionStorage.setItem("token", data.token)
       window.sessionStorage.setItem("userId", data.user.id);
-
+      navigate("/home")
+      window.location.reload(false);
     }).catch(err => {
       console.log(err)
       alert("Unable to Sign Up")
     })
-    
-
-    navigate("/home")
-    // window.location.reload(false)
   }
 
   return (

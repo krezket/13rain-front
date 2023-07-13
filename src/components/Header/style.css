@@ -6,25 +6,26 @@ body {
 
 .header {
   /* border: 1px dashed white; */
-
+  min-height: 100px;
   display: flex;
-  justify-content: space-around;
-  text-align: center;
-  /* background-image: url("../../assets/backgrounds/chaso.png"); */
+  justify-content: center;
+  align-items: center;
   background-image: url("../../assets/backgrounds/bg-12.gif");
+  /* background-image: url("../../assets/backgrounds/chaso.png"); */
   /* background-image: url("../../assets/backgrounds/back-2.jpeg"); */
   /* background-image: url("../../assets/sparklebg.gif"); */
 }
 
 .home-link {
-  align-items: center;
-  color: white;
   text-decoration: none;
-  height: 80px;
+  color: white;
 }
 
 .title {
   /* border: 1px dashed white; */
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0px;
   color: white;
   text-shadow: 0px 0px 15px white;
   border-radius: 10px;

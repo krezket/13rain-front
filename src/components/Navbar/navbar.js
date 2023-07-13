@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
-import DayJS from 'react-dayjs';
+// import DayJS from 'react-dayjs';
 import Modal from '../../components/LogOutModal'
 import './style.css'
 
@@ -19,9 +19,9 @@ function Navbar(props) {
       props.setUsername("");
       props.setToken("");
       props.setEmail("");
-      localStorage.removeItem("token");
+      window.sessionStorage.removeItem("token");
       window.sessionStorage.removeItem("userId");
-      localStorage.removeItem("pageData");
+      window.sessionStorage.removeItem("pageData");
       navigate("/home");
       window.location.reload(false);
   };

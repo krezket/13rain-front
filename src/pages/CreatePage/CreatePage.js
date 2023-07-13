@@ -34,10 +34,9 @@ function CreatePage(props) {
         text:text,
       }).then(data => {
         console.log(data)
-      // navigate("/create")
-      navigate("/" + props.username)
-      window.location.reload(false)
-    }).catch(err => {
+        navigate("/" + props.username)
+        window.location.reload(false);
+      }).catch(err => {
       console.log(err)
       alert(err)
     })

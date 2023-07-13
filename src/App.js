@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import API from "./utils/API";
+import bruh, { pageData } from "./utils/index"
 import Enter from './pages/Enter/theGate.js';
 import Home from './pages/Homepage/Home.js';
 import LogIn from './pages/LogIn/';
@@ -17,18 +18,17 @@ function App() {
   const [email, setEmail] = useState("");
   const [pages, setPages] = useState("");
   
-  console.log("App.js Pages:",pages)
+  // console.log("App.js Pages:",pages)
 
   useEffect(()=>{
-    const storedToken = localStorage.getItem("token");
-    const ID = sessionStorage.getItem("userId");
+    const storedToken = window.sessionStorage.getItem("token");
 
     if (!storedToken) {
       return;
     }
     API.verifyToken(storedToken)
     .then((data) => {
-      // console.log("App.js:", data)
+      // console.log("Verify Token:", data)
       setToken(storedToken);
       setUserId(data.id);
       setUsername(data.username);
@@ -39,48 +39,54 @@ function App() {
       console.log("oh noes");
       console.log(err);
     });
-
+  },[]);
+  
+  const ID = sessionStorage.getItem("userId");
+  if(ID) {
     API.getProfile(ID)
     .then((data) => {
-      console.log("App.js:", data.pages)
-      const pageData = JSON.stringify(data)
-      localStorage.setItem("pageData", pageData)
+      // console.log("Get Pages:", data.pages)
+      const pageData = JSON.stringify(data.pages)
+      window.sessionStorage.setItem("pageData", pageData)
     })
     .catch((err) => {
       console.log("oh noes");
       console.log(err);
     });
+  };
 
-  },[]);
+  useEffect(()=>{
+    const pagesData = window.sessionStorage.getItem("pageData");
+    const parsedData = JSON.parse(pagesData);
+    setPages(parsedData)
 
-  // const pagesData = localStorage.getItem("pageData");
-  // const parsedData = JSON.parse(pagesData);
-  // console.log("PARSED DATA",parsedData.pages);
+    // console.log("PARSED DATA",parsedData);
+  },[])
   
-  // let RouteComponents = undefined;
+  let RouteComponents = undefined;
 
-  // !parsedData ?
-  // RouteComponents = undefined
-  // :
-  // RouteComponents = parsedData.pages.map(({createdAt, text, title, id}) => (
-  //   // console.log(title,id)
-  //   <Route key={title} path={"/" + username + "/" + id} element={
-  //     <UserPage
-  //       type='profile'
-  //       userId={userId} 
-  //       username={username}
-  //       fullName={fullName} 
-  //       email={email}
-  //       createdAt={createdAt}
-  //       text={text}
-  //       title={title}
-  //       setUserId={setUserId} 
-  //       setEmail={setEmail} 
-  //       setUsername={setUsername} 
-  //       setToken={setToken} />}
-  //     >
-  //   </Route>
-  // ));
+  !pages ?
+  RouteComponents = undefined
+  :
+  RouteComponents = pages.map(({createdAt, text, title, id}) => (
+    // console.log(title,id)
+    <Route key={title} path={"/" + username + "/" + id} element={
+      <UserPage
+        type='profile'
+        userId={userId} 
+        username={username}
+        fullName={fullName} 
+        email={email}
+        createdAt={createdAt}
+        text={text}
+        title={title}
+        setUserId={setUserId} 
+        setEmail={setEmail} 
+        setUsername={setUsername} 
+        setToken={setToken} />}
+      >
+    </Route>
+  ));
   // console.log(RouteComponents)
 
   return (
@@ -92,7 +98,8 @@ function App() {
           <Home 
             userId={userId} 
             username={username}
-            pages={pages}
+            // pages={pages}
+            token={token}
             setUserId={setUserId} 
             setEmail={setEmail} 
             setUsername={setUsername} 
@@ -118,7 +125,8 @@ function App() {
         <Route path="/signup" element={
           <SignUp 
           type='signup' 
-          userId={userId} 
+          userId={userId}
+          setPages={setPages} 
           setUserId={setUserId} 
           setEmail={setEmail} 
           setFullName={setFullName} 
@@ -127,7 +135,7 @@ function App() {
           >
         </Route>
 
-        {/* {!pageData ?
+        {!pages ?
 
         <Route path={"/"} element={
           <Profile 
@@ -146,7 +154,7 @@ function App() {
         </Route>
 
         :
-        <Route path={"/" + parsedData.username} element={
+        <Route path={"/" + username} element={
           <Profile 
             type='profile'
             userId={userId}
@@ -161,9 +169,9 @@ function App() {
             setToken={setToken}/>}
             >
         </Route>
-        } */}
+        }
 
-        {/* {RouteComponents} */}
+        {RouteComponents}
 
         <Route path='/create' element={
           <CreatePage
