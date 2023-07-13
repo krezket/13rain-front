@@ -1,7 +1,9 @@
 .pr-main {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    flex-direction: row;
     align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .profile-username {
@@ -9,6 +11,10 @@
 }
 
 .profile-fullname {
+    color: red;
+}
+
+.profile-bio {
     color: red;
 }
 

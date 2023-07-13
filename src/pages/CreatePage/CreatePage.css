@@ -1,0 +1,13 @@
+.cp-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cp-title {
+    color: white;
+}
+
+.title-input {
+    margin-bottom: 10px;
+}
