@@ -43,10 +43,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
-
 }
+
 
 .main-section {
     display: flex;
@@ -56,12 +56,20 @@
 
 #welcome {
     /* border: 1px dashed white; */
-  
+    
+}
+
+#home-intro {
+    width: auto;
+    margin: 5px;
+    margin-right: 0px;
 }
 
 #hp-article {
+    display: flex;
+    justify-content: center;
     border: 1px dashed red;
-    width: 900px;
+    width: 777px;
     color: white;
     padding-left: 20px; 
     padding-right: 20px;

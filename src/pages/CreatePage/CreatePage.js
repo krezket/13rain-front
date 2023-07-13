@@ -4,8 +4,7 @@ import Navbar from '../../components/Navbar/navbar';
 import Footer from '../../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import API from '../../utils/API';
-// import hchet from '../../assets/chet.jpg'
-// import './style.css';
+import './CreatePage.css';
 
 function CreatePage(props) {
   // window.location.reload(false)
@@ -52,11 +51,11 @@ function CreatePage(props) {
       setUsername={props.setUsername} 
       setToken={props.setToken}/>
         <main className='main-herald'>
-            <section>
-                <h1>Create a Page</h1>
+            <section className='cp-section'>
+                <h1 className='cp-title'>Create a Page</h1>
                 <form onSubmit={submitHandler}>
-                    <input name='title' placeholder='Title' value={title} onChange={handleChange}></input>
-                    <textarea name='text' placeholder='Enter Text Here' value={text} onChange={handleChange}></textarea>
+                    <input className='title-input' name='title' placeholder='Title' value={title} onChange={handleChange}></input>
+                    <textarea className='text-area' rows="5" cols="40" name='text' placeholder='Enter Text Here' value={text} onChange={handleChange}></textarea>
                     <button>Submit</button>
                 </form>
             </section>

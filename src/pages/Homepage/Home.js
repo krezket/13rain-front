@@ -53,7 +53,7 @@ export default function Home(props) {
                     <img id='welcome' src={welcome} alt='welcome'></img>
                 </header>
                 <article id='hp-article'>
-                    <p>Lorem ipsum dolor sit</p>
+                    <p id='home-intro'>Inspired by the styles of the old net, "13rainstorm" is an experimental webpage designied as a simple social media platform. Here a user can create and login to their account, and create pages. ♥ ♦ ♣ ♠</p>
                 </article>
             </section>
             <aside className='aside-right'>

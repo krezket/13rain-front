@@ -99,7 +99,7 @@ const API = {
             console.log(error);
         }
     },
-    // Create Project
+    // Create Page
     createPage: async (userObj) => {
         try {
             const response = await fetch(`${URL_PREFIX}/pages`, {

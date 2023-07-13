@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import API from "./utils/API";
-import bruh, { pageData } from "./utils/index"
 import Enter from './pages/Enter/theGate.js';
 import Home from './pages/Homepage/Home.js';
 import LogIn from './pages/LogIn/';
@@ -13,6 +12,7 @@ import CreatePage from './pages/CreatePage/CreatePage';
 function App() {
   const [userId, setUserId] = useState(null);
   const [fullName, setFullName] = useState("");
+  const [bio, setBio] = useState("");
   const [username, setUsername] = useState("");
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
@@ -160,16 +160,33 @@ function App() {
             userId={userId}
             token={token} 
             username={username} 
-            fullName={fullName} 
+            fullName={fullName}
+            bio={bio} 
             email={email}
             pages={pages} 
             setUserId={setUserId} 
             setEmail={setEmail} 
-            setUsername={setUsername} 
+            setUsername={setUsername}
+            setBio={setBio} 
             setToken={setToken}/>}
             >
         </Route>
         }
+
+        <Route path={"/" + username + "/edit"} element={
+          <Profile
+          type="edit"
+          username={username} 
+          fullName={fullName}
+          bio={bio} 
+          email={email}
+          setEmail={setEmail} 
+          setUsername={setUsername}
+          setFullName={setFullName} 
+          setBio={setBio} 
+          />
+        }>
+        </Route>
 
         {RouteComponents}
 
