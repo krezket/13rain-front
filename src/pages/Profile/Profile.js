@@ -24,6 +24,8 @@ console.log('profile props:',props)
 
   
 return (
+  <div>
+    {props.type === "profile" ?
     <div>
       <Header />
       <nav>
@@ -58,6 +60,10 @@ return (
         }
       </main>
       <Footer/>
+    </div> 
+     : 
+     <div></div>
+    }
     </div>
   )
 }

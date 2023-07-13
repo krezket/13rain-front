@@ -173,6 +173,21 @@ function App() {
         </Route>
         }
 
+        <Route path={"/" + username + "/edit"} element={
+          <Profile
+          type="edit"
+          username={username} 
+          fullName={fullName}
+          bio={bio} 
+          email={email}
+          setEmail={setEmail} 
+          setUsername={setUsername}
+          setFullName={setFullName} 
+          setBio={setBio} 
+          />
+        }>
+        </Route>
+
         {RouteComponents}
 
         <Route path='/create' element={
