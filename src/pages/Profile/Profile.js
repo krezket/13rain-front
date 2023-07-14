@@ -39,6 +39,7 @@ return (
         />
       </nav>
       <main className='pr-main'>
+        <div className='h1-ar'>
         <h1 className='profile-username'>{props.username}</h1>
         <article className='profile-bio'>
           {props.bio === "" ?
@@ -51,8 +52,7 @@ return (
             <p>{props.bio}</p>
           }
         </article>
-        <h2 className='profile-fullname'>{props.fullName}</h2>
-        {/* <h2 className='profile-email'>{props.email}</h2> */}
+        </div>
         {!props.pages ?
         <h2 className='profile-pages'>Total Pages: 0</h2>
         :

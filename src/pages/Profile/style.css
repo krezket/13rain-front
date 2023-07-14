@@ -1,12 +1,23 @@
 .pr-main {
-    display: grid;
-    flex-direction: row;
+    border: 1px dashed white;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 111px;
+    margin-right: 111px;
+}
+
+.h1-ar {
+    border: 1px solid red;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .profile-username {
+    border: 1px dashed white;
+    /* width: 100%; */
     color: red;
 }
 
@@ -15,7 +26,10 @@
 }
 
 .profile-bio {
+    border: 1px dashed white;
+    text-align: center;
     color: red;
+    /* width: 100%; */
 }
 
 .profile-email {
@@ -23,6 +37,7 @@
 }
 
 .profile-pages {
+    border: 1px dashed white;
     color: red;
 }
 
