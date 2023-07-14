@@ -15,7 +15,7 @@ export default function Home(props) {
     useEffect(()=>{
         API.getPages()
         .then((data) => {
-            console.log("all pages data",data)
+            console.log("all pages data",data);
         })
         .catch((err) => {
             console.log("oh noes");
