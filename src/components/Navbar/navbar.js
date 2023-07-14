@@ -45,10 +45,17 @@ function Navbar(props) {
       :
       <div className='navbar'>
         <div id='navbar'>
-        {/* <h1 className='currenttime'> Today is <DayJS format="dddd MMMM DD, YYYY"></DayJS></h1> */}
-          <p className='nav-p' id='nav-p-log'>
-          { props.userId ? <Link id='logout-btn' onClick={toggleModal}>Log Out</Link> : <Link id='login-link' to='/login'>Log In</Link> }
-          </p>
+          {props.userId ? 
+            <div>
+              <p className='nav-p' id='nav-p-log'>
+                <Link id='logout-btn' onClick={`${props.username}/edit`}>Edit Profile</Link>
+              </p> 
+              <p className='nav-p' id='nav-p-log'>
+                <Link id='logout-btn' onClick={toggleModal}>Log Out</Link>
+              </p>
+            </div> 
+            : 
+              <p className='nav-p' id='nav-p-log'>Log In</p>}
         </div >
         <Modal modal={modal} logout={logout} toggleModal={toggleModal}/>
       </div>

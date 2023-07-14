@@ -30,7 +30,8 @@ return (
       <Header />
       <nav>
         <Navbar
-          type={props.type} 
+          type={props.type}
+          username={props.username}
           userId={props.userId}
           setUserId={props.setUserId} 
           setEmail={props.setEmail} 
