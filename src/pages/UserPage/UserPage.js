@@ -5,6 +5,7 @@ import DayJS from 'react-dayjs';
 import Header from '../../components/Header';
 import Navbar from '../../components/Navbar/navbar';
 import Footer from '../../components/Footer';
+import './style.css'
 
 
 function UserPage(props) {
@@ -24,11 +25,11 @@ function UserPage(props) {
       />
     </nav>
     <main className='pr-main'>
-      <h1 className='profile-username'> By: <Link>{props.username}</Link></h1>
-      <h2 className='profile-username'>{props.title}{props.text}</h2>
-      <h2 className='profile-fullname'>{props.text}</h2>
-      <h2 className='profile-email'>Created On: <DayJS format="M/D/YYYY h:mm a">{props.createdAt}</DayJS></h2>
-      {/* <h2 className='profile-pages'>Pages: {pages.length}</h2> */}
+      <h1 className='page-username'> By: <Link id='user-link'>{props.username}</Link></h1>
+      <h2 className='page-title'>{props.title}</h2>
+      <h2 className='page-text'>{props.text}</h2>
+      <h2 className='date-created'>Created On: <DayJS format="M/D/YYYY h:mm a">{props.createdAt}</DayJS></h2>
+      {/* <h2 className='page-pages'>Pages: {pages.length}</h2> */}
     </main>
         <Footer />
     </div>

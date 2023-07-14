@@ -1,0 +1,20 @@
+.pr-main {
+    display: flex;
+}
+
+#user-link {
+    color: red;
+}
+
+.page-username {
+    color: white;
+}
+.page-title {
+    color: white;
+}
+.page-text {
+    color: white;
+}
+.date-created {
+    color: white;
+}
