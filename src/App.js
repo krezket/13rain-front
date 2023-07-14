@@ -176,6 +176,7 @@ function App() {
         <Route path={"/" + username + "/edit"} element={
           <Profile
           type="edit"
+          userId={userId}
           username={username} 
           fullName={fullName}
           bio={bio} 

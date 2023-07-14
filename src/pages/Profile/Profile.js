@@ -62,8 +62,44 @@ return (
       </main>
       <Footer/>
     </div> 
+    
      : 
-     <div></div>
+     <div>
+            <Header />
+      <nav>
+        <Navbar
+          type={props.type}
+          username={props.username}
+          userId={props.userId}
+          setUserId={props.setUserId} 
+          setEmail={props.setEmail} 
+          setUsername={props.setUsername}
+          setToken={props.setToken}
+        />
+      </nav>
+      <main className='pr-main'>
+        <div className='h1-ar'>
+        <h1 className='profile-username'>{props.username}</h1>
+        <article className='profile-bio'>
+          {props.bio === "" ?
+          <p>no bio yet</p>
+          // <form onSubmit={submitHandler}>
+          //   <textarea placeholder='write your bio' name='bioText' value={bioText} onChange={handleChange}></textarea>
+          //   <button>submit</button>
+          // </form>
+            :
+            <p>{props.bio}</p>
+          }
+        </article>
+        </div>
+        {!props.pages ?
+        <h2 className='profile-pages'>Total Pages: 0</h2>
+        :
+        <h2 className='profile-pages'>Total Pages: {props.pages.length}</h2>
+        }
+      </main>
+      <Footer/>
+     </div>
     }
     </div>
   )
