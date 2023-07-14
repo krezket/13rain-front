@@ -49,6 +49,16 @@ const API = {
         console.log(error);
     }
   },
+  getPages: async () => {
+    try {
+        const pageData = await fetch(`${URL_PREFIX}/pages/`, {
+            method: 'GET',
+        })
+        return pageData.json();
+    } catch (error) {
+        console.log(error);
+    }
+  },
   verifyToken:(token)=>{
       return fetch(`${URL_PREFIX}/users/auth/verifytoken`,{
           headers:{

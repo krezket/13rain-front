@@ -1,5 +1,5 @@
-import React from 'react';
-// import API from "../../utils/API";
+import React, { useEffect } from 'react';
+import API from "../../utils/API";
 import welcome from '../../assets/welcome/welcome-11.gif';
 // import fire from '../../assets/fire/fire-2.gif';
 // import shield from '../../assets/Heraldry/heraldry.gif'
@@ -11,6 +11,17 @@ import './style.css';
 
 export default function Home(props) {
     // console.log("home props:", props)
+
+    useEffect(()=>{
+        API.getPages()
+        .then((data) => {
+            console.log("all pages data",data)
+        })
+        .catch((err) => {
+            console.log("oh noes");
+            console.log(err);
+          });
+      },[]);
 
     let LinkComponents = undefined;
 
@@ -49,11 +60,8 @@ export default function Home(props) {
                 }
             </aside>
             <section className='main-section'>
-                <header className='hp-header'>
-                    <img id='welcome' src={welcome} alt='welcome'></img>
-                </header>
                 <article id='hp-article'>
-                    <p id='home-intro'>Inspired by the styles of the old net, "13rainstorm" is an experimental webpage designed as a simple social media platform. Here a user can create and login to their account, and create pages. ♥ ♦ ♣ ♠</p>
+                    <p id='home-intro'>♥ ♦ ♣ ♠</p>
                 </article>
             </section>
             <aside className='aside-right'>
