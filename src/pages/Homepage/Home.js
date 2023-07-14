@@ -41,7 +41,7 @@ export default function Home(props) {
         </nav>
         <main className="main">
             <aside className='aside-left'>
-                <h1>Links</h1>
+                <h1>Featured Links</h1>
                 {!parsedData && !props.username ?
                 <p> No links yet </p>
                 :

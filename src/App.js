@@ -8,6 +8,7 @@ import SignUp from './pages/SignUp/';
 import Profile from './pages/Profile/Profile.js';
 import UserPage from './pages/UserPage/UserPage.js';
 import CreatePage from './pages/CreatePage/CreatePage';
+import About from './pages/About/About.js'
 
 function App() {
   const [userId, setUserId] = useState(null);
@@ -196,6 +197,11 @@ function App() {
             username={username} 
             />}
           >
+        </Route>
+
+        <Route path='/about' element={
+          <About />
+        }>
         </Route>
 
       </Routes> 

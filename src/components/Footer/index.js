@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import DayJS from 'react-dayjs';
 import './style.css';
 
@@ -19,6 +20,10 @@ export default function Header() {
 
         <p className='footer-p'>
           <a className='footer-yt' id='link-footer' href='https://youtube.com/@krezket' target="_blank" rel="noreferrer">YouTube</a>
+        </p>
+
+        <p className='footer-p'>
+          <Link to={'/about'}>About</Link>
         </p>
       </div>
     </footer>
