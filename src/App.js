@@ -72,7 +72,6 @@ function App() {
     // console.log(title,id)
     <Route key={title} path={"/" + username + "/" + id} element={
       <UserPage
-        type='profile'
         userId={userId} 
         username={username}
         fullName={fullName} 
