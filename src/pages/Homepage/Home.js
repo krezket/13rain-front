@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+// import React, { useEffect } from 'react';
 import API from "../../utils/API";
-import welcome from '../../assets/welcome/welcome-11.gif';
-// import fire from '../../assets/fire/fire-2.gif';
-// import shield from '../../assets/Heraldry/heraldry.gif'
 import { Link } from 'react-router-dom'
 import Header from "../../components/Header";
 import Navbar from '../../components/Navbar/navbar';
@@ -10,18 +8,20 @@ import Footer from '../../components/Footer/';
 import './style.css';
 
 export default function Home(props) {
-    // console.log("home props:", props)
+    console.log("home props:", props)
+    
+    API.getPages()
+    .then((data) => {
+        console.log("all pages data",data);
 
-    useEffect(()=>{
-        API.getPages()
-        .then((data) => {
-            console.log("all pages data",data);
-        })
-        .catch((err) => {
-            console.log("oh noes");
-            console.log(err);
-          });
-      },[]);
+    })
+    .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+    });
+
+    // useEffect(()=>{
+    //   },[]);
 
     let LinkComponents = undefined;
 

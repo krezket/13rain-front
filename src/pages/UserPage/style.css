@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.dayjs {
+    color: red;
+}
+
 #user-link {
     color: red;
 }

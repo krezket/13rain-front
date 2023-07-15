@@ -5,7 +5,7 @@ import Modal from '../../components/LogOutModal'
 import './style.css'
 
 function Navbar(props) {
-  console.log("navbar props:", props)
+  // console.log("navbar props:", props)
   const navigate = useNavigate()
   const [modal, setModal] = useState(false)
 
