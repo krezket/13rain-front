@@ -1,12 +1,11 @@
 .navbar {
   /* border: 1px dashed red; */
-  /* background-color: rgb(13, 13, 13); */
   background-image: linear-gradient(rgb(99, 0, 0), black);
   padding-left: 20px;
   padding-right: 20px;
   height: 77px;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   flex-direction: column;
 }
 
