@@ -24,10 +24,10 @@ function UserPage(props) {
         setToken={props.setToken}
       />
     </nav>
-    <main className='pr-main'>
-      <h1 className='page-username'> By: <Link id='user-link'>{props.username}</Link></h1>
-      <h2 className='page-title'>{props.title}</h2>
-      <h2 className='page-text'>{props.text}</h2>
+    <main className='page-main'>
+      <h1 className='page-title'>{props.title}</h1>
+      <h2 className='page-username'> By: <Link id='user-link'>{props.username}</Link></h2>
+      <h3 className='page-text'>{props.text}</h3>
       <h2 className='date-created'>Created On: <DayJS className="dayjs" format="M/D/YYYY h:mm a">{props.createdAt}</DayJS></h2>
       {/* <h2 className='page-pages'>Pages: {pages.length}</h2> */}
     </main>
