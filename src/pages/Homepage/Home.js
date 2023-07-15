@@ -13,15 +13,11 @@ export default function Home(props) {
     API.getPages()
     .then((data) => {
         console.log("all pages data",data);
-
     })
     .catch((err) => {
         console.log("oh noes");
         console.log(err);
     });
-
-    // useEffect(()=>{
-    //   },[]);
 
     let LinkComponents = undefined;
 
@@ -61,7 +57,12 @@ export default function Home(props) {
             </aside>
             <section className='main-section'>
                 <article id='hp-article'>
+                    <p id='home-intro'>pages will be shown here</p>
+                    {/* {!pageNUser ?
                     <p id='home-intro'>♥ ♦ ♣ ♠</p>
+                    :
+                    <p id='home-intro'>pages will be shown here</p>
+                    } */}
                 </article>
             </section>
             <aside className='aside-right'>
