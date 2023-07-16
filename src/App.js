@@ -8,8 +8,8 @@ import SignUp from './pages/SignUp/';
 import Profile from './pages/Profile/Profile.js';
 import UserPage from './pages/UserPage/UserPage.js';
 import CreatePage from './pages/CreatePage/CreatePage';
-import About from './pages/About/About.js'
-import './App.css'
+import About from './pages/About/About.js';
+import './App.css';
 
 function App() {
   const [userId, setUserId] = useState(null);
@@ -195,6 +195,7 @@ function App() {
           </Route>
         }
 
+        {/* PROFILE EDIT PROFILE EDIT PROFILE EDIT */}
         <Route path={"/" + username + "/edit"} element={
           <Profile
             type="edit"
@@ -211,8 +212,10 @@ function App() {
         >
         </Route>
 
+        {/* PAGE PAGE PAGE PAGE */}
         {RouteComponents}
 
+        {/* CREATE PAGE CREATE PAGE CREATE PAGE */}
         <Route path='/create' element={
           <CreatePage
             userId={userId}
@@ -221,6 +224,7 @@ function App() {
         >
         </Route>
 
+        {/* ABOUT ABOUT ABOUT ABOUT */}
         <Route path='/about' element={
           <About />
         }>
