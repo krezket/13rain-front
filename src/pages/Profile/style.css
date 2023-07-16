@@ -13,13 +13,23 @@
     flex-direction: column;
     display: flex;
     padding: 10px;
-    width: 75%;
+    width: 100%;
     align-items: flex-start;
+}
+
+.usr-fri {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
 }
 
 .profile-username {
     border: 1px dashed white;
-    /* width: 100%; */
+    color: white;
+}
+.profile-pages {
+    border: 1px dashed white;
     color: white;
 }
 
@@ -37,10 +47,6 @@
     color: red;
 }
 
-.profile-pages {
-    border: 1px dashed white;
-    color: red;
-}
 
 marquee {
     color:aliceblue;

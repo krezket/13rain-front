@@ -90,18 +90,18 @@ const API = {
             console.log(error);
         }
     },
-    updateProfile: async ( body , id ) => {
+    updateProfile: async (x) => {
         try {
-            const response = await fetch(`${URL_PREFIX}/profiles/${id}`, {
+            const response = await fetch(`${URL_PREFIX}/users/${x.id}`, {
                 method: 'PUT',
-                body: JSON.stringify(body),
+                body: JSON.stringify(x),
                 headers: {
                     'Content-Type' : 'application/json'
                 }
             });
             
             if (response.ok) {
-                return console.log('FETCH COMPLETE');
+                return response.json();
             } else {
                 alert('Unable to fetch');
             }

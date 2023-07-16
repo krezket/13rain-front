@@ -7,10 +7,9 @@ import API from '../../utils/API';
 import './CreatePage.css';
 
 function CreatePage(props) {
-  // window.location.reload(false)
   // console.log("createPage:", props)
-  const ID = sessionStorage.getItem("userId");
   // console.log(ID)
+  const ID = sessionStorage.getItem("userId");
   const navigate = useNavigate();
   const [ownerId, setOwnerId] = useState("")
   const [title, setTitle] = useState("")

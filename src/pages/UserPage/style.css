@@ -2,7 +2,7 @@
     border: 1px dashed white;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     margin-left: 111px;
     margin-right: 111px;
     padding-left: 77.7px;
@@ -21,10 +21,11 @@
     color: red;
 }
 
-.page-username {
-    color: white;
-}
 .page-title {
+    color: white;
+    border-bottom: 1px dashed white;
+}
+.page-username {
     color: white;
 }
 .page-text {

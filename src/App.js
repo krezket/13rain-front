@@ -17,7 +17,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
-  const [pages, setPages] = useState("");
+  const [userPages, setUserPages] = useState("");
   
   // console.log("App.js Pages:",pages)
 
@@ -46,9 +46,9 @@ function App() {
   if(ID) {
     API.getProfile(ID)
     .then((data) => {
-      // console.log("Get Pages:", data.pages)
-      const pageData = JSON.stringify(data.pages)
-      window.sessionStorage.setItem("pageData", pageData)
+      // console.log("Get Pages:", data.pagesc)
+      const UserData = JSON.stringify(data)
+      window.sessionStorage.setItem("UserData", UserData)
     })
     .catch((err) => {
       console.log("oh noes");
@@ -57,19 +57,19 @@ function App() {
   };
 
   useEffect(()=>{
-    const pagesData = window.sessionStorage.getItem("pageData");
-    const parsedData = JSON.parse(pagesData);
-    setPages(parsedData)
+    const userData = window.sessionStorage.getItem("UserData");
+    const parsedUserData = JSON.parse(userData);
+    setUserPages(parsedUserData)
 
-    // console.log("PARSED DATA",parsedData);
+    console.log("PARSED DATA",parsedUserData);
   },[])
   
   let RouteComponents = undefined;
 
-  !pages ?
+  !userPages ?
   RouteComponents = undefined
   :
-  RouteComponents = pages.map(({createdAt, text, title, id}) => (
+  RouteComponents = userPages.pages.map(({createdAt, text, title, id}) => (
     // console.log(title,id)
     <Route key={title} path={"/" + username + "/" + id} element={
       <UserPage
@@ -113,7 +113,7 @@ function App() {
           type='login' 
           userId={userId} 
           username={username}
-          setPages={setPages}
+          setPages={setUserPages}
           setUserId={setUserId} 
           setEmail={setEmail} 
           setFullName={setFullName}a
@@ -126,7 +126,7 @@ function App() {
           <SignUp 
           type='signup' 
           userId={userId}
-          setPages={setPages} 
+          setPages={setUserPages} 
           setUserId={setUserId} 
           setEmail={setEmail} 
           setFullName={setFullName} 
@@ -135,7 +135,7 @@ function App() {
           >
         </Route>
 
-        {!pages ?
+        {!userPages ?
 
         <Route path={"/"} element={
           <Profile 
@@ -145,7 +145,7 @@ function App() {
           username={username} 
           fullName={fullName} 
           email={email}
-          pages={pages} 
+          pages={userPages} 
           setUserId={setUserId} 
           setEmail={setEmail} 
           setUsername={setUsername} 
@@ -163,7 +163,7 @@ function App() {
             fullName={fullName}
             bio={bio} 
             email={email}
-            pages={pages} 
+            pages={userPages} 
             setUserId={setUserId} 
             setEmail={setEmail} 
             setUsername={setUsername}
