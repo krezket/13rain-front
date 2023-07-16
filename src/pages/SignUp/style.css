@@ -1,5 +1,5 @@
 .main-form-su {
-    color: white;
+    color: var(--text-white);
     display: flex;
     /* justify-content: space-between; */
     justify-content: center;

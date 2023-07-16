@@ -14,7 +14,7 @@
     justify-content: center;
     border: 1px dashed red;
     width: 777px;
-    color: white;
+    color: var(--text-white);
     padding-left: 20px; 
     padding-right: 20px;
     margin-bottom: 20px; 

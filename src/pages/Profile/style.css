@@ -26,11 +26,11 @@
 
 .profile-username {
     /* border: 1px dashed white; */
-    color: white;
+    color: var(--text-white);
 }
 .profile-pages {
     /* border: 1px dashed white; */
-    color: white;
+    color: var(--text-white);
 }
 
 .profile-fullname {
@@ -39,12 +39,12 @@
 
 .profile-bio {
     /* border: 1px dashed white; */
-    color: white;
+    color: var(--text-white);
     /* width: 100%; */
 }
 
 .profile-email {
-    color: red;
+    color: var(--text-red);
 }
 
 

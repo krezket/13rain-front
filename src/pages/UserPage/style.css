@@ -22,15 +22,15 @@
 }
 
 .page-title {
-    color: white;
+    color: var(--text-white);
     border-bottom: 1px dashed white;
 }
 .page-username {
-    color: white;
+    color: var(--text-white);
 }
 .page-text {
-    color: white;
+    color: var(--text-white);
 }
 .date-created {
-    color: white;
+    color: var(--text-white);
 }

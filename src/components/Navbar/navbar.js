@@ -25,7 +25,7 @@ function Navbar(props) {
       props.setEmail("");
       window.sessionStorage.removeItem("token");
       window.sessionStorage.removeItem("userId");
-      window.sessionStorage.removeItem("pageData");
+      window.sessionStorage.removeItem("UserData");
       navigate("/home");
       window.location.reload(false);
   };

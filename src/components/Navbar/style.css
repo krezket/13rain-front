@@ -14,7 +14,7 @@
 }
 
 .currenttime {
-  color: white;
+  color: var(--text-white);
 }
 
 @media only screen
@@ -42,40 +42,40 @@ and (max-width : 1024px) {
 
 #nav-p-user:hover {
   background-image: url('../../assets/backgrounds/bg-27.gif');
-  color: white;
+  color: var(--text-white);
   text-shadow: 1px 1px 1px black;;
 }
 
 #nav-p-log:hover {
   background-image: url('../../assets/backgrounds/staticbackground-1.gif');
-  color: white;
+  color: var(--text-white);
   text-shadow: 1px 1px 1px black;;
 }
 
 #login-link {
-  color: red;
+  color: var(--text-red);
 }
 
 #login-link:hover {
-  color: white;
+  color: var(--text-white);
   text-shadow: 1px 1px 1px black;;
 }
 
 #username {
-  color: red;
+  color: var(--text-red);
   text-align: center;
 }
 
 #username:hover {
-  color: white;
+  color: var(--text-white);
   text-shadow: 1px 1px 1px black;;
 }
 
 #logout-btn {
-  color: red
+  color: var(--text-red)
 }
 
 #logout-btn:hover {
-  color: white;
+  color: var(--text-white);
   text-shadow: 1px 1px 1px black;;
 }

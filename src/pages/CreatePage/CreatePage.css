@@ -5,7 +5,7 @@
 }
 
 .cp-title {
-    color: white;
+    color: var(--text-white);
 }
 
 .title-input {
