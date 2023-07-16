@@ -29,14 +29,17 @@ const handleChange = e => {
 
 const submitHandlerUsername = e => {
   e.preventDefault()
+
   API.updateProfile({
     id:ownerId,
     // username:username,
     bio:bio
+
   }).then(data => {
     console.log(data)
-    navigate("/" + props.username)
+    navigate("/" + props.username);
     window.location.reload(false);
+
   }).catch(err => {
   console.log(err)
   alert(err)

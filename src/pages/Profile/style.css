@@ -25,11 +25,11 @@
 }
 
 .profile-username {
-    border: 1px dashed white;
+    /* border: 1px dashed white; */
     color: white;
 }
 .profile-pages {
-    border: 1px dashed white;
+    /* border: 1px dashed white; */
     color: white;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .profile-bio {
-    border: 1px dashed white;
+    /* border: 1px dashed white; */
     color: white;
     /* width: 100%; */
 }
