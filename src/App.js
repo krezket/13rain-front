@@ -154,6 +154,7 @@ function App() {
         >
         </Route>
 
+        {/* PROFILE PROFILE PROFILE PROFILE */}
         {!userPages ?
 
           <Route path={"/"} element={
