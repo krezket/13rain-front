@@ -43,7 +43,7 @@ const submitHandlerUsername = e => {
   }).catch(err => {
   console.log(err)
   alert(err)
-})
+  })
 }
 
   
