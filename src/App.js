@@ -161,7 +161,7 @@ function App() {
             token={token} 
             username={username} 
             fullName={fullName}
-            bio={bio} 
+            bio={userPages.bio} 
             email={email}
             pages={userPages} 
             setUserId={setUserId} 
