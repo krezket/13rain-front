@@ -1,24 +1,26 @@
 .pr-main {
     border: 1px dashed white;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin-left: 111px;
-    margin-right: 111px;
+    margin-left: 77px;
+    margin-right: 77px;
+    padding: 10px;
 }
 
 .h1-ar {
     border: 1px solid red;
-    width: 75%;
+    flex-direction: column;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    padding: 10px;
+    width: 75%;
+    align-items: flex-start;
 }
 
 .profile-username {
     border: 1px dashed white;
     /* width: 100%; */
-    color: red;
+    color: white;
 }
 
 .profile-fullname {
@@ -27,8 +29,7 @@
 
 .profile-bio {
     border: 1px dashed white;
-    text-align: center;
-    color: red;
+    color: white;
     /* width: 100%; */
 }
 
