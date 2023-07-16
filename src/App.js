@@ -20,8 +20,6 @@ function App() {
   const [email, setEmail] = useState("");
   const [userPages, setUserPages] = useState("");
   
-  // console.log("App.js Pages:",pages)
-
   useEffect(()=>{
     const storedToken = window.sessionStorage.getItem("token");
 
