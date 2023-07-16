@@ -163,7 +163,7 @@ function App() {
             fullName={fullName}
             bio={userPages.bio} 
             email={email}
-            pages={userPages} 
+            pages={userPages.pages} 
             setUserId={setUserId} 
             setEmail={setEmail} 
             setUsername={setUsername}
