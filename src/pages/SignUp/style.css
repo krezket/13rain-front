@@ -25,7 +25,7 @@
 }
 
 #login-pg {
-    color: red;
+    color: var(--text-red);
 }
 
 /* @media only screen and (min-width : 1024px)  {

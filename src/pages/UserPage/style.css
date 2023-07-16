@@ -14,11 +14,11 @@
 }
 
 .dayjs {
-    color: red;
+    color: var(--text-red);
 }
 
 #user-link {
-    color: red;
+    color: var(--text-red);
 }
 
 .page-title {

@@ -41,7 +41,7 @@
     /* background-image: url(../../assets/earth/earth-2.gif); */
     padding-left: 30px;
     padding-right: 30px;
-    color: red;
+    color: var(--text-red);
     border-right: 1px dashed darkred;
 }
 
@@ -50,7 +50,7 @@
     /* background-image: url(../../assets/earth/earth-2.gif); */
     padding-left: 30px;
     padding-right: 30px;
-    color: red;
+    color: var(--text-red);
     border-left: 1px dashed darkred;
 
 }

@@ -34,7 +34,7 @@
 }
 
 .profile-fullname {
-    color: red;
+    color: var(--text-red);
 }
 
 .profile-bio {

@@ -24,7 +24,7 @@
 }
 
 .overlay #modal-h2 {
-  color: white;
+  color: var(--text-white);
   display: inline-block;
   text-align: center;
   margin-top: 10px;

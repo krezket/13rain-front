@@ -8,11 +8,11 @@ import Footer from '../../components/Footer/';
 import './style.css';
 
 export default function Home(props) {
-    console.log("home props:", props)
+    // console.log("home props:", props)
     
     API.getPages()
     .then((data) => {
-        console.log("all pages data",data);
+        // console.log("all pages data",data);
     })
     .catch((err) => {
         console.log("oh noes");
@@ -21,13 +21,14 @@ export default function Home(props) {
 
     let LinkComponents = undefined;
 
-    const pagesData = window.sessionStorage.getItem("pageData");
+    const pagesData = window.sessionStorage.getItem("UserData");
     const parsedData = JSON.parse(pagesData);
+    // console.log(parsedData)
 
     parsedData === null ?
     LinkComponents = undefined
     :
-    LinkComponents = parsedData.map(({title, id}) => (
+    LinkComponents = parsedData.pages.map(({title, id}) => (
         <Link key={title} to={"/" + props.username + "/" + id}>
             <p>{title}</p>
         </Link>
