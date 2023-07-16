@@ -19,73 +19,88 @@ function App() {
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
   const [userPages, setUserPages] = useState("");
-  
-  useEffect(()=>{
+
+  useEffect(() => {
+    //GET TOKEN FROM SESSION STORAGE
     const storedToken = window.sessionStorage.getItem("token");
 
+    //IF NO TOKEN, RETURN
     if (!storedToken) {
       return;
     }
+
+    //ELSE VERIFY TOKEN THROUGH API
     API.verifyToken(storedToken)
-    .then((data) => {
-      // console.log("Verify Token:", data)
-      setToken(storedToken);
-      setUserId(data.id);
-      setUsername(data.username);
-      setFullName(data.fullName);
-      setEmail(data.email);
-    })
-    .catch((err) => {
-      console.log("oh noes");
-      console.log(err);
-    });
-  },[]);
-  
+      .then((data) => {
+        // console.log("Verify Token:", data)
+        setToken(storedToken);
+        setUserId(data.id);
+        setUsername(data.username);
+        setFullName(data.fullName);
+        setEmail(data.email);
+      })
+      .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+      });
+  }, []);
+
+  //GET ID FROM SESSION STORAGE
   const ID = sessionStorage.getItem("userId");
-  if(ID) {
+
+  //IF ID EXISTS THEN GET PROFILE FROM API
+  if (ID) {
     API.getProfile(ID)
-    .then((data) => {
-      // console.log("Get Pages:", data.pagesc)
-      const UserData = JSON.stringify(data)
-      window.sessionStorage.setItem("UserData", UserData)
-    })
-    .catch((err) => {
-      console.log("oh noes");
-      console.log(err);
-    });
+      .then((data) => {
+        // console.log("Get Pages:", data.pagesc)
+        const UserData = JSON.stringify(data)
+        window.sessionStorage.setItem("UserData", UserData)
+      })
+      .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+      });
   };
 
-  useEffect(()=>{
+  useEffect(() => {
+    //GET USER DATA FROM SESSION STORAGE
     const userData = window.sessionStorage.getItem("UserData");
+
+    //PARSE USER DATA
     const parsedUserData = JSON.parse(userData);
+
+    //SET PARSED DATA TO USER PAGES
     setUserPages(parsedUserData)
 
     // console.log("PARSED DATA",parsedUserData);
-  },[])
-  
+  }, [])
+
   let RouteComponents = undefined;
 
+  //IF USER PAGES DOESN'T EXIST THEN ROUTE IS UNDEFINED
   !userPages ?
-  RouteComponents = undefined
-  :
-  RouteComponents = userPages.pages.map(({createdAt, text, title, id}) => (
-    // console.log(title,id)
-    <Route key={title} path={"/" + username + "/" + id} element={
-      <UserPage
-        userId={userId} 
-        username={username}
-        fullName={fullName} 
-        email={email}
-        createdAt={createdAt}
-        text={text}
-        title={title}
-        setUserId={setUserId} 
-        setEmail={setEmail} 
-        setUsername={setUsername} 
-        setToken={setToken} />}
+    RouteComponents = undefined
+    //ELSE MAP USER PAGES AND SET ROUTE VARIABLE
+    :
+    RouteComponents = userPages.pages.map(({ createdAt, text, title, id }) => (
+      // console.log(title,id)
+      <Route key={title} path={"/" + username + "/" + id} element={
+        <UserPage
+          userId={userId}
+          username={username}
+          fullName={fullName}
+          email={email}
+          createdAt={createdAt}
+          text={text}
+          title={title}
+          setUserId={setUserId}
+          setEmail={setEmail}
+          setUsername={setUsername}
+          setToken={setToken}
+        />}
       >
-    </Route>
-  ));
+      </Route>
+    ));
   // console.log(RouteComponents)
 
   return (
@@ -93,99 +108,106 @@ function App() {
       <Routes>
         <Route path="/" element={<Enter />}></Route>
 
+        {/* HOME HOME HOME HOME */}
         <Route path="/home" element={
-          <Home 
-            userId={userId} 
+          <Home
+            userId={userId}
             username={username}
             // pages={pages}
             token={token}
-            setUserId={setUserId} 
-            setEmail={setEmail} 
-            setUsername={setUsername} 
-            setToken={setToken}/>}
-            >
+            setUserId={setUserId}
+            setEmail={setEmail}
+            setUsername={setUsername}
+            setToken={setToken}
+          />}
+        >
         </Route>
 
-
+        {/* LOGIN LOGIN LOGIN LOGIN */}
         <Route path="/login" element={
-          <LogIn 
-          type='login' 
-          userId={userId} 
-          username={username}
-          setPages={setUserPages}
-          setUserId={setUserId} 
-          setEmail={setEmail} 
-          setFullName={setFullName}a
-          setUsername={setUsername}
-          setToken={setToken} />}
-          >
+          <LogIn
+            type='login'
+            userId={userId}
+            username={username}
+            setPages={setUserPages}
+            setUserId={setUserId}
+            setEmail={setEmail}
+            setFullName={setFullName} a
+            setUsername={setUsername}
+            setToken={setToken}
+          />}
+        >
         </Route>
 
+        {/* SIGNUP SIGNUP SIGNUP SIGNUP */}
         <Route path="/signup" element={
-          <SignUp 
-          type='signup' 
-          userId={userId}
-          setPages={setUserPages} 
-          setUserId={setUserId} 
-          setEmail={setEmail} 
-          setFullName={setFullName} 
-          setUsername={setUsername} 
-          setToken={setToken}/>}
-          >
+          <SignUp
+            type='signup'
+            userId={userId}
+            setPages={setUserPages}
+            setUserId={setUserId}
+            setEmail={setEmail}
+            setFullName={setFullName}
+            setUsername={setUsername}
+            setToken={setToken}
+          />}
+        >
         </Route>
 
         {!userPages ?
 
-        <Route path={"/"} element={
-          <Profile 
-          type='profile'
-          userId={userId}
-          token={token} 
-          username={username} 
-          fullName={fullName} 
-          email={email}
-          pages={userPages} 
-          setUserId={setUserId} 
-          setEmail={setEmail} 
-          setUsername={setUsername} 
-          setToken={setToken}/>}
+          <Route path={"/"} element={
+            <Profile
+              type='profile'
+              userId={userId}
+              token={token}
+              username={username}
+              fullName={fullName}
+              email={email}
+              pages={userPages}
+              setUserId={setUserId}
+              setEmail={setEmail}
+              setUsername={setUsername}
+              setToken={setToken}
+            />}
           >
-        </Route>
+          </Route>
 
-        :
-        <Route path={"/" + username} element={
-          <Profile 
-            type='profile'
-            userId={userId}
-            token={token} 
-            username={username} 
-            fullName={fullName}
-            bio={userPages.bio} 
-            email={email}
-            pages={userPages.pages} 
-            setUserId={setUserId} 
-            setEmail={setEmail} 
-            setUsername={setUsername}
-            setBio={setBio} 
-            setToken={setToken}/>}
-            >
-        </Route>
+          :
+          <Route path={"/" + username} element={
+            <Profile
+              type='profile'
+              userId={userId}
+              token={token}
+              username={username}
+              fullName={fullName}
+              bio={userPages.bio}
+              email={email}
+              pages={userPages.pages}
+              setUserId={setUserId}
+              setEmail={setEmail}
+              setUsername={setUsername}
+              setBio={setBio}
+              setToken={setToken}
+            />}
+          >
+          </Route>
         }
 
         <Route path={"/" + username + "/edit"} element={
           <Profile
-          type="edit"
-          userId={userId}
-          username={username} 
-          fullName={fullName}
-          bio={bio} 
-          email={email}
-          setEmail={setEmail} 
-          setUsername={setUsername}
-          setFullName={setFullName} 
-          setBio={setBio} 
-          />
-        }>
+            type="edit"
+            userId={userId}
+            username={username}
+            fullName={fullName}
+            bio={bio}
+            email={email}
+            setEmail={setEmail}
+            setUsername={setUsername}
+            setFullName={setFullName}
+            setBio={setBio}
+          />}
+        >
         </Route>
 
         {RouteComponents}
@@ -193,9 +215,9 @@ function App() {
         <Route path='/create' element={
           <CreatePage
             userId={userId}
-            username={username} 
-            />}
-          >
+            username={username}
+          />}
+        >
         </Route>
 
         <Route path='/about' element={
@@ -203,7 +225,7 @@ function App() {
         }>
         </Route>
 
-      </Routes> 
+      </Routes>
     </Router>
   );
 };

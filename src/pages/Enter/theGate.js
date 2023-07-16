@@ -8,9 +8,9 @@ function Enter() {
   return (
     <div id='enter'>
       <img src={smokeskull} alt='smoking skull'></img>
-        <Link to='/home'>
-          <img src={enter} alt='enter-here'></img>
-        </Link>
+      <Link to='/home'>
+        <img src={enter} alt='enter-here'></img>
+      </Link>
     </div>
   );
 };

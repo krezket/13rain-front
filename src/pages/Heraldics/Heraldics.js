@@ -10,16 +10,16 @@ function Heraldics(props) {
   return (
     <div>
       <Header />
-      <Navbar userId={props.userId} 
-      username={props.username}
-      setUserId={props.setUserId} 
-      setEmail={props.setEmail} 
-      setUsername={props.setUsername} 
-      setToken={props.setToken}/>
+      <Navbar userId={props.userId}
+        username={props.username}
+        setUserId={props.setUserId}
+        setEmail={props.setEmail}
+        setUsername={props.setUsername}
+        setToken={props.setToken} />
       <main className='main-herald'>
         <p>Heraldics</p>
         <img id='chet' src={hchet} alt='heraldic'></img>
-        </main>
+      </main>
       <Footer />
     </div>
   )

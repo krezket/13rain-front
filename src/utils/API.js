@@ -1,33 +1,37 @@
 const URL_PREFIX = "http://localhost:3001"
 
 const API = {
-    login:(userObj)=>{
-        return fetch(`${URL_PREFIX}/users/login`,{
+    //Login User
+    login: (userObj) => {
+        return fetch(`${URL_PREFIX}/users/login`, {
             method: 'POST',
             body: JSON.stringify(userObj),
             headers: {
-                "Content-Type":"application/json"
+                "Content-Type": "application/json"
 
             }
-        }).then(res=>res.json())
+        }).then(res => res.json())
     },
-    signup:(userObj)=>{
-        return fetch(`${URL_PREFIX}/users`,{
+
+    //Sign Up User
+    signup: (userObj) => {
+        return fetch(`${URL_PREFIX}/users`, {
             method: 'POST',
             body: JSON.stringify(userObj),
             headers: {
-                "Content-Type":"application/json"
+                "Content-Type": "application/json"
 
             }
-        }).then(res=>res.json())
+        }).then(res => res.json())
     },
+
     // TODO: GET BY ID FOR PROFILE / USER
     getProfile: async (x) => {
         try {
             const dbProfileData = await fetch(`${URL_PREFIX}/users/${x}`, {
                 method: 'GET',
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type': 'application/json'
                 }
             })
             return dbProfileData.json();
@@ -35,34 +39,39 @@ const API = {
             console.log(error);
         }
     },
+
     //get all profiles
- getProfiles: async () => {
-    try {
-        const dbProfileData = await fetch(`${URL_PREFIX}/users/`, {
-            method: 'GET',
+    getProfiles: async () => {
+        try {
+            const dbProfileData = await fetch(`${URL_PREFIX}/users/`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            return dbProfileData.json();
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    //Get All Pages
+    getPages: async () => {
+        try {
+            const pageData = await fetch(`${URL_PREFIX}/pages/`, {
+                method: 'GET',
+            })
+            return pageData.json();
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    //Verify User Token
+    verifyToken: (token) => {
+        return fetch(`${URL_PREFIX}/users/auth/verifytoken`, {
             headers: {
-                'Content-Type' : 'application/json'
-            }
-        })
-        return dbProfileData.json();
-    } catch (error) {
-        console.log(error);
-    }
-  },
-  getPages: async () => {
-    try {
-        const pageData = await fetch(`${URL_PREFIX}/pages/`, {
-            method: 'GET',
-        })
-        return pageData.json();
-    } catch (error) {
-        console.log(error);
-    }
-  },
-  verifyToken:(token)=>{
-      return fetch(`${URL_PREFIX}/users/auth/verifytoken`,{
-          headers:{
-              "authorization":`Bearer ${token}`
+                "authorization": `Bearer ${token}`
             }
         }).then((res) => {
             if (res.ok) {
@@ -73,33 +82,18 @@ const API = {
             }
         });
     },
-    createProfile: async (x) => {
-        try {
-            const response = await fetch(`${URL_PREFIX}/profiles`, {
-                method: 'POST',
-                body: JSON.stringify(x),
-                headers: {
-                    'Content-Type' : 'application/json'
-                }
-            })
-            
-            if (response.ok) {
-                return response.json();
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    },
+
+    // Update User Profile
     updateProfile: async (x) => {
         try {
             const response = await fetch(`${URL_PREFIX}/users/${x.id}`, {
                 method: 'PUT',
                 body: JSON.stringify(x),
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type': 'application/json'
                 }
             });
-            
+
             if (response.ok) {
                 return response.json();
             } else {
@@ -109,22 +103,22 @@ const API = {
             console.log(error);
         }
     },
-    // Create Page
+
+    // Create A Page
     createPage: async (userObj) => {
         try {
             const response = await fetch(`${URL_PREFIX}/pages`, {
                 method: 'POST',
                 body: JSON.stringify(userObj),
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type': 'application/json'
                 }
             });
-            
+
             if (response.ok) {
                 // return console.log(response.json());
                 return await response.json();
             } else {
-                // TESTING PURPOSES
                 alert('Cannot create project');
             }
 
@@ -132,21 +126,39 @@ const API = {
             console.log(error);
         }
     },
+    //Create 
+    // createProfile: async (x) => {
+    //     try {
+    //         const response = await fetch(`${URL_PREFIX}/profiles`, {
+    //             method: 'POST',
+    //             body: JSON.stringify(x),
+    //             headers: {
+    //                 'Content-Type' : 'application/json'
+    //             }
+    //         })
+
+    //         if (response.ok) {
+    //             return response.json();
+    //         }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // },
     // Get Projects by User
     // getProjectsByUser: async (x) => {
-        //     try {
-            //         const response = await fetch(`${URL_PREFIX}/projects/user/${x}`, {
-                //           method: 'GET',
-                //           headers: {
-                    //             'Content-Type': 'application/json'
-                    //           }
-                    //         });
-                    
-                    //         if (!response.ok) {
-                        //           throw new Error('Network response was not ok');
-                        //         }
-                        
-                        //         return response.json();
+    //     try {
+    //         const response = await fetch(`${URL_PREFIX}/projects/user/${x}`, {
+    //           method: 'GET',
+    //           headers: {
+    //             'Content-Type': 'application/json'
+    //           }
+    //         });
+
+    //         if (!response.ok) {
+    //           throw new Error('Network response was not ok');
+    //         }
+
+    //         return response.json();
     //       } catch (error) {
     //          //console.error(error);
     //       }
@@ -182,77 +194,77 @@ const API = {
     //             return response.json();
     //         }
     //     } catch (error) {
-            
+
     //     }
     // },
     // Message Routes
-//     getMessages: async (projectId) => {
-//         return fetch(`${URL_PREFIX}/messages/${projectId}`, {
-//             method: 'GET',
-//             headers: {
-//                 'Content-Type' : 'application/json'
-//             }
-//         }).then(res=>res.json())
-//     },
-//     sendMessage: async (userId, projectId, text) => {
-//         const message = { text };
-//         return fetch(`${URL_PREFIX}/messages/${userId}/${projectId}`, {
-//             method: 'POST',
-//             body: JSON.stringify(message),
-//             headers: {
-//                 'Content-Type' : 'application/json'
-//             }
-//         }).then(res=>res.json())
-//     },
-//     joinProject: async (projectId, userId) => {
-//         try {
-//             const response = await fetch(`${URL_PREFIX}/projects/${projectId}/${userId}`, {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type' : 'application/json'
-//                 }
-//             })
+    //     getMessages: async (projectId) => {
+    //         return fetch(`${URL_PREFIX}/messages/${projectId}`, {
+    //             method: 'GET',
+    //             headers: {
+    //                 'Content-Type' : 'application/json'
+    //             }
+    //         }).then(res=>res.json())
+    //     },
+    //     sendMessage: async (userId, projectId, text) => {
+    //         const message = { text };
+    //         return fetch(`${URL_PREFIX}/messages/${userId}/${projectId}`, {
+    //             method: 'POST',
+    //             body: JSON.stringify(message),
+    //             headers: {
+    //                 'Content-Type' : 'application/json'
+    //             }
+    //         }).then(res=>res.json())
+    //     },
+    //     joinProject: async (projectId, userId) => {
+    //         try {
+    //             const response = await fetch(`${URL_PREFIX}/projects/${projectId}/${userId}`, {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type' : 'application/json'
+    //                 }
+    //             })
 
-//             if (response.ok) {
-//                 return await response.json();
-//             } else {
-//                 let err = await response.json()
-//                 console.log(err);
-//                 if (err.msg){
-//                     alert(err.msg)
-//                 } else 
-//                   {alert('Unable to fetch');}
+    //             if (response.ok) {
+    //                 return await response.json();
+    //             } else {
+    //                 let err = await response.json()
+    //                 console.log(err);
+    //                 if (err.msg){
+    //                     alert(err.msg)
+    //                 } else 
+    //                   {alert('Unable to fetch');}
 
-//                 return err;
-//             }
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     },
-//     deleteProject: async (projectId) => {
-//         try {
-//             const response = await fetch(`${URL_PREFIX}/projects/${projectId}`, {
-//                 method: 'DELETE',
-//                 headers: {
-//                     'Content-Type' : 'application/json'
-//                 }
-//             })
+    //                 return err;
+    //             }
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     },
+    //     deleteProject: async (projectId) => {
+    //         try {
+    //             const response = await fetch(`${URL_PREFIX}/projects/${projectId}`, {
+    //                 method: 'DELETE',
+    //                 headers: {
+    //                     'Content-Type' : 'application/json'
+    //                 }
+    //             })
 
-//             if(response.ok) {
-//                 return await response.json();
-//             } else {
-//                 let err = await response.json()
-//                 console.log(err);
-//                 if (err.msg){
-//                     alert(err.msg)
-//                 } else 
-//                   {alert('Unable to fetch');}
+    //             if(response.ok) {
+    //                 return await response.json();
+    //             } else {
+    //                 let err = await response.json()
+    //                 console.log(err);
+    //                 if (err.msg){
+    //                     alert(err.msg)
+    //                 } else 
+    //                   {alert('Unable to fetch');}
 
-//                 return err;
-//             }
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
+    //                 return err;
+    //             }
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     }
 }
 export default API

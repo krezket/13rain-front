@@ -10,131 +10,131 @@ import './style.css'
 
 
 function Profile(props) {
-console.log('profile props:',props);
-const ID = sessionStorage.getItem("userId");
-const [ownerId, setOwnerId] = useState("")
-// const [username, setUsername] = useState("");
-const [bio, setBio] = useState("");
-const navigate = useNavigate();
+  console.log('profile props:', props);
+  const ID = sessionStorage.getItem("userId");
+  const [ownerId, setOwnerId] = useState("")
+  // const [username, setUsername] = useState("");
+  const [bio, setBio] = useState("");
+  const navigate = useNavigate();
 
-const handleChange = e => {
-  setOwnerId(ID)
-  if (e.target.name === "bio") {
-    setBio(e.target.value)
+  const handleChange = e => {
+    setOwnerId(ID)
+    if (e.target.name === "bio") {
+      setBio(e.target.value)
+    }
+    // else if (e.target.name === "username") {
+    //   setUsername(e.target.value)
+    // }
   }
-  // else if (e.target.name === "username") {
-  //   setUsername(e.target.value)
-  // }
-}
 
-const submitHandlerUsername = e => {
-  e.preventDefault()
+  const submitHandlerUsername = e => {
+    e.preventDefault()
 
-  API.updateProfile({
-    id:ownerId,
-    // username:username,
-    bio:bio
+    API.updateProfile({
+      id: ownerId,
+      // username:username,
+      bio: bio
 
-  }).then(data => {
-    console.log(data)
-    navigate("/" + props.username);
-    window.location.reload(false);
+    }).then(data => {
+      console.log(data)
+      navigate("/" + props.username);
+      window.location.reload(false);
 
-  }).catch(err => {
-  console.log(err)
-  alert(err)
-  })
-}
+    }).catch(err => {
+      console.log(err)
+      alert(err)
+    })
+  }
 
-  
-return (
-  <div>
-    {props.type === "profile" ?
+
+  return (
     <div>
+      {props.type === "profile" ?
+        <div>
 
-      <Header />
+          <Header />
 
-      <nav>
-        <Navbar
-          type={props.type}
-          username={props.username}
-          userId={props.userId}
-          setUserId={props.setUserId} 
-          setEmail={props.setEmail} 
-          setUsername={props.setUsername}
-          setToken={props.setToken}
-        />
-      </nav>
+          <nav>
+            <Navbar
+              type={props.type}
+              username={props.username}
+              userId={props.userId}
+              setUserId={props.setUserId}
+              setEmail={props.setEmail}
+              setUsername={props.setUsername}
+              setToken={props.setToken}
+            />
+          </nav>
 
-      <main className='pr-main'>
-        <div className='h1-ar'>
+          <main className='pr-main'>
+            <div className='h1-ar'>
 
-          <div className='usr-fri'>
+              <div className='usr-fri'>
 
-            <h1 className='profile-username'>{props.username}</h1>
+                <h1 className='profile-username'>{props.username}</h1>
 
-            {!props.friends ?
-            <h3 className='profile-pages'>Friends: 0</h3>
-            :
-            <h3 className='profile-pages'>Friends: {props.friends.length}</h3>
-            }
-            {!props.pages ?
-            <h3 className='profile-pages'>No Pages Yet</h3>
-            :
-            <h3 className='profile-pages'>Total Pages: {props.pages.length}</h3>
-            }
+                {!props.friends ?
+                  <h3 className='profile-pages'>Friends: 0</h3>
+                  :
+                  <h3 className='profile-pages'>Friends: {props.friends.length}</h3>
+                }
+                {!props.pages ?
+                  <h3 className='profile-pages'>No Pages Yet</h3>
+                  :
+                  <h3 className='profile-pages'>Total Pages: {props.pages.length}</h3>
+                }
 
-          </div>
+              </div>
 
-          <article className='profile-bio'>
-            {props.bio === "" ?
-              <p>no bio yet</p>
-              :
-              <p>{props.bio}</p>
-            }
-          </article>
+              <article className='profile-bio'>
+                {props.bio === "" ?
+                  <p>no bio yet</p>
+                  :
+                  <p>{props.bio}</p>
+                }
+              </article>
+
+            </div>
+
+          </main>
+
+          <Footer />
 
         </div>
 
-      </main>
+        :
+        <div>
+          <Header />
+          <nav>
+            <Navbar
+              type={props.type}
+              username={props.username}
+              userId={props.userId}
+              setUserId={props.setUserId}
+              setEmail={props.setEmail}
+              setUsername={props.setUsername}
+              setToken={props.setToken}
+            />
+          </nav>
+          <main className='form-main'>
 
-      <Footer/>
+            <form className='edit-form' onSubmit={submitHandlerUsername}>
+              {/* <input name='username' value={username} placeholder="New Username" onChange={handleChange}></input> */}
+              {/* <input className='profile-fullname' placeholder="First and Last Name"></input> */}
+              {/* <input className='profile-email' placeholder="example@email.com"></input> */}
 
-    </div> 
-    
-     : 
-     <div>
-        <Header />
-      <nav>
-        <Navbar
-          type={props.type}
-          username={props.username}
-          userId={props.userId}
-          setUserId={props.setUserId} 
-          setEmail={props.setEmail} 
-          setUsername={props.setUsername}
-          setToken={props.setToken}
-        />
-      </nav>
-      <main className='form-main'>
+              {props.bio === "" ?
+                <textarea name='bio' value={bio} placeholder='write a bio' onChange={handleChange}></textarea>
+                :
+                <textarea>{props.bio}</textarea>
+              }
+              <button>Submit</button>
+            </form>
 
-        <form className='edit-form' onSubmit={submitHandlerUsername}>
-          {/* <input name='username' value={username} placeholder="New Username" onChange={handleChange}></input> */}
-          {/* <input className='profile-fullname' placeholder="First and Last Name"></input> */}
-          {/* <input className='profile-email' placeholder="example@email.com"></input> */}
-
-          {props.bio === "" ?
-            <textarea name='bio' value={bio} placeholder='write a bio' onChange={handleChange}></textarea>
-              :
-            <textarea>{props.bio}</textarea>
-          }
-          <button>Submit</button>
-        </form>
-        
-      </main>
-      <Footer/>
-     </div>
-    }
+          </main>
+          <Footer />
+        </div>
+      }
     </div>
   );
 };

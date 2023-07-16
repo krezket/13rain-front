@@ -9,15 +9,15 @@ import './style.css';
 
 export default function Home(props) {
     // console.log("home props:", props)
-    
+
     API.getPages()
-    .then((data) => {
-        // console.log("all pages data",data);
-    })
-    .catch((err) => {
-        console.log("oh noes");
-        console.log(err);
-    });
+        .then((data) => {
+            // console.log("all pages data",data);
+        })
+        .catch((err) => {
+            console.log("oh noes");
+            console.log(err);
+        });
 
     let LinkComponents = undefined;
 
@@ -26,57 +26,57 @@ export default function Home(props) {
     // console.log(parsedData)
 
     parsedData === null ?
-    LinkComponents = undefined
-    :
-    LinkComponents = parsedData.pages.map(({title, id}) => (
-        <Link key={title} to={"/" + props.username + "/" + id}>
-            <p>{title}</p>
-        </Link>
-    ));
+        LinkComponents = undefined
+        :
+        LinkComponents = parsedData.pages.map(({ title, id }) => (
+            <Link key={title} to={"/" + props.username + "/" + id}>
+                <p>{title}</p>
+            </Link>
+        ));
 
     return (
         <div className='page-container'>
             <Header />
-        <nav>
-            <Navbar 
-            userId={props.userId} 
-            username={props.username}
-            setUserId={props.setUserId} 
-            setEmail={props.setEmail} 
-            setUsername={props.setUsername} 
-            setToken={props.setToken}
-        />
-        </nav>
-        <main className="main">
-            <aside className='aside-left'>
-                <h1>Featured Links</h1>
-                {!parsedData && !props.username ?
-                <p> No links yet </p>
-                :
-                <div>{LinkComponents}</div>
-                }
-            </aside>
-            <section className='main-section'>
-                <article id='hp-article'>
-                    <p id='home-intro'>pages will be shown here</p>
-                    {/* {!pageNUser ?
+            <nav>
+                <Navbar
+                    userId={props.userId}
+                    username={props.username}
+                    setUserId={props.setUserId}
+                    setEmail={props.setEmail}
+                    setUsername={props.setUsername}
+                    setToken={props.setToken}
+                />
+            </nav>
+            <main className="main">
+                <aside className='aside-left'>
+                    <h1>Featured Links</h1>
+                    {!parsedData && !props.username ?
+                        <p> No links yet </p>
+                        :
+                        <div>{LinkComponents}</div>
+                    }
+                </aside>
+                <section className='main-section'>
+                    <article id='hp-article'>
+                        <p id='home-intro'>pages will be shown here</p>
+                        {/* {!pageNUser ?
                     <p id='home-intro'>♥ ♦ ♣ ♠</p>
                     :
                     <p id='home-intro'>pages will be shown here</p>
                     } */}
-                </article>
-            </section>
-            <aside className='aside-right'>
-                {!props.token ?
-                <p> Sign In To Create A Page </p>
-                :
-                <>
-                <h1>Other Links</h1>
-                <Link to={"/create"}>Create a Page</Link>
-                </>
-                }
-            </aside>
-        </main>
+                    </article>
+                </section>
+                <aside className='aside-right'>
+                    {!props.token ?
+                        <p> Sign In To Create A Page </p>
+                        :
+                        <>
+                            <h1>Other Links</h1>
+                            <Link to={"/create"}>Create a Page</Link>
+                        </>
+                    }
+                </aside>
+            </main>
             <div className='fire-div'>
                 {/* <img id='shield' src={shield} alt='shield'></img> */}
                 {/* <img src={fire} alt='fire'></img>  */}
