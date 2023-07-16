@@ -13,7 +13,7 @@ function Profile(props) {
 console.log('profile props:',props);
 const ID = sessionStorage.getItem("userId");
 const [ownerId, setOwnerId] = useState("")
-const [username, setUsername] = useState("");
+// const [username, setUsername] = useState("");
 const [bio, setBio] = useState("");
 const navigate = useNavigate();
 
@@ -22,21 +22,21 @@ const handleChange = e => {
   if (e.target.name === "bio") {
     setBio(e.target.value)
   }
-  else if (e.target.name === "username") {
-    setUsername(e.target.value)
-  }
+  // else if (e.target.name === "username") {
+  //   setUsername(e.target.value)
+  // }
 }
 
 const submitHandlerUsername = e => {
   e.preventDefault()
   API.updateProfile({
     id:ownerId,
-    username:username,
+    // username:username,
     bio:bio
   }).then(data => {
     console.log(data)
-    // navigate("/" + props.username)
-    // window.location.reload(false);
+    navigate("/" + props.username)
+    window.location.reload(false);
   }).catch(err => {
   console.log(err)
   alert(err)
@@ -116,7 +116,7 @@ return (
       <main className='form-main'>
 
         <form className='edit-form' onSubmit={submitHandlerUsername}>
-          <input name='username' value={username} placeholder="New Username" onChange={handleChange}></input>
+          {/* <input name='username' value={username} placeholder="New Username" onChange={handleChange}></input> */}
           {/* <input className='profile-fullname' placeholder="First and Last Name"></input> */}
           {/* <input className='profile-email' placeholder="example@email.com"></input> */}
 
