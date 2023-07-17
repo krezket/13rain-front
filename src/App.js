@@ -52,7 +52,7 @@ function App() {
   if (ID) {
     API.getProfile(ID)
       .then((data) => {
-        // console.log("Get Pages:", data.pagesc)
+        // console.log("Get Pages:", data.pages)
         const UserData = JSON.stringify(data)
         window.sessionStorage.setItem("UserData", UserData)
       })
@@ -161,21 +161,12 @@ function App() {
             <Profile
               type='profile'
               userId={userId}
-              token={token}
-              username={username}
-              fullName={fullName}
-              email={email}
-              pages={userPages}
-              setUserId={setUserId}
-              setEmail={setEmail}
-              setUsername={setUsername}
-              setToken={setToken}
             />}
           >
           </Route>
 
           :
-          <Route path={"/" + username} element={
+          <Route path={"/" + userPages.username} element={
             <Profile
               type='profile'
               userId={userId}
@@ -196,21 +187,32 @@ function App() {
         }
 
         {/* PROFILE EDIT PROFILE EDIT PROFILE EDIT */}
-        <Route path={"/" + username + "/edit"} element={
-          <Profile
-            type="edit"
-            userId={userId}
-            username={username}
-            fullName={fullName}
-            bio={bio}
-            email={email}
-            setEmail={setEmail}
-            setUsername={setUsername}
-            setFullName={setFullName}
-            setBio={setBio}
-          />}
-        >
-        </Route>
+        {!userPages ?
+          
+          <Route path={"/"} element={
+            <Profile
+              type='profile'
+              userId={userId}
+            />}
+          >
+          </Route>
+          :
+          <Route path={"/" + userPages.username + "/edit"} element={
+            <Profile
+              type="edit"
+              userId={userId}
+              username={username}
+              fullName={fullName}
+              bio={bio}
+              email={email}
+              setEmail={setEmail}
+              setUsername={setUsername}
+              setFullName={setFullName}
+              setBio={setBio}
+            />}
+          >
+          </Route>
+        }
 
         {/* PAGE PAGE PAGE PAGE */}
         {RouteComponents}
