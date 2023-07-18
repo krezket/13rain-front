@@ -7,7 +7,8 @@ import API from '../../utils/API';
 import './CreatePage.css';
 
 function CreatePage(props) {
-  // console.log("createPage:", props)
+  // CONSOLE LOG //
+  console.log("createPage:", props)
   // console.log(ID)
   const ID = sessionStorage.getItem("userId");
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ function CreatePage(props) {
     }).then(data => {
       console.log(data)
       navigate("/" + props.username)
-      window.location.reload(false);
+      // window.location.reload(false);
     }).catch(err => {
       console.log(err)
       alert(err)

@@ -32,6 +32,7 @@ function Navbar(props) {
   return (
 
     props.type === "profile" ?
+
       <div className='navbar'>
         <div id='navbar'>
 
@@ -40,6 +41,10 @@ function Navbar(props) {
 
               <p className='nav-p' id='nav-p-log'>
                 <Link id='logout-btn' onClick={toggleEdit}>Edit Profile</Link>
+              </p>
+
+              <p className='nav-p' id='nav-p-log'>
+                <Link id='logout-btn' to={"/create"}>Create a Page</Link>
               </p>
 
               <p className='nav-p' id='nav-p-log'>

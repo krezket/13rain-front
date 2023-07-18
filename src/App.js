@@ -32,8 +32,8 @@ function App() {
     //ELSE VERIFY TOKEN THROUGH API
     API.verifyToken(storedToken)
       .then((data) => {
-        // CONSOLE LOG
-        console.log("Verify Token:", data)
+        // CONSOLE LOG //
+        // console.log("Verify Token:", data)
         setToken(storedToken);
         setUserId(data.id);
         setUsername(data.username);
@@ -53,8 +53,8 @@ function App() {
   if (ID) {
     API.getProfile(ID)
       .then((data) => {
-        // CONSOLE LOG
-        console.log("Get Pages:", data.pages)
+        // CONSOLE LOG //
+        // console.log("Get Pages:", data.pages)
         const UserData = JSON.stringify(data)
         window.sessionStorage.setItem("UserData", UserData)
       })
@@ -73,37 +73,36 @@ function App() {
 
     //SET PARSED DATA TO USER PAGES
     setUserPages(parsedUserData)
-    // CONSOLE LOG
-    console.log("PARSED DATA",parsedUserData);
+    // CONSOLE LOG //
+    // console.log("PARSED DATA",parsedUserData);
   }, [])
 
-  let RouteComponents = undefined;
+  // let RouteComponents = undefined;
 
-  //IF USER PAGES DOESN'T EXIST THEN ROUTE IS UNDEFINED
-  !userPages ?
-    RouteComponents = undefined
-    //ELSE MAP USER PAGES AND SET ROUTE VARIABLE
-    :
-    RouteComponents = userPages.pages.map(({ createdAt, text, title, id }) => (
-      <Route key={title} path={"/" + username + "/" + id} element={
-        <UserPage
-          userId={userId}
-          username={username}
-          fullName={fullName}
-          email={email}
-          createdAt={createdAt}
-          text={text}
-          title={title}
-          setUserId={setUserId}
-          setEmail={setEmail}
-          setUsername={setUsername}
-          setToken={setToken}
-        />}
-      >
-      </Route>
-    ));
-  // CONSOLE LOG
-  console.log(RouteComponents)
+  // //IF USER PAGES DOESN'T EXIST THEN ROUTE IS UNDEFINED
+  // !userPages ?
+  //   RouteComponents = undefined
+  //   :
+  //   RouteComponents = userPages.pages.map(({ createdAt, text, title, id }) => (
+  //     <Route key={title} path={"/" + username + "/" + id} element={
+  //       <UserPage
+  //         userId={userId}
+  //         username={username}
+  //         fullName={fullName}
+  //         email={email}
+  //         createdAt={createdAt}
+  //         text={text}
+  //         title={title}
+  //         setUserId={setUserId}
+  //         setEmail={setEmail}
+  //         setUsername={setUsername}
+  //         setToken={setToken}
+  //       />}
+  //     >
+  //     </Route>
+  //   ));
+  // CONSOLE LOG //
+  // console.log(RouteComponents)
 
   return (
     <Router>
@@ -217,7 +216,29 @@ function App() {
         }
 
         {/* PAGE PAGE PAGE PAGE */}
-        {RouteComponents}
+        {!userPages ?
+          <Route path={"/"} element={<UserPage/>}>
+          </Route>
+          :
+          userPages.pages.map(({ createdAt, text, title, id }) => (
+            <Route key={title} path={"/" + username + "/" + id} element={
+              <UserPage
+                userId={userId}
+                username={username}
+                fullName={fullName}
+                email={email}
+                createdAt={createdAt}
+                text={text}
+                title={title}
+                setUserId={setUserId}
+                setEmail={setEmail}
+                setUsername={setUsername}
+                setToken={setToken}
+              />}
+            >
+            </Route>
+          ))}
+        {/* {RouteComponents} */}
 
         {/* CREATE PAGE CREATE PAGE CREATE PAGE */}
         <Route path='/create' element={

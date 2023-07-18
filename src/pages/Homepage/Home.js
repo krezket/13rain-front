@@ -8,12 +8,12 @@ import Footer from '../../components/Footer/';
 import './style.css';
 
 export default function Home(props) {
-    // CONSOLE LOG
-    console.log("home props:", props)
+    // CONSOLE LOG //
+    // console.log("home props:", props)
 
     API.getPages()
         .then((data) => {
-            // CONSOLE LOG
+            // CONSOLE LOG //
             console.log("all pages data", data);
         })
         .catch((err) => {
@@ -25,8 +25,8 @@ export default function Home(props) {
 
     const pagesData = window.sessionStorage.getItem("UserData");
     const parsedData = JSON.parse(pagesData);
-    // CONSOLE LOG
-    console.log(parsedData)
+    // CONSOLE LOG //
+    // console.log(parsedData)
 
     parsedData === null ?
         LinkComponents = undefined
