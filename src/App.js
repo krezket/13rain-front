@@ -188,7 +188,7 @@ function App() {
 
         {/* PROFILE EDIT PROFILE EDIT PROFILE EDIT */}
         {!userPages ?
-          
+
           <Route path={"/"} element={
             <Profile
               type='profile'
