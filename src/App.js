@@ -77,33 +77,6 @@ function App() {
     // console.log("PARSED DATA",parsedUserData);
   }, [])
 
-  // let RouteComponents = undefined;
-
-  // //IF USER PAGES DOESN'T EXIST THEN ROUTE IS UNDEFINED
-  // !userPages ?
-  //   RouteComponents = undefined
-  //   :
-  //   RouteComponents = userPages.pages.map(({ createdAt, text, title, id }) => (
-  //     <Route key={title} path={"/" + username + "/" + id} element={
-  //       <UserPage
-  //         userId={userId}
-  //         username={username}
-  //         fullName={fullName}
-  //         email={email}
-  //         createdAt={createdAt}
-  //         text={text}
-  //         title={title}
-  //         setUserId={setUserId}
-  //         setEmail={setEmail}
-  //         setUsername={setUsername}
-  //         setToken={setToken}
-  //       />}
-  //     >
-  //     </Route>
-  //   ));
-  // CONSOLE LOG //
-  // console.log(RouteComponents)
-
   return (
     <Router>
       <Routes>
