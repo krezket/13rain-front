@@ -32,7 +32,8 @@ function App() {
     //ELSE VERIFY TOKEN THROUGH API
     API.verifyToken(storedToken)
       .then((data) => {
-        // console.log("Verify Token:", data)
+        // CONSOLE LOG
+        console.log("Verify Token:", data)
         setToken(storedToken);
         setUserId(data.id);
         setUsername(data.username);
@@ -52,7 +53,8 @@ function App() {
   if (ID) {
     API.getProfile(ID)
       .then((data) => {
-        // console.log("Get Pages:", data.pages)
+        // CONSOLE LOG
+        console.log("Get Pages:", data.pages)
         const UserData = JSON.stringify(data)
         window.sessionStorage.setItem("UserData", UserData)
       })
@@ -71,8 +73,8 @@ function App() {
 
     //SET PARSED DATA TO USER PAGES
     setUserPages(parsedUserData)
-
-    // console.log("PARSED DATA",parsedUserData);
+    // CONSOLE LOG
+    console.log("PARSED DATA",parsedUserData);
   }, [])
 
   let RouteComponents = undefined;
@@ -83,7 +85,6 @@ function App() {
     //ELSE MAP USER PAGES AND SET ROUTE VARIABLE
     :
     RouteComponents = userPages.pages.map(({ createdAt, text, title, id }) => (
-      // console.log(title,id)
       <Route key={title} path={"/" + username + "/" + id} element={
         <UserPage
           userId={userId}
@@ -101,7 +102,8 @@ function App() {
       >
       </Route>
     ));
-  // console.log(RouteComponents)
+  // CONSOLE LOG
+  console.log(RouteComponents)
 
   return (
     <Router>
@@ -132,7 +134,7 @@ function App() {
             setPages={setUserPages}
             setUserId={setUserId}
             setEmail={setEmail}
-            setFullName={setFullName} a
+            setFullName={setFullName}
             setUsername={setUsername}
             setToken={setToken}
           />}
