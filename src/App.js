@@ -211,7 +211,6 @@ function App() {
             >
             </Route>
           ))}
-        {/* {RouteComponents} */}
 
         {/* CREATE PAGE CREATE PAGE CREATE PAGE */}
         <Route path='/create' element={

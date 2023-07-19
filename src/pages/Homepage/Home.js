@@ -1,5 +1,4 @@
-import React from 'react';
-// import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import API from "../../utils/API";
 import { Link } from 'react-router-dom'
 import Header from "../../components/Header";
@@ -10,16 +9,30 @@ import './style.css';
 export default function Home(props) {
     // CONSOLE LOG //
     // console.log("home props:", props)
-
-    API.getPages()
+    const [allData, setAllData] = useState("");
+    console.log(allData)
+    
+    useEffect(() => {
+        API.getPages()
         .then((data) => {
             // CONSOLE LOG //
-            console.log("all pages data", data);
+            // console.log("all pages data", data);
+            setAllData(data);
         })
         .catch((err) => {
             console.log("oh noes");
             console.log(err);
         });
+    }, [])
+
+    let allPages = undefined
+    
+    // allPages = allData.map(({ title, owner_id }) => {
+    //     // console.log(title)
+    //     <Link key={title} to={"/" + props.username + "/" + owner_id}>
+    //         <p>{title}</p>
+    //     </Link>
+    // })
 
     let LinkComponents = undefined;
 
@@ -61,12 +74,12 @@ export default function Home(props) {
                 </aside>
                 <section className='main-section'>
                     <article id='hp-article'>
-                        <p id='home-intro'>pages will be shown here</p>
-                        {/* {!pageNUser ?
-                    <p id='home-intro'>♥ ♦ ♣ ♠</p>
-                    :
-                    <p id='home-intro'>pages will be shown here</p>
-                    } */}
+                        {!allData ?
+                            <p id='home-intro'>♥ ♦ ♣ ♠</p>
+                            :
+                            // <p>bruh</p>
+                            <div>{allPages}</div>
+                        }
                     </article>
                 </section>
                 <aside className='aside-right'>
