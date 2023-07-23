@@ -3,36 +3,13 @@ import API from "../../utils/API";
 import { Link } from 'react-router-dom'
 import Header from "../../components/Header";
 import Navbar from '../../components/Navbar/navbar';
+import FrontPage from '../../components/FrontPage/FrontPage';
 import Footer from '../../components/Footer/';
 import './style.css';
 
 export default function Home(props) {
     // CONSOLE LOG //
     // console.log("home props:", props)
-    const [allData, setAllData] = useState("");
-    console.log(allData)
-    
-    useEffect(() => {
-        API.getPages()
-        .then((data) => {
-            // CONSOLE LOG //
-            // console.log("all pages data", data);
-            setAllData(data);
-        })
-        .catch((err) => {
-            console.log("oh noes");
-            console.log(err);
-        });
-    }, [])
-
-    let allPages = undefined
-    
-    // allPages = allData.map(({ title, owner_id }) => {
-    //     // console.log(title)
-    //     <Link key={title} to={"/" + props.username + "/" + owner_id}>
-    //         <p>{title}</p>
-    //     </Link>
-    // })
 
     let LinkComponents = undefined;
 
@@ -73,13 +50,9 @@ export default function Home(props) {
                     }
                 </aside>
                 <section className='main-section'>
+                    <FrontPage />
                     <article id='hp-article'>
-                        {!allData ?
-                            <p id='home-intro'>♥ ♦ ♣ ♠</p>
-                            :
-                            // <p>bruh</p>
-                            <div>{allPages}</div>
-                        }
+                        <p id='home-intro'>♥ ♦ ♣ ♠</p>
                     </article>
                 </section>
                 <aside className='aside-right'>
