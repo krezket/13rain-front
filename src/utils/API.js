@@ -41,6 +41,21 @@ const API = {
         }
     },
 
+    // GET BY USERNAME FOR PROFILE / USER
+    getProfileByName: async (x) => {
+        try {
+            const dbProfileData = await fetch(`${URL_PREFIX}/users/profile/${x}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            return dbProfileData.json();
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
     //get all profiles
     getProfiles: async () => {
         try {
