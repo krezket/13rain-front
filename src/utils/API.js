@@ -1,8 +1,8 @@
-// const URL_PREFIX = "http://localhost:3001"
-const URL_PREFIX = "https://a-13rain-backend-f1bf2467fb35.herokuapp.com"
+const URL_PREFIX = "http://localhost:3001"
+// const URL_PREFIX = "https://a-13rain-backend-f1bf2467fb35.herokuapp.com"
 
 const API = {
-    //Login User
+    // Login User
     login: (userObj) => {
         return fetch(`${URL_PREFIX}/users/login`, {
             method: 'POST',
@@ -14,7 +14,7 @@ const API = {
         }).then(res => res.json())
     },
 
-    //Sign Up User
+    // Sign Up User
     signup: (userObj) => {
         return fetch(`${URL_PREFIX}/users`, {
             method: 'POST',
@@ -26,7 +26,7 @@ const API = {
         }).then(res => res.json())
     },
 
-    // TODO: GET BY ID FOR PROFILE / USER
+    // Get Profile by ID
     getProfile: async (x) => {
         try {
             const dbProfileData = await fetch(`${URL_PREFIX}/users/${x}`, {
@@ -41,7 +41,7 @@ const API = {
         }
     },
 
-    //get all profiles
+    // Get All Profiles
     getProfiles: async () => {
         try {
             const dbProfileData = await fetch(`${URL_PREFIX}/users/`, {
@@ -56,7 +56,7 @@ const API = {
         }
     },
 
-    //Get All Pages
+    // Get All Pages
     getPages: async () => {
         try {
             const pageData = await fetch(`${URL_PREFIX}/pages/`, {
@@ -68,7 +68,7 @@ const API = {
         }
     },
 
-    //Verify User Token
+    // Verify User Token
     verifyToken: (token) => {
         return fetch(`${URL_PREFIX}/users/auth/verifytoken`, {
             headers: {
