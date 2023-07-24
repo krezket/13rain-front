@@ -26,7 +26,7 @@ const API = {
         }).then(res => res.json())
     },
 
-    // TODO: GET BY ID FOR PROFILE / USER
+    // GET BY ID FOR PROFILE / USER
     getProfile: async (x) => {
         try {
             const dbProfileData = await fetch(`${URL_PREFIX}/users/${x}`, {
@@ -84,7 +84,7 @@ const API = {
         });
     },
 
-    // Update User Profile
+    // Update User Profile by ID
     updateProfile: async (x) => {
         try {
             const response = await fetch(`${URL_PREFIX}/users/${x.id}`, {

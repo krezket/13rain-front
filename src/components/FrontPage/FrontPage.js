@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react';
 import { useGetAllPagesQuery } from '../../redux/features/pagesSlice';
 
 export default function FrontPage() {
@@ -11,8 +10,8 @@ export default function FrontPage() {
     return (
         <div>
             hi
-            {/* {pages.map((item) => {
-                <h2>{item.title}</h2>
+            {/* {pages.map((data) => {
+                <h2>{data.title}</h2>
             })} */}
         </div>
     )
