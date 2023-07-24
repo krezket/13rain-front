@@ -9,6 +9,7 @@ import Profile from './pages/Profile/Profile.js';
 import UserPage from './pages/UserPage/UserPage.js';
 import CreatePage from './pages/CreatePage/CreatePage';
 import About from './pages/About/About.js';
+import OtherProfile from './pages/OtherProfile/OtherProfile';
 import './App.css';
 
 function App() {
@@ -75,7 +76,9 @@ function App() {
     setUserPages(parsedUserData)
     // CONSOLE LOG //
     // console.log("PARSED DATA",parsedUserData);
-  }, [])
+  }, []);
+
+ /////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <Router>
@@ -160,6 +163,12 @@ function App() {
           </Route>
         }
 
+        {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
+        <Route path='/epix24' element={
+          <OtherProfile />}
+        >
+        </Route>
+        
         {/* PROFILE EDIT PROFILE EDIT PROFILE EDIT */}
         {!userPages ?
 
