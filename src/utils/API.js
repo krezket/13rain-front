@@ -26,7 +26,7 @@ const API = {
         }).then(res => res.json())
     },
 
-    // Get Profile by ID
+    // GET BY ID FOR PROFILE / USER
     getProfile: async (x) => {
         try {
             const dbProfileData = await fetch(`${URL_PREFIX}/users/${x}`, {
@@ -41,7 +41,22 @@ const API = {
         }
     },
 
-    // Get All Profiles
+    // GET BY USERNAME FOR PROFILE / USER
+    getProfileByName: async (x) => {
+        try {
+            const dbProfileData = await fetch(`${URL_PREFIX}/users/profile/${x}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            return dbProfileData.json();
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    //get all profiles
     getProfiles: async () => {
         try {
             const dbProfileData = await fetch(`${URL_PREFIX}/users/`, {
@@ -84,7 +99,7 @@ const API = {
         });
     },
 
-    // Update User Profile
+    // Update User Profile by ID
     updateProfile: async (x) => {
         try {
             const response = await fetch(`${URL_PREFIX}/users/${x.id}`, {
