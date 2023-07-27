@@ -47,6 +47,12 @@
     color: var(--text-red);
 }
 
+.textarea-bio {
+    /* border: none; */
+    color: white;
+    background-color: black;
+    resize: none;
+}
 
 marquee {
     color:aliceblue;

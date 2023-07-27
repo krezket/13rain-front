@@ -10,7 +10,7 @@ import './style.css'
 
 
 function Profile(props) {
-  // console.log('profile props:', props);
+  console.log('profile props:', props);
   const ID = sessionStorage.getItem("userId");
   const [ownerId, setOwnerId] = useState("")
   // const [username, setUsername] = useState("");
@@ -116,17 +116,17 @@ function Profile(props) {
               setToken={props.setToken}
             />
           </nav>
-          <main className='form-main'>
+          <main className='pr-main'>
 
-            <form className='edit-form' onSubmit={submitHandlerUsername}>
+            <form className='h1-ar' onSubmit={submitHandlerUsername}>
               {/* <input name='username' value={username} placeholder="New Username" onChange={handleChange}></input> */}
               {/* <input className='profile-fullname' placeholder="First and Last Name"></input> */}
               {/* <input className='profile-email' placeholder="example@email.com"></input> */}
 
               {props.bio === "" ?
-                <textarea name='bio' value={bio} placeholder='write a bio' onChange={handleChange}></textarea>
+                <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}>Write a bio</textarea>
                 :
-                <textarea>{props.bio}</textarea>
+                <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
               }
               <button>Submit</button>
             </form>

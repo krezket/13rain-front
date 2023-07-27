@@ -163,11 +163,6 @@ function App() {
           </Route>
         }
 
-        {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
-        <Route path='/epix24' element={
-          <OtherProfile />}
-        >
-        </Route>
         
         {/* PROFILE EDIT PROFILE EDIT PROFILE EDIT */}
         {!userPages ?
@@ -186,7 +181,7 @@ function App() {
               userId={userId}
               username={username}
               fullName={fullName}
-              bio={bio}
+              bio={userPages.bio}
               email={email}
               setEmail={setEmail}
               setUsername={setUsername}
@@ -196,6 +191,12 @@ function App() {
           >
           </Route>
         }
+
+        {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
+        <Route path='/epix24' element={
+          <OtherProfile />}
+        >
+        </Route>
 
         {/* PAGE PAGE PAGE PAGE */}
         {!userPages ?
