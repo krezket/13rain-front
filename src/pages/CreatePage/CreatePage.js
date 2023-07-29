@@ -8,7 +8,7 @@ import './CreatePage.css';
 
 function CreatePage(props) {
   // CONSOLE LOG //
-  console.log("createPage:", props)
+  // console.log("createPage:", props)
   // console.log(ID)
   const ID = sessionStorage.getItem("userId");
   const navigate = useNavigate();
@@ -53,12 +53,15 @@ function CreatePage(props) {
 
       <main className='main-herald'>
         <section className='cp-section'>
+
           <h1 className='cp-title'>Create a Page</h1>
+
           <form onSubmit={submitHandler}>
             <input className='title-input' name='title' placeholder='Title' value={title} onChange={handleChange}></input>
             <textarea className='text-area' rows="5" cols="40" name='text' placeholder='Enter Text Here' value={text} onChange={handleChange}></textarea>
             <button>Submit</button>
           </form>
+          
         </section>
       </main>
       <Footer />

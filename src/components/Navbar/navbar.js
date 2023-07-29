@@ -12,9 +12,9 @@ function Navbar(props) {
     setModal(!modal)
   };
 
-  const toggleEdit = () => {
-    window.location.pathname = `${props.username}/edit`;
-  };
+  // const toggleEdit = () => {
+  //   window.location.pathname = `${props.username}/edit`;
+  // };
 
   const logout = () => {
     setModal(!modal)
@@ -33,84 +33,86 @@ function Navbar(props) {
 
     props.type === "profile" ?
 
-      <div className='navbar'>
-        <div id='navbar'>
+      <nav className='navbar'>
+        <>
 
           {props.userId ?
-            <div className='edit-out'>
+            <div className='link-con'>
 
-              <p className='nav-p' id='nav-p-log'>
-                <Link id='logout-btn' onClick={toggleEdit}>Edit Profile</Link>
-              </p>
+              <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
+              <Link id='create-link' to={"/create"}>Create a Page</Link>
+              <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+              {/* <button className='nav-p' id='nav-p-log'>
+              </button>
 
-              <p className='nav-p' id='nav-p-log'>
-                <Link id='logout-btn' to={"/create"}>Create a Page</Link>
-              </p>
+              <button className='nav-p' id='nav-p-log'>
+              </button>
 
-              <p className='nav-p' id='nav-p-log'>
-                <Link id='logout-btn' onClick={toggleModal}>Log Out</Link>
-              </p>
+              <button className='nav-p' id='nav-p-log'>
+              </button> */}
 
             </div>
             :
-            <p className='nav-p' id='nav-p-log'>Log In</p>
+
+
+            <button className='nav-p' id='nav-p-log'>Log In</button>
           }
 
-        </div >
+        </>
         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-      </div>
+      </nav>
 
       : props.type === "edit" ?
-        <div className='navbar'>
-          <div id='navbar'>
-            <div id='nav-links'>
+        <nav className='navbar'>
+          <>
+            <div className='link-con'>
 
               {props.userId ?
-                <p className='nav-p' id='nav-p-user'>
-                  <Link to={"/" + props.username} id='username'>{props.username}</Link>
-                </p>
+                <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                // <p className='nav-p' id='nav-p-user'>
+                // </p>
                 :
                 null
               }
 
-              <p className='nav-p' id='nav-p-log'>
-                {props.userId ?
-                  <Link id='logout-btn' onClick={toggleModal}>Log Out</Link>
-                  :
-                  <Link id='login-link' to='/login'>Log In</Link>
-                }
-              </p>
+              {props.userId ?
+                <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                :
+                <Link id='login-link' to='/login'>Log In</Link>
+              }
+              {/* <p className='nav-p' id='nav-p-log'>
+              </p> */}
 
             </div>
-          </div >
+          </>
           <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-        </div>
+        </nav>
 
         :
-        <div className='navbar'>
-          <div id='navbar'>
-            <div id='nav-links'>
+        <nav className='navbar'>
+          <>
+            <div className='link-con'>
 
               {props.userId ?
-                <p className='nav-p' id='nav-p-user'>
-                  <Link to={"/" + props.username} id='username'>{props.username}</Link>
-                </p>
+                <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                // <p className='nav-p' id='nav-p-user'>
+                // </p>
                 :
                 null
               }
 
-              <p className='nav-p' id='nav-p-log'>
-                {props.userId ?
-                  <Link id='logout-btn' onClick={toggleModal}>Log Out</Link>
-                  :
-                  <Link id='login-link' to='/login'>Log In</Link>
-                }
-              </p>
+              {props.userId ?
+                <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                :
+                <Link id='login-link' to='/login'>Log In</Link>
+              }
+              {/* <p className='nav-p' id='nav-p-log'>
+              </p> */}
 
             </div>
-          </div >
+          </>
           <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-        </div>
+        </nav>
   );
 };
 

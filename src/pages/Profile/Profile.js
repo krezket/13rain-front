@@ -48,23 +48,21 @@ function Profile(props) {
 
 
   return (
-    <div>
+    <>
       {props.type === "profile" ?
         <div>
 
           <Header />
 
-          <nav>
-            <Navbar
-              type={props.type}
-              username={props.username}
-              userId={props.userId}
-              setUserId={props.setUserId}
-              setEmail={props.setEmail}
-              setUsername={props.setUsername}
-              setToken={props.setToken}
-            />
-          </nav>
+          <Navbar
+            type={props.type}
+            username={props.username}
+            userId={props.userId}
+            setUserId={props.setUserId}
+            setEmail={props.setEmail}
+            setUsername={props.setUsername}
+            setToken={props.setToken}
+          />
 
           <main className='pr-main'>
             <div className='h1-ar'>
@@ -135,7 +133,7 @@ function Profile(props) {
           <Footer />
         </div>
       }
-    </div>
+    </>
   );
 };
 
