@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import API from "../../utils/API";
 import { Link } from 'react-router-dom'
 import Header from "../../components/Header";
 import Navbar from '../../components/Navbar/navbar';
@@ -10,23 +9,6 @@ import './style.css';
 export default function Home(props) {
     // CONSOLE LOG //
     console.log("home props:", props)
-
-    const [pages, setPages] = useState("")
-    console.log(pages)
-    
-    useEffect(() => {
-        API.getPages()
-        .then((data) => {
-            // console.log('pages data:', data)
-            setPages(data)
-        })
-        .catch((err) => {
-            console.log("oh noes");
-            console.log(err);
-        });
-    },[]);
-    
-    
 
     return (
         <div className='page-container'>
@@ -43,12 +25,7 @@ export default function Home(props) {
 
             <main className="main">
 
-                <section className='main-section'>
-                    <FrontPage />
-                    <article id='hp-article'>
-                        <p id='home-intro'>♥ ♦ ♣ ♠</p>
-                    </article>
-                </section>
+                <FrontPage />
 
             </main>
 
