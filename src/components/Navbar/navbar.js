@@ -35,29 +35,17 @@ function Navbar(props) {
 
       <nav className='navbar'>
         <>
-
           {props.userId ?
             <div className='link-con'>
-
               <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
               <Link id='create-link' to={"/create"}>Create a Page</Link>
               <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-              {/* <button className='nav-p' id='nav-p-log'>
-              </button>
-
-              <button className='nav-p' id='nav-p-log'>
-              </button>
-
-              <button className='nav-p' id='nav-p-log'>
-              </button> */}
-
             </div>
             :
-
-
-            <button className='nav-p' id='nav-p-log'>Log In</button>
+            <div className='link-con-loggedout'>
+              <Link className='nav-p' id='nav-p-log'>Log In</Link>
+            </div>
           }
-
         </>
         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
       </nav>
@@ -65,25 +53,16 @@ function Navbar(props) {
       : props.type === "edit" ?
         <nav className='navbar'>
           <>
-            <div className='link-con'>
-
-              {props.userId ?
+            {props.userId ?
+              <div className='link-con'>
                 <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                // <p className='nav-p' id='nav-p-user'>
-                // </p>
-                :
-                null
-              }
-
-              {props.userId ?
                 <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                :
+              </div>
+              :
+              <div className='link-con-loggedout'>
                 <Link id='login-link' to='/login'>Log In</Link>
-              }
-              {/* <p className='nav-p' id='nav-p-log'>
-              </p> */}
-
-            </div>
+              </div>
+            }
           </>
           <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
         </nav>
@@ -91,25 +70,16 @@ function Navbar(props) {
         :
         <nav className='navbar'>
           <>
-            <div className='link-con'>
-
-              {props.userId ?
+            {props.userId ?
+              <div className='link-con'>
                 <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                // <p className='nav-p' id='nav-p-user'>
-                // </p>
-                :
-                null
-              }
-
-              {props.userId ?
                 <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                :
+              </div>
+              :
+              <div className='link-con-loggedout'>
                 <Link id='login-link' to='/login'>Log In</Link>
-              }
-              {/* <p className='nav-p' id='nav-p-log'>
-              </p> */}
-
-            </div>
+              </div>
+            }
           </>
           <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
         </nav>

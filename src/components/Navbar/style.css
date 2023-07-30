@@ -10,6 +10,9 @@
   justify-content: center;
   /* flex-direction: column;  */
 }
+.currenttime {
+  color: var(--text-white);
+}
 
 .link-con {
   display: flex;
@@ -18,9 +21,13 @@
   justify-content: space-between;
 }
 
-.currenttime {
-  color: var(--text-white);
+.link-con-loggedout {
+  display: flex;
+  text-align: center;
+  width: 50%;
+  justify-content: center;
 }
+
 
 @media only screen
 and (min-width : 0px)
@@ -29,6 +36,16 @@ and (max-width : 1024px) {
     width: 85%;
     align-items: center;
     justify-content: space-between;
+}
+}
+
+@media only screen
+and (min-width : 0px)
+and (max-width : 1024px) {
+  .link-con-loggedout {
+    width: 85%;
+    align-items: center;
+    justify-content: center;
 }
 }
   
