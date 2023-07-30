@@ -85,18 +85,18 @@ function App() {
       });
   };
 
-  // useEffect(() => {
-  //   //GET USER DATA FROM SESSION STORAGE
-  //   const userData = window.sessionStorage.getItem("UserData");
+  useEffect(() => {
+    //GET USER DATA FROM SESSION STORAGE
+    const userData = window.sessionStorage.getItem("UserData");
 
-  //   //PARSE USER DATA
-  //   const parsedUserData = JSON.parse(userData);
+    //PARSE USER DATA
+    const parsedUserData = JSON.parse(userData);
 
-  //   //SET PARSED DATA TO USER PAGES
-  //   setUserPages(parsedUserData)
-  //   // CONSOLE LOG //
-  //   // console.log("PARSED DATA",parsedUserData);
-  // }, []);
+    //SET PARSED DATA TO USER PAGES
+    setUserPages(parsedUserData)
+    // CONSOLE LOG //
+    // console.log("PARSED DATA",parsedUserData);
+  }, []);
 
  /////////////////////////////////////////////////////////////////////////////////////////////
 
