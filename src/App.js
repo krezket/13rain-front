@@ -23,7 +23,9 @@ function App() {
 
   
   const [pages, setPages] = useState("")
+  const [users, setUsers] = useState("")
   // console.log(pages)
+  console.log(users)
 
   useEffect(() => {
     const {pathname} = window.location
@@ -34,6 +36,18 @@ function App() {
           .then((data) => {
               // console.log('pages data:', data)
               setPages(data)
+          })
+          .catch((err) => {
+              console.log("oh noes");
+              console.log(err);
+          });
+  }, []);
+
+  useEffect(() => {
+      API.getProfiles()
+          .then((data) => {
+              // console.log('pages data:', data)
+              setUsers(data)
           })
           .catch((err) => {
               console.log("oh noes");
@@ -213,10 +227,17 @@ function App() {
         }
 
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
-        <Route path='/epix24' element={
-          <OtherProfile />}
-        >
-        </Route>
+        {!users ?
+          <Route path={"/"} element={<OtherProfile/>}>
+          </Route>
+          :
+          users.map(({username}) => (
+            <Route path={'/' + username} element={
+              <OtherProfile />}
+            >
+            </Route>
+          ))
+          }
 
         {/* PAGE PAGE PAGE PAGE */}
         {!pages ?
