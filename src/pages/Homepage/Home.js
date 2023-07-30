@@ -9,69 +9,49 @@ import './style.css';
 
 export default function Home(props) {
     // CONSOLE LOG //
-    // console.log("home props:", props)
+    console.log("home props:", props)
 
-    let LinkComponents = undefined;
-
-    const pagesData = window.sessionStorage.getItem("UserData");
-    const parsedData = JSON.parse(pagesData);
-    // CONSOLE LOG //
-    // console.log(parsedData)
-
-    parsedData === null ?
-        LinkComponents = undefined
-        :
-        LinkComponents = parsedData.pages.map(({ title, id }) => (
-            <Link key={title} to={"/" + props.username + "/" + id}>
-                <p>{title}</p>
-            </Link>
-        ));
+    const [pages, setPages] = useState("")
+    console.log(pages)
+    
+    useEffect(() => {
+        API.getPages()
+        .then((data) => {
+            // console.log('pages data:', data)
+            setPages(data)
+        })
+        .catch((err) => {
+            console.log("oh noes");
+            console.log(err);
+        });
+    },[]);
+    
+    
 
     return (
         <div className='page-container'>
             <Header />
-            <nav>
-                <Navbar
-                    userId={props.userId}
-                    username={props.username}
-                    setUserId={props.setUserId}
-                    setEmail={props.setEmail}
-                    setUsername={props.setUsername}
-                    setToken={props.setToken}
-                />
-            </nav>
+
+            <Navbar
+                userId={props.userId}
+                username={props.username}
+                setUserId={props.setUserId}
+                setEmail={props.setEmail}
+                setUsername={props.setUsername}
+                setToken={props.setToken}
+            />
+
             <main className="main">
-                <aside className='aside-left'>
-                    <h1>Featured Links</h1>
-                    {!parsedData && !props.username ?
-                        <p> No links yet </p>
-                        :
-                        <div>{LinkComponents}</div>
-                    }
-                </aside>
+
                 <section className='main-section'>
                     <FrontPage />
                     <article id='hp-article'>
                         <p id='home-intro'>♥ ♦ ♣ ♠</p>
                     </article>
                 </section>
-                <aside className='aside-right'>
-                    {!props.token ?
-                        <p> Sign In To Create A Page </p>
-                        :
-                        <>
-                            <h1>Other Links</h1>
-                            <Link to={"/create"}>Create a Page</Link>
-                        </>
-                    }
-                </aside>
+
             </main>
-            <div className='fire-div'>
-                {/* <img id='shield' src={shield} alt='shield'></img> */}
-                {/* <img src={fire} alt='fire'></img>  */}
-                {/* <img src={fire} alt='fire'></img>  */}
-                {/* <img src={fire} alt='fire'></img> */}
-            </div>
+
             <Footer />
         </div>
     );
