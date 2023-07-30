@@ -2,11 +2,12 @@ body {
   background-color: black;
   margin: 0;
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
-.page-main {
-  padding-bottom: 2.5rem; 
+main {
+  padding-top: 0.5rem; 
+  padding-bottom: 0.5rem; 
 }
 
 :root {
