@@ -83,6 +83,18 @@ const API = {
         }
     },
 
+    // Get Page by ID
+    getPage: async (x) => {
+        try {
+            const pageData = await fetch(`${URL_PREFIX}/pages/${x}`, {
+                method: 'GET',
+            })
+            return pageData.json();
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
     // Verify User Token
     verifyToken: (token) => {
         return fetch(`${URL_PREFIX}/users/auth/verifytoken`, {

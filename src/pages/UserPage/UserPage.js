@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-// import API from "../../utils/API";
 import DayJS from 'react-dayjs';
 import Header from '../../components/Header';
 import Navbar from '../../components/Navbar/navbar';

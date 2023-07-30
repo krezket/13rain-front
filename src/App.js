@@ -21,6 +21,26 @@ function App() {
   const [email, setEmail] = useState("");
   const [userPages, setUserPages] = useState("");
 
+  
+  const [pages, setPages] = useState("")
+  // console.log(pages)
+
+  useEffect(() => {
+    const {pathname} = window.location
+    const paths = pathname.split("/").filter(entry => entry !== "");
+    const lastPath = paths[paths.length - 1];
+    // console.log(lastPath)
+      API.getPages(lastPath)
+          .then((data) => {
+              // console.log('pages data:', data)
+              setPages(data)
+          })
+          .catch((err) => {
+              console.log("oh noes");
+              console.log(err);
+          });
+  }, []);
+
   useEffect(() => {
     //GET TOKEN FROM SESSION STORAGE
     const storedToken = window.sessionStorage.getItem("token");
@@ -65,18 +85,18 @@ function App() {
       });
   };
 
-  useEffect(() => {
-    //GET USER DATA FROM SESSION STORAGE
-    const userData = window.sessionStorage.getItem("UserData");
+  // useEffect(() => {
+  //   //GET USER DATA FROM SESSION STORAGE
+  //   const userData = window.sessionStorage.getItem("UserData");
 
-    //PARSE USER DATA
-    const parsedUserData = JSON.parse(userData);
+  //   //PARSE USER DATA
+  //   const parsedUserData = JSON.parse(userData);
 
-    //SET PARSED DATA TO USER PAGES
-    setUserPages(parsedUserData)
-    // CONSOLE LOG //
-    // console.log("PARSED DATA",parsedUserData);
-  }, []);
+  //   //SET PARSED DATA TO USER PAGES
+  //   setUserPages(parsedUserData)
+  //   // CONSOLE LOG //
+  //   // console.log("PARSED DATA",parsedUserData);
+  // }, []);
 
  /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -199,15 +219,15 @@ function App() {
         </Route>
 
         {/* PAGE PAGE PAGE PAGE */}
-        {!userPages ?
+        {!pages ?
           <Route path={"/"} element={<UserPage/>}>
           </Route>
           :
-          userPages.pages.map(({ createdAt, text, title, id }) => (
-            <Route key={title} path={"/" + username + "/" + id} element={
+          pages.map(({ createdAt, text, title, users, id }) => (
+            <Route key={title} path={"/" + users.username + "/" + id} element={
               <UserPage
                 userId={userId}
-                username={username}
+                username={users.username}
                 fullName={fullName}
                 email={email}
                 createdAt={createdAt}
