@@ -45,7 +45,7 @@ function LogIn(props) {
   }
 
   return (
-    <div>
+    <>
       <Header />
       <nav className='empty-nav'></nav>
       <main className='main-form-li'>
@@ -66,7 +66,7 @@ function LogIn(props) {
           </aside> */}
       </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

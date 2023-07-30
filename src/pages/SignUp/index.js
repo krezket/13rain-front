@@ -64,7 +64,7 @@ function SignUp(props) {
   }
 
   return (
-    <div>
+    <>
       <Header />
       <nav className='empty-nav'></nav>
       <main className='main-form-su'>
@@ -87,7 +87,7 @@ function SignUp(props) {
           </aside> */}
       </main>
       <Footer />
-    </div>
+    </>
   )
 }
 

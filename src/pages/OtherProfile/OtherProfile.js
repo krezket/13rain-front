@@ -25,8 +25,7 @@ export default function OtherProfile(props) {
 
 
   return (
-    <div>
-
+    <>
       <Header />
 
       <Navbar
@@ -73,6 +72,6 @@ export default function OtherProfile(props) {
 
       <Footer />
 
-    </div>
+    </>
   )
 }

@@ -42,7 +42,7 @@ function CreatePage(props) {
   }
 
   return (
-    <div>
+    <>
       <Header />
       <Navbar userId={props.userId}
         username={props.username}
@@ -65,7 +65,7 @@ function CreatePage(props) {
         </section>
       </main>
       <Footer />
-    </div>
+    </>
   )
 }
 

@@ -10,7 +10,7 @@ export default function Home(props) {
     console.log("home props:", props)
 
     return (
-        <div className='page-container'>
+        <>
             <Header />
 
             <Navbar
@@ -29,6 +29,6 @@ export default function Home(props) {
             </main>
 
             <Footer />
-        </div>
+        </>
     );
 };

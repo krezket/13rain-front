@@ -50,8 +50,7 @@ function Profile(props) {
   return (
     <>
       {props.type === "profile" ?
-        <div>
-
+        <>
           <Header />
 
           <Navbar
@@ -98,10 +97,10 @@ function Profile(props) {
 
           <Footer />
 
-        </div>
+        </>
 
         :
-        <div>
+        <>
           <Header />
           <nav>
             <Navbar
@@ -131,7 +130,7 @@ function Profile(props) {
 
           </main>
           <Footer />
-        </div>
+        </>
       }
     </>
   );

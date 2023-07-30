@@ -23,21 +23,21 @@ export default function FrontPage() {
     }, []);
 
     return (
-        <section>
+        <>
             {!pages ?
 
                 <img src={plasmaball} alt='loading'></img>
                 :
 
-                <div>
+                <section className='fp-section'>
                     {pages.map(({ id, title, users }) => (
-                        <div key={title}>
-                            <Link id='fp-loading' key={title} to={"/" + users.username + "/" + id}>{title} by: {users.username}</Link>
+                        <div className='card' key={title}>
+                            <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>{title} by: {users.username}</Link>
                         </div>
                     ))
                     }
-                </div>
+                </section>
             }
-        </section>
+        </>
     )
 }

@@ -11,7 +11,7 @@ function UserPage(props) {
   console.log("UserPage Props:", props)
 
   return (
-    <div>
+    <>
       <Header />
       <nav>
         <Navbar
@@ -31,7 +31,7 @@ function UserPage(props) {
         {/* <h2 className='page-pages'>Pages: {pages.length}</h2> */}
       </main>
       <Footer />
-    </div>
+    </>
   )
 }
 

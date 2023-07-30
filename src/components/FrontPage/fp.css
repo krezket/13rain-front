@@ -1,3 +1,12 @@
-#fp-loading {
+.fp-section {
+    display: grid;
+    width: 50%;
+}
+
+.card {
+    margin: 1%;
+}
+
+#fp-link {
     color: var(--text-white);
 }
