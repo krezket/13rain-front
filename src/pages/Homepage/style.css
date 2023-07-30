@@ -1,12 +1,21 @@
 .main {
     border: 1px dashed white;
     /* align-items: center; */
-    /* padding-left: 50px; */
-    /* padding-right: 50px; */
+    margin-left: 50px;
+    margin-right: 50px;
     display: flex;
     justify-content: center;
     flex-direction: row;
     text-align: center;
+}
+
+@media only screen
+and (min-width : 0px)
+and (max-width : 1024px) {
+  .main {
+    margin-left: 7px;
+    margin-right: 7px;
+}
 }
 
 .main-section {

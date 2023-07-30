@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 // import { useGetAllPagesQuery } from '../../redux/features/pagesSlice';
 import { Link } from 'react-router-dom'
 import API from "../../utils/API";
-import plasmaball from '../../assets/wizbiz/plasmaball.gif'
+// import loading from '../../assets/wizbiz/plasmaball.gif'
+import loading from '../../assets/red/redlightbar.gif'
+// import loading from '../../assets/red/fly-red.gif'
 import './fp.css'
 
 export default function FrontPage() {
@@ -26,7 +28,7 @@ export default function FrontPage() {
         <>
             {!pages ?
 
-                <img src={plasmaball} alt='loading'></img>
+                <img src={loading} alt='loading'></img>
                 :
 
                 <section className='fp-section'>

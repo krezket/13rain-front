@@ -1,6 +1,7 @@
 .navbar {
   /* border: 1px dashed red; */
-  background-image: linear-gradient(rgb(99, 0, 0), black);
+  /* background-image: linear-gradient(rgb(99, 0, 0), black); */
+  background-image: linear-gradient(rgb(77, 77, 77), black);
   padding-left: 20px;
   padding-right: 20px;
   height: 77px;
