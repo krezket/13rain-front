@@ -10,7 +10,7 @@ import './style.css'
 
 
 function Profile(props) {
-  console.log('profile props:', props);
+  // console.log('profile props:', props);
   const ID = sessionStorage.getItem("userId");
   const [ownerId, setOwnerId] = useState("")
   // const [username, setUsername] = useState("");
