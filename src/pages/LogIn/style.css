@@ -7,11 +7,6 @@
     text-align: center;
 }
 
-.empty-nav {
-    background-image: linear-gradient(rgb(77, 0, 0), black);
-    height: 80px;
-}
-
 form {
     display: flex;
     flex-direction: column;
