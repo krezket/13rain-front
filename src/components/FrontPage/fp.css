@@ -1,9 +1,11 @@
 .fp-section {
     display: grid;
-    width: 50%;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    width: 75%;
 }
 
 .card {
+    border: 1px solid red;
     margin: 10px 0 10px 0;
 }
 
