@@ -1,21 +1,23 @@
 .navbar {
   /* border: 1px dashed red; */
-  background-image: linear-gradient(rgb(99, 0, 0), black);
   /* background-image: linear-gradient(rgb(77, 77, 77), black); */
+  background-image: linear-gradient(darkred, black);
   padding-left: 20px;
   padding-right: 20px;
   height: 77px;
   display: flex;
-  /* text-align: center; */
   align-items: center;
   justify-content: center;
-  /* flex-direction: column;  */
-}
+} 
 
 .empty-nav {
-  background-image: linear-gradient(rgb(99, 0, 0), black);
+  background-image: linear-gradient(darkred, black);
   /* background-image: linear-gradient(rgb(77, 77, 77), black); */
   height: 80px;
+}
+
+.krezzed {
+  width: 60px;
 }
 
 .currenttime {
@@ -28,12 +30,24 @@
   width: 50%;
   justify-content: space-between;
 }
-
 .link-con-loggedout {
   display: flex;
   text-align: center;
   width: 50%;
   justify-content: center;
+}
+.page-link-con {
+  display: flex;
+  text-align: center;
+  width: 50%;
+  justify-content: space-between;
+
+}
+.page-link-con-loggedout {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  justify-content: space-between;
 }
 
 

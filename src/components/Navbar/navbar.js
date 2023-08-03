@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
-import Modal from '../../components/LogOutModal'
-import './style.css'
+import { Link, useNavigate } from 'react-router-dom';
+import Modal from '../../components/LogOutModal';
+import krezzed from '../../assets/backgrounds/back-2.jpeg';
+import './style.css';
 
 function Navbar(props) {
   // console.log("navbar props:", props)
@@ -33,22 +34,28 @@ function Navbar(props) {
 
     props.type === "profile" ?
 
-      <nav className='navbar'>
+      <header className='navbar'>
         <>
           {props.userId ?
             <div className='link-con'>
+              <Link to="/home">
+                <img className='krezzed' src={krezzed} alt='home'></img>
+              </Link>
               <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
               <Link id='create-link' to={"/create"}>Create a Page</Link>
               <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
             </div>
             :
             <div className='link-con-loggedout'>
+              <Link to="/home">
+                <img className='krezzed' src={krezzed} alt='home'></img>
+              </Link>
               <Link className='nav-p' id='nav-p-log'>Log In</Link>
             </div>
           }
         </>
         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-      </nav>
+      </header>
 
       : props.type === "edit" ?
         <nav className='navbar'>
@@ -66,6 +73,30 @@ function Navbar(props) {
           </>
           <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
         </nav>
+
+        : props.type === "page" ?
+        <header className='navbar'>
+        <>
+          {props.userId ?
+            <div className='page-link-con'>
+              <Link to="/home">
+                <img className='krezzed' src={krezzed} alt='home'></img>
+              </Link>
+              <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+              <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+            </div>
+            :
+            <div className='page-link-con-loggedout'>
+              <Link to="/home">
+                <img className='krezzed' src={krezzed} alt='home'></img>
+              </Link>              
+              <Link id='login-link' to='/login'>Log In</Link>
+            </div>
+          }
+        </>
+        <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+      </header>
+
 
         :
         <nav className='navbar'>

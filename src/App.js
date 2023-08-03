@@ -247,10 +247,11 @@ function App() {
           pages.map(({ createdAt, text, title, users, id }) => (
             <Route key={title} path={"/" + users.username + "/" + id} element={
               <UserPage
-                userId={userId}
+                // userId={userId}
+                // fullName={fullName}
+                // email={email}
+                type='page'
                 username={users.username}
-                fullName={fullName}
-                email={email}
                 createdAt={createdAt}
                 text={text}
                 title={title}

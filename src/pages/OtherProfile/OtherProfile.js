@@ -26,8 +26,6 @@ export default function OtherProfile(props) {
 
   return (
     <>
-      <Header />
-
       <Navbar
         type={props.type}
         username={props.username}

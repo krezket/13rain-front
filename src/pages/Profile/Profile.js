@@ -51,8 +51,6 @@ function Profile(props) {
     <>
       {props.type === "profile" ?
         <>
-          <Header />
-
           <Navbar
             type={props.type}
             username={props.username}

@@ -1,14 +1,21 @@
 .header {
   /* border: 1px dashed white; */
-  min-height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url("../../assets/backgrounds/bg-12.gif");
+  background-color: darkred;
+  padding: 2px;
+  /* background-image: url("../../assets/lightning/storm.gif"); */
+  /* background-image: url("../../assets/backgrounds/bg-12.gif"); */
   /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
   /* background-image: url("../../assets/backgrounds/chaso.png"); */
   /* background-image: url("../../assets/backgrounds/back-3.jpeg"); */
   /* background-image: url("../../assets/sparklebg.gif"); */
+}
+
+.header-black {
+  background-color: black;  
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .home-link {
@@ -21,9 +28,11 @@
   padding-left: 10px;
   padding-right: 10px;
   margin: 0px;
-  color: var(--text-white);
-  text-shadow: 0px 0px 15px white;
-  border-radius: 10px;
+  /* color: black; */
+  text-shadow: 0px 0px 7px rgb(255, 255, 255);
+  color: white;
+  /* text-shadow: 0px 0px 7px rgb(0, 0, 0); */
+  /* border-radius: 10px; */
   transition: 0.2s;
 }
 
@@ -31,37 +40,19 @@
   color: black;
   text-shadow: 0px -1px 4px white;
   box-shadow: 0px 5px 10px;
+  background-image: url("../../assets/myown/S7A7IC.gif");
   /* background-image: url("../../assets/lightning/storm.gif"); */
   /* background-image: url("../../assets/daftavatar.gif"); */
   /* background-image: url("../../assets/neutron.gif"); */
   /* background-image: url("../../assets/fire/fire-1.gif"); */
-  background-image: url("../../assets/backgrounds/bg-27.gif");
+  /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
   /* background-image: url("../../assets/death/smokeskull.gif"); */
 }
 
-/* @media only screen and (min-width : 1824px)  {
-  main {
-      height: 77vh;
-  }
-} */
-
-/* @media only screen and (min-width : 1024px)  {
-  main {
-      height: 77vh;
-  }
-} */
-
-/* @media only screen
-and (min-width : 480px)
-and (max-width : 1024px) {
-  main {
-    height: 77vh;
-}
-} */
-
 @media only screen
-and (min-width : 480px) {
-  main {
-    min-height: 0vh;
+and (min-width : 0px)
+and (max-width : 684px) {
+  .dragon {
+    width: 100px;
 }
 }
