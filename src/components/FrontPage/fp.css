@@ -12,3 +12,33 @@
 #fp-link {
     color: var(--text-white);
 }
+
+ /*  */
+
+ .fp-table {
+    border: 1px solid red;
+    text-align: start;
+    width: 95%;
+}
+.fp-title {
+    text-align: start;
+    border-bottom: 1px solid white;
+    width: 66.67%;
+    color: red;
+}
+#less {
+    width: 11.11%;
+}
+.fp-data {
+    padding-top: 5px;
+    border-bottom: 1px dashed red;
+    /* border: 1px solid darkred; */
+ }
+
+ /* @media only screen
+and (min-width : 0px)
+and (max-width : 684px) {
+  .dragon {
+    width: 100px;
+}
+} */
