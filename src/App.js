@@ -25,7 +25,8 @@ function App() {
   const [pages, setPages] = useState("")
   const [users, setUsers] = useState("")
   // console.log(pages)
-  console.log(users)
+  // console.log(users)
+  // window.scrollbars.visible
 
   useEffect(() => {
     const {pathname} = window.location
@@ -232,7 +233,7 @@ function App() {
           </Route>
           :
           users.map(({username}) => (
-            <Route path={'/' + username} element={
+            <Route key={username} path={'/' + username} element={
               <OtherProfile />}
             >
             </Route>

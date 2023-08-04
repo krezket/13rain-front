@@ -6,23 +6,21 @@ import API from '../../utils/API';
 
 export default function OtherProfile(props) {
   const [user, setUser] = useState("")
-  console.log(user)
-
-  let username = window.location.pathname;
-
+  
   useEffect(() => {
-    API.getProfileByName(username)
+    API.getProfileByName(window.location.pathname)
       .then((data) => {
         // CONSOLE LOG //
-        // console.log("Get User:", data)
+        console.log("Get User:", data)
         setUser(data)
+        // const CrntPgData = JSON.stringify(data)
+        // window.sessionStorage.setItem("CrntPgDt", CrntPgData)
       })
       .catch((err) => {
         console.log("oh noes");
         console.log(err);
       });
-  })
-
+  },[])
 
   return (
     <>
