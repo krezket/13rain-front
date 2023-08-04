@@ -6,9 +6,18 @@
 
 .card {
     border: 1px solid red;
-    margin: 10px 0 10px 0;
+    padding: 2px;;
+    margin: 10px 5px 10px 5px;
 }
 
 #fp-link {
     color: var(--text-white);
+}
+
+@media only screen
+and (min-width : 0px)
+and (max-width : 684px) {
+  .fp-section {
+    width: 95%;
+}
 }
