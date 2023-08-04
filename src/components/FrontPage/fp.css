@@ -6,13 +6,15 @@
 
 .card {
     border: 1px solid red;
-    margin: 10px 0 10px 0;
+    padding: 2px;;
+    margin: 10px 5px 10px 5px;
 }
 
 #fp-link {
     color: var(--text-white);
 }
 
+<<<<<<< HEAD
  /*  */
 
  .fp-table {
@@ -42,3 +44,12 @@ and (max-width : 684px) {
     width: 100px;
 }
 } */
+=======
+@media only screen
+and (min-width : 0px)
+and (max-width : 684px) {
+  .fp-section {
+    width: 95%;
+}
+}
+>>>>>>> 37081ef5be74055b61b218e2f25d9dd8711a0f31
