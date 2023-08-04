@@ -14,7 +14,6 @@
     color: var(--text-white);
 }
 
-<<<<<<< HEAD
  /*  */
 
  .fp-table {
@@ -44,7 +43,6 @@ and (max-width : 684px) {
     width: 100px;
 }
 } */
-=======
 @media only screen
 and (min-width : 0px)
 and (max-width : 684px) {
@@ -52,4 +50,3 @@ and (max-width : 684px) {
     width: 95%;
 }
 }
->>>>>>> 37081ef5be74055b61b218e2f25d9dd8711a0f31
