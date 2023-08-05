@@ -6,7 +6,7 @@ import API from '../../utils/API';
 
 export default function OtherProfile(props) {
   const [user, setUser] = useState("")
-  
+
   useEffect(() => {
     API.getProfileByName(window.location.pathname)
       .then((data) => {
@@ -20,11 +20,11 @@ export default function OtherProfile(props) {
         console.log("oh noes");
         console.log(err);
       });
-  },[])
+  }, [])
 
   return (
     <>
-      <Navbar
+      <Header 
         type={props.type}
         username={props.username}
         userId={props.userId}

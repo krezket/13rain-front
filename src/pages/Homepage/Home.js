@@ -11,9 +11,7 @@ export default function Home(props) {
 
     return (
         <>
-            <Header />
-
-            <Navbar
+            <Header
                 userId={props.userId}
                 username={props.username}
                 setUserId={props.setUserId}
@@ -21,6 +19,9 @@ export default function Home(props) {
                 setUsername={props.setUsername}
                 setToken={props.setToken}
             />
+
+            <nav className='empty-nav'></nav>
+
 
             <main className="main">
 

@@ -3,8 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 77.7px;
-    margin-right: 77.7px;
+    margin: 22px 77px 0 77px;
     padding-left: 77.7px;
     padding-right: 77.7px;
 }

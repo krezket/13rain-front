@@ -1,4 +1,13 @@
 .header {
+  background-color: black;  
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 77px 0 77px;
+}
+
+.header-back {
   /* border: 1px dashed white; */
   background-color: darkred;
   padding: 2px;
@@ -8,14 +17,6 @@
   /* background-image: url("../../assets/backgrounds/chaso.png"); */
   /* background-image: url("../../assets/backgrounds/back-3.jpeg"); */
   /* background-image: url("../../assets/sparklebg.gif"); */
-}
-
-.header-black {
-  background-color: black;  
-  min-height: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .home-link {

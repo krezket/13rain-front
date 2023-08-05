@@ -125,7 +125,6 @@ function App() {
           <Home
             userId={userId}
             username={username}
-            // pages={pages}
             token={token}
             setUserId={setUserId}
             setEmail={setEmail}

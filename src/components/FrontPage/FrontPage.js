@@ -36,16 +36,16 @@ export default function FrontPage() {
                 :
 
                 <table className='fp-table'>
-                    <tbody className='fp-table'>
+                    <tbody>
                         <tr>
-                            <th className='fp-title'>Title</th>
                             <th className='fp-title' id='less'>Username</th>
+                            <th className='fp-title'>Title</th>
                             <th className='fp-title' id='less'>Created</th>
                         </tr>
                         {pages.map(({ id, title, users, createdAt }) => (
                             <tr key={title}>
-                                <td className='fp-data'><Link id='fp-link' to={"/" + users.username + "/" + id}>{title}</Link></td>
                                 <td className='fp-data'><Link id='fp-link' to={"/" + users.username}>{users.username}</Link></td>
+                                <td className='fp-data'><Link id='fp-link' to={"/" + users.username + "/" + id}>{title}</Link></td>
                                 <td className='fp-data'><DayJS id='fp-link' format="M/D/YYYY">{createdAt}</DayJS></td>
                             </tr>
                         ))

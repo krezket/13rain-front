@@ -14,14 +14,16 @@ function UserPage(props) {
     <>
       {/* <Header /> */}
       <>
-        <Navbar
+        <Header
           type={props.type}
+          username={props.username}
           userId={props.userId}
           setUserId={props.setUserId}
           setEmail={props.setEmail}
           setUsername={props.setUsername}
           setToken={props.setToken}
         />
+
       </>
       <main className='page-main'>
 
@@ -32,7 +34,7 @@ function UserPage(props) {
         <div className='username-div'>
           <h3 className='page-username'> By: <Link to={"/" + props.username} id='user-link'>{props.username}</Link></h3>
         </div>
-        
+
         <p className='page-text'>{props.text}</p>
 
         <div className='date-div'>

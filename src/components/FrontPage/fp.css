@@ -14,12 +14,13 @@
     color: var(--text-white);
 }
 
- /*  */
+/*  */
 
- .fp-table {
+.fp-table {
     border: 1px solid red;
+    padding: 20px;
     text-align: start;
-    width: 95%;
+    width: 100%;
 }
 .fp-title {
     text-align: start;

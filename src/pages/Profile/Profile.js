@@ -51,14 +51,14 @@ function Profile(props) {
     <>
       {props.type === "profile" ?
         <>
-          <Navbar
+          <Header
             type={props.type}
             username={props.username}
             userId={props.userId}
             setUserId={props.setUserId}
             setEmail={props.setEmail}
             setUsername={props.setUsername}
-            setToken={props.setToken}
+            setToken={props.setToken} 
           />
 
           <main className='pr-main'>

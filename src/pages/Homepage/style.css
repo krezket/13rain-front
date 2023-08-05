@@ -1,9 +1,8 @@
 .main {
     border: 1px dashed white;
-    /* align-items: center; */
-    margin-left: 50px;
-    margin-right: 50px;
     display: flex;
+    margin: 22px 77px 0 77px;
+    padding: 10px;
     justify-content: center;
     flex-direction: row;
     text-align: center;
