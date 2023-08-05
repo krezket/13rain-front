@@ -251,6 +251,7 @@ function App() {
                 // fullName={fullName}
                 // email={email}
                 type='page'
+                userId={userId}
                 username={users.username}
                 createdAt={createdAt}
                 text={text}

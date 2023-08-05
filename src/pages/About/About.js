@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from '../../components/Header';
-import Navbar from '../../components/Navbar/navbar';
 import Footer from '../../components/Footer/';
 import welcome from '../../assets/welcome/welcome-11.gif';
 import './style.css'

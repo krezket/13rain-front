@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-// import API from "../../utils/API";
-// import API from "../../utils/API";
 import Header from '../../components/Header';
-import Navbar from '../../components/Navbar/navbar';
 import Footer from '../../components/Footer';
 import API from '../../utils/API';
 import './style.css'
@@ -58,7 +55,7 @@ function Profile(props) {
             setUserId={props.setUserId}
             setEmail={props.setEmail}
             setUsername={props.setUsername}
-            setToken={props.setToken} 
+            setToken={props.setToken}
           />
 
           <nav className='empty-nav'></nav>
@@ -101,18 +98,17 @@ function Profile(props) {
 
         :
         <>
-          <Header />
-          <nav>
-            <Navbar
-              type={props.type}
-              username={props.username}
-              userId={props.userId}
-              setUserId={props.setUserId}
-              setEmail={props.setEmail}
-              setUsername={props.setUsername}
-              setToken={props.setToken}
-            />
-          </nav>
+          <Header
+            type={props.type}
+            username={props.username}
+            userId={props.userId}
+            setUserId={props.setUserId}
+            setEmail={props.setEmail}
+            setUsername={props.setUsername}
+            setToken={props.setToken}
+          />
+          <nav className='empty-nav'></nav>
+
           <main className='pr-main'>
 
             <form className='h1-ar' onSubmit={submitHandlerUsername}>

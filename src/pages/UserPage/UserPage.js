@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import DayJS from 'react-dayjs';
 import Header from '../../components/Header';
-import Navbar from '../../components/Navbar/navbar';
 import Footer from '../../components/Footer';
 import './style.css'
 

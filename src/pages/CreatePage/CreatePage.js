@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Header from '../../components/Header';
-import Navbar from '../../components/Navbar/navbar';
 import Footer from '../../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import API from '../../utils/API';
@@ -43,13 +42,15 @@ function CreatePage(props) {
 
   return (
     <>
-      <Header />
-      <Navbar userId={props.userId}
+      <Header
+        userId={props.userId}
         username={props.username}
         setUserId={props.setUserId}
         setEmail={props.setEmail}
         setUsername={props.setUsername}
-        setToken={props.setToken} />
+        setToken={props.setToken} 
+      />
+      <nav className='empty-nav'></nav>
 
       <main className='main-herald'>
         <section className='cp-section'>
