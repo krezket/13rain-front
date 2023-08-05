@@ -61,6 +61,8 @@ function Profile(props) {
             setToken={props.setToken} 
           />
 
+          <nav className='empty-nav'></nav>
+
           <main className='pr-main'>
             <div className='h1-ar'>
 

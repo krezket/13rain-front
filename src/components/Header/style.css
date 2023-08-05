@@ -7,6 +7,12 @@
   margin: 0 77px 0 77px;
 }
 
+.empty-nav {
+  background-image: linear-gradient(darkred, black);
+  /* background-image: linear-gradient(rgb(77, 77, 77), black); */
+  height: 80px;
+}
+
 .header-back {
   /* border: 1px dashed white; */
   background-color: darkred;

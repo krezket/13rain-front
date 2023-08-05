@@ -9,7 +9,7 @@ export default function About() {
   return (
     <main>
       <Header></Header>
-      <Navbar></Navbar>
+      <nav className='empty-nav'></nav>
 
       <section className='main-section'>
         <header className='hp-header'>
