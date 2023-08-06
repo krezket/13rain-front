@@ -46,13 +46,13 @@
 .title:hover {
   color: black;
   text-shadow: 0px -1px 4px white;
-  box-shadow: 0px 5px 10px;
+  /* box-shadow: 0px 5px 10px; */
   /* background-image: url("../../assets/myown/S7A7IC.gif"); */
   /* background-image: url("../../assets/lightning/storm.gif"); */
   /* background-image: url("../../assets/daftavatar.gif"); */
   /* background-image: url("../../assets/neutron.gif"); */
   /* background-image: url("../../assets/fire/fire-1.gif"); */
-  background-image: url("../../assets/backgrounds/bg-27.gif");
+  /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
   /* background-image: url("../../assets/death/smokeskull.gif"); */
 }
 

@@ -33,7 +33,7 @@ export default function FrontPage() {
             {!pages ?
 
                 <img src={loading} alt='loading'></img>
-                :
+                : window.innerWidth > 684 ?
 
                 <table className='fp-table'>
                     <tbody>
@@ -52,14 +52,15 @@ export default function FrontPage() {
                         }
                     </tbody>
                 </table>
-                // <section className='fp-section'>
-                //     {pages.map(({ id, title, users }) => (
-                //         <div className='card' key={title}>
-                //             <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>{title} by: {users.username}</Link>
-                //         </div>
-                //     ))
-                //     }
-                // </section>
+                :
+                <section className='fp-section'>
+                    {pages.map(({ id, title, users }) => (
+                        <div className='card' key={title}>
+                            <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>{title} by: {users.username}</Link>
+                        </div>
+                    ))
+                    }
+                </section>
             }
         </>
     )
