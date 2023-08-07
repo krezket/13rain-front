@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import API from '../../utils/API';
 
 export default function Search() {
+    const navigate = useNavigate();
+
 
     const [input, setInput] = useState("")
 
@@ -13,11 +16,12 @@ export default function Search() {
 
     const submitHandler = e => {
         e.preventDefault()
-        console.log(input)
+        
         API.getProfileByName(input)
             .then((data) => {
                 // CONSOLE LOG //
-                console.log("Get User:", data)
+                // console.log("Get User:", data)
+                navigate("/" + data.username)
                 // const CrntPgData = JSON.stringify(data)
                 // window.sessionStorage.setItem("CrntPgDt", CrntPgData)
             })
