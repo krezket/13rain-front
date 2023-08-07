@@ -1,5 +1,5 @@
 .main {
-    border: 1px dashed white;
+    border: 1px solid red;
     display: flex;
     margin: 22px 77px 0 77px;
     padding: 10px;
@@ -26,7 +26,7 @@ and (max-width : 1024px) {
 #hp-article {
     display: flex;
     justify-content: center;
-    border: 1px dashed red;
+    border: 1px dashed white;
     width: 777px;
     color: var(--text-white);
     padding-left: 20px; 

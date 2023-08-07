@@ -17,7 +17,7 @@
 /*  */
 
 .fp-table {
-    border: 1px solid red;
+    border: 1px dashed white;
     padding: 20px;
     text-align: start;
     width: 100%;

@@ -4,17 +4,22 @@ import { Link } from 'react-router-dom'
 import DayJS from 'react-dayjs';
 import API from "../../utils/API";
 import loading from '../../assets/wizbiz/reaplf.gif'
-// import loading from '../../assets/wizbiz/baraduur.gif'
-// import loading from '../../assets/wizbiz/death-demon.gif'
-// import loading from '../../assets/wizbiz/plasmaball.gif'
-// import loading from '../../assets/red/redlightbar.gif'
-// import loading from '../../assets/red/fly-red.gif'
+import loading1 from '../../assets/wizbiz/baraduur.gif'
+import loading2 from '../../assets/wizbiz/death-demon.gif'
+import loading3 from '../../assets/wizbiz/plasmaball.gif'
+import loading4 from '../../assets/red/redlightbar.gif'
+import loading5 from '../../assets/red/fly-red.gif'
 import './fp.css'
 
 export default function FrontPage() {
 
     const [pages, setPages] = useState("")
-    console.log(pages)
+    // console.log(pages)
+
+    let loadingArray = [loading, loading1, loading2, loading3, loading4, loading5]
+
+    const random = loadingArray[Math.floor(Math.random() * loadingArray.length)]
+    // console.log(random)
 
     useEffect(() => {
         API.getPages()
@@ -32,7 +37,7 @@ export default function FrontPage() {
         <>
             {!pages ?
 
-                <img src={loading} alt='loading'></img>
+                <img src={random} alt='loading'></img>
                 : window.innerWidth > 684 ?
 
                 <table className='fp-table'>

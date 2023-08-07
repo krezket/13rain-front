@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from "../../components/Header";
+import Search from "../../components/Search/Search"
 import FrontPage from '../../components/FrontPage/FrontPage';
 import Footer from '../../components/Footer/';
 import './style.css';
@@ -19,7 +20,7 @@ export default function Home(props) {
                 setToken={props.setToken}
             />
 
-            <nav className='empty-nav'></nav>
+            <nav className='empty-nav'> <Search/></nav>
 
 
             <main className="main">

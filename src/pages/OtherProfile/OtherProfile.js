@@ -6,8 +6,10 @@ import API from '../../utils/API';
 export default function OtherProfile(props) {
   const [user, setUser] = useState("")
 
+  const path = window.location.pathname.slice(1);
+
   useEffect(() => {
-    API.getProfileByName(window.location.pathname)
+    API.getProfileByName(path)
       .then((data) => {
         // CONSOLE LOG //
         console.log("Get User:", data)
