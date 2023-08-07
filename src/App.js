@@ -45,7 +45,6 @@ function App() {
       API.getProfiles()
           .then((data) => {
               setUsers(data)
-              console.log(data)
           })
           .catch((err) => {
               console.log("oh noes");
@@ -209,11 +208,11 @@ function App() {
 
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
         {!users ?
-          <Route path={"/#/"} element={<OtherProfile/>}>
+          <Route path={"bruh"} element={<OtherProfile/>}>
           </Route>
           :
           users.map(({username}) => (
-            <Route key={username} path={'/#/' + username} element={
+            <Route key={username} path={'/&/' + username} element={
               <OtherProfile type='otherProfile'/>}
             >
             </Route>

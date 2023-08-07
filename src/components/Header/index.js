@@ -30,7 +30,6 @@ export default function Header(props) {
     };
 
     let ID = window.sessionStorage.getItem("userId")
-    console.log(ID)
 
     return (
         <>
