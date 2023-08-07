@@ -8,16 +8,13 @@ import './style.css';
 
 
 export default function Header(props) {
+    console.log(props)
     const navigate = useNavigate()
     const [modal, setModal] = useState(false)
 
     const toggleModal = () => {
         setModal(!modal)
     };
-
-    // const toggleEdit = () => {
-    //   window.location.pathname = `${props.username}/edit`;
-    // };
 
     const logout = () => {
         setModal(!modal)
@@ -32,6 +29,9 @@ export default function Header(props) {
         window.location.reload(false);
     };
 
+    let ID = window.sessionStorage.getItem("userId")
+    console.log(ID)
+
     return (
         <>
             {props.type === "profile" ?
@@ -40,8 +40,7 @@ export default function Header(props) {
                         <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
                     </Link>
                     <>
-                        {props.userId ?
-
+                        {ID?
                             <>
                                 <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
                                 <Link id='create-link' to={"/create"}>Create a Page</Link>
@@ -50,40 +49,41 @@ export default function Header(props) {
 
                             :
                             <>
-                                <Link className='nav-p' id='nav-p-log'>Log In</Link>
+                                <Link className='nav-p'>Log In</Link>
                             </>
                         }
                     </>
                     <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                 </header>
 
-                : props.type === "edit" ?
+                : props.type === "otherProfile" ?
                     <header className='header'>
                         <Link className='home-link' to='/home'>
                             <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
                         </Link>
                         <>
-                            {props.userId ?
+                            {ID?
+
                                 <>
-                                    <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
                                     <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
                                 </>
+
                                 :
                                 <>
-                                    <Link id='login-link' to='/login'>Log In</Link>
+                                    <Link className='nav-p' id='nav-p-log'>Log In</Link>
                                 </>
                             }
                         </>
                         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                     </header>
 
-                    : props.type === "page" ?
+                    : props.type === "edit" ?
                         <header className='header'>
                             <Link className='home-link' to='/home'>
                                 <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
                             </Link>
                             <>
-                                {props.userId ?
+                                {ID?
                                     <>
                                         <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
                                         <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
@@ -97,25 +97,45 @@ export default function Header(props) {
                             <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                         </header>
 
-                        :
-                        <header className='header'>
-                            <Link className='home-link' to='/home'>
-                                <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
-                            </Link>
-                            <>
-                                {props.userId ?
-                                    <>
-                                        <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                                        <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                                    </>
-                                    :
-                                    <>
-                                        <Link id='login-link' to='/login'>Log In</Link>
-                                    </>
-                                }
-                            </>
-                            <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                        </header>
+                        : props.type === "page" ?
+                            <header className='header'>
+                                <Link className='home-link' to='/home'>
+                                    <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
+                                </Link>
+                                <>
+                                    {ID?
+                                        <>
+                                            <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                            <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                        </>
+                                        :
+                                        <>
+                                            <Link id='login-link' to='/login'>Log In</Link>
+                                        </>
+                                    }
+                                </>
+                                <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                            </header>
+
+                            :
+                            <header className='header'>
+                                <Link className='home-link' to='/home'>
+                                    <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
+                                </Link>
+                                <>
+                                    {!ID == '' ?
+                                        <>
+                                            <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                            <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                        </>
+                                        :
+                                        <>
+                                            <Link id='login-link' to='/login'>Log In</Link>
+                                        </>
+                                    }
+                                </>
+                                <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                            </header>
             }
         </>
     );

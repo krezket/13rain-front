@@ -24,18 +24,15 @@ function App() {
   
   const [pages, setPages] = useState("")
   const [users, setUsers] = useState("")
-  // console.log(pages)
-  // console.log(users)
-  // window.scrollbars.visible
 
   useEffect(() => {
+
     const {pathname} = window.location
     const paths = pathname.split("/").filter(entry => entry !== "");
-    const lastPath = paths[paths.length - 1];
-    // console.log(lastPath)
+    const lastPath = paths[paths.length - 1]
+
       API.getPages(lastPath)
           .then((data) => {
-              // console.log('pages data:', data)
               setPages(data)
           })
           .catch((err) => {
@@ -47,8 +44,8 @@ function App() {
   useEffect(() => {
       API.getProfiles()
           .then((data) => {
-              // console.log('pages data:', data)
               setUsers(data)
+              console.log(data)
           })
           .catch((err) => {
               console.log("oh noes");
@@ -57,19 +54,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    //GET TOKEN FROM SESSION STORAGE
     const storedToken = window.sessionStorage.getItem("token");
 
-    //IF NO TOKEN, RETURN
     if (!storedToken) {
       return;
     }
 
-    //ELSE VERIFY TOKEN THROUGH API
     API.verifyToken(storedToken)
       .then((data) => {
-        // CONSOLE LOG //
-        // console.log("Verify Token:", data)
         setToken(storedToken);
         setUserId(data.id);
         setUsername(data.username);
@@ -82,15 +74,11 @@ function App() {
       });
   }, []);
 
-  //GET ID FROM SESSION STORAGE
   const ID = sessionStorage.getItem("userId");
 
-  //IF ID EXISTS THEN GET PROFILE FROM API
   if (ID) {
     API.getProfile(ID)
       .then((data) => {
-        // CONSOLE LOG //
-        // console.log("Get Pages:", data.pages)
         const UserData = JSON.stringify(data)
         window.sessionStorage.setItem("UserData", UserData)
       })
@@ -101,16 +89,9 @@ function App() {
   };
 
   useEffect(() => {
-    //GET USER DATA FROM SESSION STORAGE
     const userData = window.sessionStorage.getItem("UserData");
-
-    //PARSE USER DATA
     const parsedUserData = JSON.parse(userData);
-
-    //SET PARSED DATA TO USER PAGES
     setUserPages(parsedUserData)
-    // CONSOLE LOG //
-    // console.log("PARSED DATA",parsedUserData);
   }, []);
 
  /////////////////////////////////////////////////////////////////////////////////////////////
@@ -228,12 +209,12 @@ function App() {
 
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
         {!users ?
-          <Route path={"/"} element={<OtherProfile/>}>
+          <Route path={"/#/"} element={<OtherProfile/>}>
           </Route>
           :
           users.map(({username}) => (
-            <Route key={username} path={'/' + username} element={
-              <OtherProfile />}
+            <Route key={username} path={'/#/' + username} element={
+              <OtherProfile type='otherProfile'/>}
             >
             </Route>
           ))
@@ -247,12 +228,12 @@ function App() {
           pages.map(({ createdAt, text, title, users, id }) => (
             <Route key={title} path={"/" + users.username + "/" + id} element={
               <UserPage
-                // userId={userId}
                 // fullName={fullName}
                 // email={email}
                 type='page'
                 userId={userId}
-                username={users.username}
+                username={username}
+                pageUsername={users.username}
                 createdAt={createdAt}
                 text={text}
                 title={title}

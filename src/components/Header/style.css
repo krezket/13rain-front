@@ -16,6 +16,10 @@
   height: 80px;
 }
 
+.nav-p {
+  color: var(--text-red);
+}
+
 .header-back {
   /* border: 1px dashed white; */
   background-color: darkred;

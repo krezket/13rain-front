@@ -49,9 +49,6 @@ function LogIn(props) {
       <Header />
       <nav className='empty-nav'></nav>
       <main className='main-form-li'>
-        {/* <aside className='aside-left'>
-            yo
-          </aside> */}
         <section>
           <h1>Log In</h1>
           <form onSubmit={submitHandler}>
@@ -61,9 +58,6 @@ function LogIn(props) {
           </form>
           <h2>Don't have an account? <Link id='signin-pg' to='/signup'>Sign Up</Link></h2>
         </section>
-        {/* <aside className='aside-right'>
-            yo
-          </aside> */}
       </main>
       <Footer />
     </>

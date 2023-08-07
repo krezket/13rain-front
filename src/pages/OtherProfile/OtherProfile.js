@@ -11,11 +11,8 @@ export default function OtherProfile(props) {
   useEffect(() => {
     API.getProfileByName(path)
       .then((data) => {
-        // CONSOLE LOG //
-        console.log("Get User:", data)
+        // console.log("Get User:", data)
         setUser(data)
-        // const CrntPgData = JSON.stringify(data)
-        // window.sessionStorage.setItem("CrntPgDt", CrntPgData)
       })
       .catch((err) => {
         console.log("oh noes");
