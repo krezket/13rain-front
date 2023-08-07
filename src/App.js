@@ -90,6 +90,7 @@ function App() {
   useEffect(() => {
     const userData = window.sessionStorage.getItem("UserData");
     const parsedUserData = JSON.parse(userData);
+    console.log(parsedUserData)
     setUserPages(parsedUserData)
   }, []);
 

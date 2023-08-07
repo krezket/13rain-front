@@ -37,7 +37,7 @@ function LogIn(props) {
         window.sessionStorage.setItem("token", data.token)
         window.sessionStorage.setItem("userId", data.user.id);
         navigate("/home")
-        // window.location.reload();
+        // window.location.reload(false);
       }).catch(err => {
         console.log(err)
         alert("Unable to Sign Up")

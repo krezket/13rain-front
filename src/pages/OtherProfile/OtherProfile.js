@@ -8,7 +8,6 @@ export default function OtherProfile(props) {
 
   const pathArr = window.location.pathname.split('&');
   let path = pathArr[1].split('/').pop()
-  console.log(path)
 
   useEffect(() => {
     API.getProfileByName(path)
