@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import API from '../../utils/API';
@@ -7,7 +7,7 @@ import './style.css'
 
 
 function Profile(props) {
-  // console.log('profile props:', props);
+  console.log('profile props:', props);
   const ID = sessionStorage.getItem("userId");
   const [ownerId, setOwnerId] = useState("")
   // const [username, setUsername] = useState("");
@@ -87,6 +87,15 @@ function Profile(props) {
                   <p>{props.bio}</p>
                 }
               </article>
+
+              <section className='fp-section'>
+                {props.pages.map(({ id, title }) => (
+                  <div className='card' key={title}>
+                    <Link id='fp-link' key={title} to={"/" + props.username + "/" + id}>{title} by: {props.username}</Link>
+                  </div>
+                ))
+                }
+              </section>
 
             </div>
 

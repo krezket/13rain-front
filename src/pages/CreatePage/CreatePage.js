@@ -59,8 +59,8 @@ function CreatePage(props) {
 
           <form onSubmit={submitHandler}>
             <input className='title-input' name='title' placeholder='Title' value={title} onChange={handleChange}></input>
-            <textarea className='text-area' rows="5" cols="40" name='text' placeholder='Enter Text Here' value={text} onChange={handleChange}></textarea>
-            <button>Submit</button>
+            <textarea className='text-area' rows="10" cols="70" name='text' placeholder='Enter Text Here' value={text} onChange={handleChange}></textarea>
+            <button className='submit-btn'>Submit</button>
           </form>
           
         </section>
