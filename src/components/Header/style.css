@@ -4,13 +4,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 77px 0 77px;
+  padding: 0 77px 0 77px;
+  /* background-image: url("../../assets/lightning/storm.gif"); */
+  /* background-image: url("../../assets/backgrounds/bg-12.gif"); */
+  /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
+  /* background-image: url("../../assets/backgrounds/chaso.png"); */
+  /* background-image: url("../../assets/backgrounds/back-3.jpeg"); */
+  /* background-image: url("../../assets/sparklebg.gif"); */
 }
 
 .empty-nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  padding: 0 77px 0 77px;
   /* background-image: linear-gradient(darkred, black); */
   background-image: linear-gradient(rgb(77, 77, 77), black);
   height: 80px;
@@ -18,18 +25,6 @@
 
 .nav-p {
   color: var(--text-red);
-}
-
-.header-back {
-  /* border: 1px dashed white; */
-  background-color: darkred;
-  padding: 2px;
-  /* background-image: url("../../assets/lightning/storm.gif"); */
-  /* background-image: url("../../assets/backgrounds/bg-12.gif"); */
-  /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
-  /* background-image: url("../../assets/backgrounds/chaso.png"); */
-  /* background-image: url("../../assets/backgrounds/back-3.jpeg"); */
-  /* background-image: url("../../assets/sparklebg.gif"); */
 }
 
 .home-link {
