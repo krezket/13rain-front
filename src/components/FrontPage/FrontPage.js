@@ -38,34 +38,48 @@ export default function FrontPage() {
             {!pages ?
 
                 <img src={random} alt='loading'></img>
-                : window.innerWidth > 684 ?
-
-                <table className='fp-table'>
-                    <tbody>
-                        <tr>
-                            <th className='fp-title' id='less'>Username</th>
-                            <th className='fp-title'>Title</th>
-                            <th className='fp-title' id='less'>Created</th>
-                        </tr>
-                        {pages.map(({ id, title, users, createdAt }) => (
-                            <tr key={title}>
-                                <td className='fp-data'><Link id='fp-link' to={"/&/" + users.username}>{users.username}</Link></td>
-                                <td className='fp-data'><Link id='fp-link' to={"/" + users.username + "/" + id}>{title}</Link></td>
-                                <td className='fp-data'><DayJS id='fp-link' format="M/D/YYYY">{createdAt}</DayJS></td>
-                            </tr>
-                        ))
-                        }
-                    </tbody>
-                </table>
                 :
+
                 <section className='fp-section'>
                     {pages.map(({ id, title, users }) => (
-                        <div className='card' key={title}>
-                            <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>{title} by: {users.username}</Link>
-                        </div>
+                        <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>
+                            <div className='card' key={title}>
+                                {title} by: {users.username}
+                            </div>
+                        </Link>
                     ))
                     }
                 </section>
+
+                // window.innerWidth > 684 ?
+                //     <table className='fp-table'>
+                //         <tbody>
+                //             <tr>
+                //                 <th className='fp-title' id='less'>Username</th>
+                //                 <th className='fp-title'>Title</th>
+                //                 <th className='fp-title' id='less'>Created</th>
+                //             </tr>
+                //             {pages.map(({ id, title, users, createdAt }) => (
+                //                 <tr key={title}>
+                //                     <td className='fp-data'><Link id='fp-link' to={"/&/" + users.username}>{users.username}</Link></td>
+                //                     <td className='fp-data'><Link id='fp-link' to={"/" + users.username + "/" + id}>{title}</Link></td>
+                //                     <td className='fp-data'><DayJS id='fp-link' format="M/D/YYYY">{createdAt}</DayJS></td>
+                //                 </tr>
+                //             ))
+                //             }
+                //         </tbody>
+                //     </table>
+                //     :
+                //     <section className='fp-section'>
+                //         {pages.map(({ id, title, users }) => (
+                //             <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>
+                //                 <div className='card' key={title}>
+                //                     {title} by: {users.username}
+                //                 </div>
+                //             </Link>
+                //         ))
+                //         }
+                //     </section>
             }
         </>
     )

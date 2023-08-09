@@ -33,7 +33,7 @@ function CreatePage(props) {
     }).then(data => {
       console.log(data)
       navigate("/" + props.username)
-      // window.location.reload(false);
+      window.location.reload(false);
     }).catch(err => {
       console.log(err)
       alert(err)
