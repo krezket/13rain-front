@@ -83,6 +83,17 @@ const API = {
         }
     },
 
+    getUserPages: async (x) => {
+        try {
+            const userPagesData = await fetch(`${URL_PREFIX}/pages/userpages/${x}`, {
+                method: 'GET',
+            })
+            return userPagesData.json()
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
     // Get Page by ID
     getPage: async (x) => {
         try {

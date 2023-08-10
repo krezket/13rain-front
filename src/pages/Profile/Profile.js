@@ -13,21 +13,20 @@ function Profile(props) {
   const ID = sessionStorage.getItem("userId");
   const [ownerId, setOwnerId] = useState("")
   const [bio, setBio] = useState("");
-  const [pages, setPages] = useState("")
-  console.log(pages)
+  const [userPages, setUserPages] = useState("")
   const navigate = useNavigate();
 
   useEffect(() => {
-    API.getPages()
-        .then((data) => {
-            // console.log('pages data:', data)
-            setPages(data)
-        })
-        .catch((err) => {
-            console.log("oh noes");
-            console.log(err);
-        });
-}, []);
+    API.getUserPages(ID)
+      .then((data) => {
+        // console.log('pages data:', data)
+        setUserPages(data)
+      })
+      .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+      });
+  }, []);
 
   const handleChange = e => {
     setOwnerId(ID)
@@ -90,7 +89,7 @@ function Profile(props) {
                 {!props.pages ?
                   <h3 className='profile-pages'>No Pages Yet</h3>
                   :
-                  <h3 className='profile-pages'>Total Pages: {pages.length}</h3>
+                  <h3 className='profile-pages'>Total Pages: {userPages.length}</h3>
                 }
 
               </div>
@@ -102,22 +101,22 @@ function Profile(props) {
                   <p>{props.bio}</p>
                 }
               </article>
-              {!pages ?
+              {!userPages ?
 
-<img src={loading5} alt='loading'></img>
-:
+                <img src={loading5} alt='loading'></img>
+                :
 
-<section className='fp-section'>
-    {pages.map(({ id, title, users }) => (
-        <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>
-            <div className='card' key={title}>
-                {title} by: {users.username}
-            </div>
-        </Link>
-    ))
-    }
-</section>
-}
+                <section className='fp-section'>
+                  {userPages.map(({ id, title }) => (
+                    <Link id='fp-link' key={title} to={"/" + props.username + "/" + id}>
+                      <div className='card' key={title}>
+                        {title}
+                      </div>
+                    </Link>
+                  ))
+                  }
+                </section>
+              }
 
             </div>
 

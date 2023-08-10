@@ -33,7 +33,7 @@ function UserPage(props) {
         </div>
 
         <div className='username-div'>
-          <h3 className='page-username'> By: <Link to={"/" + props.pageUsername} id='user-link'>{props.pageUsername}</Link></h3>
+          <h3 className='page-username'><Link to={"/" + props.pageUsername} id='user-link'>{props.pageUsername}</Link></h3>
         </div>
 
         <p className='page-text'>{props.text}</p>
