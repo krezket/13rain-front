@@ -6,7 +6,8 @@
 
 .card {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     border: 1px solid red;
     padding: 2px;
@@ -20,6 +21,7 @@
 
 #fp-link {
     color: var(--text-white);
+    text-decoration: none;
 }
 
 /*  */

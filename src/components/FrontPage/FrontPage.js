@@ -41,10 +41,18 @@ export default function FrontPage() {
                 :
 
                 <section className='fp-section'>
-                    {pages.map(({ id, title, users }) => (
+                    {pages.map(({ id, title, users, createdAt }) => (
                         <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>
                             <div className='card' key={title}>
-                                {title} by: {users.username}
+                                <div>
+                                    {title}
+                                </div>
+                                <div>
+                                    {users.username}
+                                </div>
+                                <div>
+                                    <DayJS className="dayjs" format="M/D/YYYY">{createdAt}</DayJS>
+                                </div>
                             </div>
                         </Link>
                     ))
