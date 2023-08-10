@@ -17,6 +17,7 @@ function App() {
   const [fullName, setFullName] = useState("");
   const [bio, setBio] = useState("");
   const [username, setUsername] = useState("");
+  console.log(username)
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
   const [userPages, setUserPages] = useState("");
@@ -146,67 +147,44 @@ function App() {
         </Route>
 
         {/* PROFILE PROFILE PROFILE PROFILE */}
-        {!userPages ?
 
-          <Route path={"/"} element={
-            <Profile
-              type='profile'
-              userId={userId}
-            />}
-          >
-          </Route>
-
-          :
-          <Route path={"/" + userPages.username} element={
-            <Profile
-              type='profile'
-              userId={userId}
-              token={token}
-              username={username}
-              fullName={fullName}
-              bio={userPages.bio}
-              email={email}
-              pages={userPages.pages}
-              setUserId={setUserId}
-              setEmail={setEmail}
-              setUsername={setUsername}
-              setBio={setBio}
-              setToken={setToken}
-            />}
-          >
-          </Route>
-        }
-
+        <Route path={"/" + username} element={
+          <Profile
+            type='profile'
+            userId={userId}
+            token={token}
+            username={username}
+            fullName={fullName}
+            bio={bio}
+            email={email}
+            setUserId={setUserId}
+            setEmail={setEmail}
+            setUsername={setUsername}
+            setBio={setBio}
+            setToken={setToken}
+          />}
+        >
+        </Route>
 
         {/* PROFILE EDIT PROFILE EDIT PROFILE EDIT */}
-        {!userPages ?
-
-          <Route path={"/"} element={
-            <Profile
-              type='profile'
-              userId={userId}
-            />}
-          >
-          </Route>
-          :
-          <Route path={"/edit"} element={
-            <Profile
-              type="edit"
-              userId={userId}
-              username={username}
-              fullName={fullName}
-              bio={userPages.bio}
-              email={email}
-              setEmail={setEmail}
-              setUsername={setUsername}
-              setFullName={setFullName}
-              setBio={setBio}
-            />}
-          >
-          </Route>
-        }
+        <Route path={"/edit"} element={
+          <Profile
+            type="edit"
+            userId={userId}
+            username={username}
+            fullName={fullName}
+            bio={bio}
+            email={email}
+            setEmail={setEmail}
+            setUsername={setUsername}
+            setFullName={setFullName}
+            setBio={setBio}
+          />}
+        >
+        </Route>
 
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
+
         {!users ?
           <Route path={"bruh"} element={<OtherProfile />}>
           </Route>
@@ -220,6 +198,7 @@ function App() {
         }
 
         {/* PAGE PAGE PAGE PAGE */}
+
         {!pages ?
           <Route path={"/"} element={<UserPage />}>
           </Route>
@@ -246,6 +225,7 @@ function App() {
           ))}
 
         {/* CREATE PAGE CREATE PAGE CREATE PAGE */}
+
         <Route path='/create' element={
           <CreatePage
             userId={userId}
@@ -255,6 +235,7 @@ function App() {
         </Route>
 
         {/* ABOUT ABOUT ABOUT ABOUT */}
+        
         <Route path='/about' element={
           <About />
         }>

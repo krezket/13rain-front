@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import loading5 from '../../assets/red/redlightbar.gif'
 import API from '../../utils/API';
 
 export default function OtherProfile(props) {
@@ -63,6 +65,23 @@ export default function OtherProfile(props) {
               <p>{user.bio}</p>
             }
           </article>
+          {!user ?
+
+            <img src={loading5} alt='loading'></img>
+            :
+
+            <section className='fp-section'>
+
+              {user.pages.map(({ id, title }) => (
+                <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>
+                  <div className='card' key={title}>
+                    {title}
+                  </div>
+                </Link>
+              ))
+              }
+            </section>
+        }
 
         </div>
 

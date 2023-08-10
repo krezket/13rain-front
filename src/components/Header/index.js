@@ -8,7 +8,7 @@ import './style.css';
 
 
 export default function Header(props) {
-    console.log(props)
+    // console.log(props)
     const navigate = useNavigate()
     const [modal, setModal] = useState(false)
 
@@ -18,7 +18,7 @@ export default function Header(props) {
 
     const logout = () => {
         setModal(!modal)
-        props.setUserId(null);
+        props.setUserId(0);
         props.setUsername("");
         props.setToken("");
         props.setEmail("");
@@ -48,7 +48,7 @@ export default function Header(props) {
 
                             :
                             <>
-                                <Link className='nav-p'>Log In</Link>
+                                <Link className='nav-p' to='/login'>Log In</Link>
                             </>
                         }
                     </>
@@ -69,7 +69,7 @@ export default function Header(props) {
 
                                 :
                                 <>
-                                    <Link className='nav-p' id='nav-p-log'>Log In</Link>
+                                    <Link className='nav-p' id='nav-p-log' to='/login'>Log In</Link>
                                 </>
                             }
                         </>
