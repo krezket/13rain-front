@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../../components/LogOutModal';
 
-import dragonLeft from '../../assets/dragons/reddragon1.gif'
-import dragonRight from '../../assets/dragons/reddragon2.gif'
+// import dragonLeft from '../../assets/dragons/reddragon1.gif'
+// import dragonRight from '../../assets/dragons/reddragon2.gif'
 import './style.css';
 
 
@@ -122,7 +122,7 @@ export default function Header(props) {
                                     <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
                                 </Link>
                                 <>
-                                    {!ID == '' ?
+                                    {!ID === '' ?
                                         <>
                                             <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
                                             <Link id='logout-link' onClick={toggleModal}>Log Out</Link>

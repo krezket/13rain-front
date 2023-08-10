@@ -26,7 +26,7 @@ function Profile(props) {
         console.log("oh noes");
         console.log(err);
       });
-  }, []);
+  }, [ID]);
 
   const handleChange = e => {
     setOwnerId(ID)

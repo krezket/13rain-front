@@ -17,10 +17,10 @@ function App() {
   const [fullName, setFullName] = useState("");
   const [bio, setBio] = useState("");
   const [username, setUsername] = useState("");
-  console.log(username)
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
   const [userPages, setUserPages] = useState("");
+  console.log(userPages)
 
 
   const [pages, setPages] = useState("")

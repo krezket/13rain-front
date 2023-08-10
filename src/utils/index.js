@@ -1,6 +1,6 @@
 module.exports = {
     emailCheck(x) {
-        const email = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+        const email = /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/
         return x.match(email)
     },
     passwordCheck(x) {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import loading5 from '../../assets/red/redlightbar.gif'
@@ -22,7 +22,7 @@ export default function OtherProfile(props) {
         console.log("oh noes");
         console.log(err);
       });
-  }, [])
+  }, [path])
 
   return (
     <>
