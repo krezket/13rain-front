@@ -21,7 +21,7 @@ export default function Search() {
             .then((data) => {
                 // CONSOLE LOG //
                 // console.log("Get User:", data)
-                navigate("/" + data.username)
+                navigate("/&/" + data.username)
                 // const CrntPgData = JSON.stringify(data)
                 // window.sessionStorage.setItem("CrntPgDt", CrntPgData)
             })
