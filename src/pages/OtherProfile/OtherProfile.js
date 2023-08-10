@@ -4,6 +4,7 @@ import Footer from '../../components/Footer';
 import API from '../../utils/API';
 
 export default function OtherProfile(props) {
+  console.log(props)
   const [user, setUser] = useState("")
 
   const pathArr = window.location.pathname.split('&');
@@ -12,7 +13,7 @@ export default function OtherProfile(props) {
   useEffect(() => {
     API.getProfileByName(path)
       .then((data) => {
-        // console.log("Get User:", data)
+        console.log("Get User:", data)
         setUser(data)
       })
       .catch((err) => {

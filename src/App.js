@@ -21,36 +21,36 @@ function App() {
   const [email, setEmail] = useState("");
   const [userPages, setUserPages] = useState("");
 
-  
+
   const [pages, setPages] = useState("")
   const [users, setUsers] = useState("")
 
   useEffect(() => {
-
-    const {pathname} = window.location
+    API.getProfiles()
+      .then((data) => {
+        setUsers(data)
+      })
+      .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+    const { pathname } = window.location
     const paths = pathname.split("/").filter(entry => entry !== "");
     const lastPath = paths[paths.length - 1]
 
-      API.getPages(lastPath)
-          .then((data) => {
-              setPages(data)
-          })
-          .catch((err) => {
-              console.log("oh noes");
-              console.log(err);
-          });
+    API.getPages(lastPath)
+      .then((data) => {
+        console.log(data)
+        setPages(data)
+      })
+      .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+      });
   }, []);
 
-  useEffect(() => {
-      API.getProfiles()
-          .then((data) => {
-              setUsers(data)
-          })
-          .catch((err) => {
-              console.log("oh noes");
-              console.log(err);
-          });
-  }, []);
 
   useEffect(() => {
     const storedToken = window.sessionStorage.getItem("token");
@@ -90,11 +90,10 @@ function App() {
   useEffect(() => {
     const userData = window.sessionStorage.getItem("UserData");
     const parsedUserData = JSON.parse(userData);
-    console.log(parsedUserData)
     setUserPages(parsedUserData)
   }, []);
 
- /////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <Router>
@@ -178,7 +177,7 @@ function App() {
           </Route>
         }
 
-        
+
         {/* PROFILE EDIT PROFILE EDIT PROFILE EDIT */}
         {!userPages ?
 
@@ -209,20 +208,20 @@ function App() {
 
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
         {!users ?
-          <Route path={"bruh"} element={<OtherProfile/>}>
+          <Route path={"bruh"} element={<OtherProfile />}>
           </Route>
           :
-          users.map(({username}) => (
+          users.map(({ username }) => (
             <Route key={username} path={'/&/' + username} element={
-              <OtherProfile type='otherProfile'/>}
+              <OtherProfile type='otherProfile' />}
             >
             </Route>
           ))
-          }
+        }
 
         {/* PAGE PAGE PAGE PAGE */}
         {!pages ?
-          <Route path={"/"} element={<UserPage/>}>
+          <Route path={"/"} element={<UserPage />}>
           </Route>
           :
           pages.map(({ createdAt, text, title, users, id }) => (
