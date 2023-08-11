@@ -6,7 +6,7 @@ import loading5 from '../../assets/red/redlightbar.gif'
 import API from '../../utils/API';
 
 export default function OtherProfile(props) {
-  console.log(props)
+  // console.log(props)
   const [user, setUser] = useState("")
 
   const pathArr = window.location.pathname.split('&');
@@ -15,7 +15,7 @@ export default function OtherProfile(props) {
   useEffect(() => {
     API.getProfileByName(path)
       .then((data) => {
-        console.log("Get User:", data)
+        // console.log("Get User:", data)
         setUser(data)
       })
       .catch((err) => {
@@ -50,7 +50,7 @@ export default function OtherProfile(props) {
               :
               <h3 className='profile-pages'>Friends: {props.friends.length}</h3>
             }
-            {!props.pages ?
+            {!user.pages ?
               <h3 className='profile-pages'>No Pages Yet</h3>
               :
               <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>

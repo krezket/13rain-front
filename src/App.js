@@ -19,9 +19,6 @@ function App() {
   const [username, setUsername] = useState("");
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
-  const [userPages, setUserPages] = useState("");
-  console.log(userPages)
-
 
   const [pages, setPages] = useState("")
   const [users, setUsers] = useState("")
@@ -43,7 +40,6 @@ function App() {
 
     API.getPages(lastPath)
       .then((data) => {
-        console.log(data)
         setPages(data)
       })
       .catch((err) => {
@@ -76,24 +72,6 @@ function App() {
 
   const ID = sessionStorage.getItem("userId");
 
-  if (ID) {
-    API.getProfile(ID)
-      .then((data) => {
-        const UserData = JSON.stringify(data)
-        window.sessionStorage.setItem("UserData", UserData)
-      })
-      .catch((err) => {
-        console.log("oh noes");
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    const userData = window.sessionStorage.getItem("UserData");
-    const parsedUserData = JSON.parse(userData);
-    setUserPages(parsedUserData)
-  }, []);
-
   /////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
@@ -121,7 +99,6 @@ function App() {
             type='login'
             userId={userId}
             username={username}
-            setPages={setUserPages}
             setUserId={setUserId}
             setEmail={setEmail}
             setFullName={setFullName}
@@ -136,7 +113,6 @@ function App() {
           <SignUp
             type='signup'
             userId={userId}
-            setPages={setUserPages}
             setUserId={setUserId}
             setEmail={setEmail}
             setFullName={setFullName}

@@ -7,7 +7,7 @@ import './style.css'
 
 
 function UserPage(props) {
-  console.log("UserPage Props:", props)
+  // console.log("UserPage Props:", props)
 
   return (
     <>

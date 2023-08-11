@@ -24,7 +24,7 @@ export default function FrontPage() {
     useEffect(() => {
         API.getPages()
             .then((data) => {
-                console.log('pages data:', data)
+                // console.log('pages data:', data)
                 setPages(data)
             })
             .catch((err) => {

@@ -7,7 +7,7 @@ import './style.css';
 
 export default function Home(props) {
     // CONSOLE LOG //
-    console.log("home props:", props)
+    // console.log("home props:", props)
 
     return (
         <>

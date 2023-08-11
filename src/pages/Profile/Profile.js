@@ -8,7 +8,7 @@ import './style.css'
 
 
 function Profile(props) {
-  console.log('profile props:', props);
+  // console.log('profile props:', props);
   // const [username, setUsername] = useState("");
   const ID = sessionStorage.getItem("userId");
   const [ownerId, setOwnerId] = useState("")
@@ -86,7 +86,7 @@ function Profile(props) {
                   :
                   <h3 className='profile-pages'>Friends: {props.friends.length}</h3>
                 }
-                {!props.pages ?
+                {!userPages ?
                   <h3 className='profile-pages'>No Pages Yet</h3>
                   :
                   <h3 className='profile-pages'>Total Pages: {userPages.length}</h3>
