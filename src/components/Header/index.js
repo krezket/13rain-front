@@ -30,6 +30,7 @@ export default function Header(props) {
     };
 
     let ID = window.sessionStorage.getItem("userId")
+    console.log(ID)
 
     return (
         <>
@@ -122,7 +123,7 @@ export default function Header(props) {
                                     <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
                                 </Link>
                                 <>
-                                    {!ID === '' ?
+                                    {ID?
                                         <>
                                             <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
                                             <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
