@@ -106,6 +106,26 @@ const API = {
         }
     },
 
+    deleteUserPage: async (x) => {
+        try {
+            console.log(x)
+            const pageDelete = await fetch (`${URL_PREFIX}/pages/${x}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            if (pageDelete.ok) {
+                return pageDelete.json();
+            } else {
+                alert('Unable to fetch');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
     // Verify User Token
     verifyToken: (token) => {
         return fetch(`${URL_PREFIX}/users/auth/verifytoken`, {

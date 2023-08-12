@@ -42,8 +42,6 @@ export default function Header(props) {
                         <>
                             {ID ?
                                 <>
-                                    <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
-                                    <Link id='create-link' to={"/create"}>Create a Page</Link>
                                     <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
                                 </>
 

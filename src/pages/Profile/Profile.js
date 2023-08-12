@@ -4,6 +4,8 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import API from '../../utils/API';
 import loading5 from '../../assets/red/redlightbar.gif'
+import trash1 from '../../assets/trash/trash-1-_dragged_.png'
+import trash4 from '../../assets/trash/trash-4-_dragged_.svg'
 import './style.css'
 
 function Profile(props) {
@@ -55,7 +57,21 @@ function Profile(props) {
       alert(err)
     })
   }
+  const handleDelete = e => {
+    e.preventDefault()
+    console.log(e.target.name)
 
+    API.deleteUserPage(e.target.name)
+      .then(data => {
+        console.log(data)
+        window.location.reload(false);
+        navigate("/" + props.username);
+      })
+      .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+      });
+    }
 
   return (
     <>
@@ -79,6 +95,7 @@ function Profile(props) {
               <div className='usr-fri'>
 
                 <h1 className='profile-username'>{user.username}</h1>
+<Link id='edit-link' to={"/edit"}>Edit Profile</Link>
 
                 {!props.friends ?
                   <h3 className='profile-pages'>Friends: 0</h3>
@@ -100,6 +117,7 @@ function Profile(props) {
                   <p>{user.bio}</p>
                 }
               </article>
+
               {!user ?
 
                 <img src={loading5} alt='loading'></img>
@@ -117,6 +135,7 @@ function Profile(props) {
                 </section>
               }
 
+              <Link id='create-link' to={"/create"}>Create a Page</Link>
             </div>
 
           </main>
@@ -140,19 +159,36 @@ function Profile(props) {
 
           <main className='pr-main'>
 
-            <form className='h1-ar' onSubmit={submitHandlerUsername}>
-              {/* <input name='username' value={username} placeholder="New Username" onChange={handleChange}></input> */}
-              {/* <input className='profile-fullname' placeholder="First and Last Name"></input> */}
-              {/* <input className='profile-email' placeholder="example@email.com"></input> */}
+            <div className='h1-ar'>
+              <form onSubmit={submitHandlerUsername}>
+                {/* <input name='username' value={username} placeholder="New Username" onChange={handleChange}></input> */}
+                {/* <input className='profile-fullname' placeholder="First and Last Name"></input> */}
+                {/* <input className='profile-email' placeholder="example@email.com"></input> */}
 
-              {props.bio === "" ?
-                <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}>Write a bio</textarea>
+                {props.bio === "" ?
+                  <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}>Write a bio</textarea>
+                  :
+                  <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
+                }
+                <button>Submit</button>
+              </form>
+
+              {!user ?
+
+                <img src={loading5} alt='loading'></img>
                 :
-                <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
-              }
-              <button>Submit</button>
-            </form>
 
+                <section className='fp-section'>
+                  {user.pages.map(({ id, title }) => (
+                    <div className='card' key={title}>
+                      <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>{title}</Link>
+                      <img src={trash1} alt='trash-can' name={id} onClick={handleDelete}></img>
+                    </div>
+                  ))
+                  }
+                </section>
+              }
+            </div>
           </main>
           <Footer />
         </>
