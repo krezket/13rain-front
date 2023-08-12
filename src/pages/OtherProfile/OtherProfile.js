@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import loading5 from '../../assets/red/redlightbar.gif'
+import loading from '../../assets/wizbiz/plasmaball.gif'
 import API from '../../utils/API';
 
 export default function OtherProfile(props) {
@@ -67,7 +67,7 @@ export default function OtherProfile(props) {
           </article>
           {!user ?
 
-            <img src={loading5} alt='loading'></img>
+            <img src={loading} alt='loading'></img>
             :
 
             <section className='fp-section'>

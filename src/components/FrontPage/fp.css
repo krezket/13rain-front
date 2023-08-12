@@ -60,4 +60,7 @@ and (max-width : 684px) {
   .fp-section {
     width: 95%;
 }
+.pr-section {
+    width: 95%;
+}
 }

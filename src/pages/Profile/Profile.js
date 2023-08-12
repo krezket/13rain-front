@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import API from '../../utils/API';
-import loading5 from '../../assets/red/redlightbar.gif'
+import loading from '../../assets/wizbiz/plasmaball.gif'
 import trash1 from '../../assets/trash/trash-1-_dragged_.png'
 import trash4 from '../../assets/trash/trash-4-_dragged_.svg'
 import './style.css'
@@ -120,7 +120,7 @@ function Profile(props) {
 
               {!user ?
 
-                <img src={loading5} alt='loading'></img>
+                <img src={loading} alt='loading'></img>
                 :
 
                 <section className='fp-section'>
@@ -175,10 +175,10 @@ function Profile(props) {
 
               {!user ?
 
-                <img src={loading5} alt='loading'></img>
+                <img src={loading} alt='loading'></img>
                 :
 
-                <section className='fp-section'>
+                <section className='pr-section'>
                   {user.pages.map(({ id, title }) => (
                     <div className='card' key={title}>
                       <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>{title}</Link>

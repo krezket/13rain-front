@@ -60,14 +60,6 @@
   color: var(--text-white);
 }
 
-
-
-#edit-link {
-  color: var(--text-red);
-}
-#create-link {
-  color: var(--text-red);
-}
 #login-link {
   color: var(--text-red);
 }
