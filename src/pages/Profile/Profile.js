@@ -20,7 +20,7 @@ function Profile(props) {
   useEffect(() => {
     API.getProfile(ID)
       .then((data) => {
-        console.log('user:', data)
+        // console.log('user:', data)
         setUser(data)
       })
       .catch((err) => {
@@ -95,7 +95,6 @@ function Profile(props) {
               <div className='usr-fri'>
 
                 <h1 className='profile-username'>{user.username}</h1>
-<Link id='edit-link' to={"/edit"}>Edit Profile</Link>
 
                 {!props.friends ?
                   <h3 className='profile-pages'>Friends: 0</h3>
@@ -116,6 +115,7 @@ function Profile(props) {
                   :
                   <p>{user.bio}</p>
                 }
+                <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
               </article>
 
               {!user ?
