@@ -1,16 +1,44 @@
 .header {
-  background-color: black;  
-  min-height: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 77px 0 77px;
+  background-color: darkred;  
+  padding: 10px 10px 10px 10px;
   /* background-image: url("../../assets/lightning/storm.gif"); */
   /* background-image: url("../../assets/backgrounds/bg-12.gif"); */
   /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
-  /* background-image: url("../../assets/backgrounds/chaso.png"); */
+  background-image: url("../../assets/backgrounds/chaso.png");
+  /* background-image: url("../../assets/myown/S7A7IC.gif"); */
   /* background-image: url("../../assets/backgrounds/back-3.jpeg"); */
   /* background-image: url("../../assets/sparklebg.gif"); */
+}
+
+.header-div {
+  min-height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;  
+}
+
+.title {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0px;
+  text-shadow: 0px 0px 7px rgb(255, 255, 255);
+  color: white;
+  /* text-shadow: 0px 0px 7px rgb(0, 0, 0); */
+  /* border-radius: 10px; */
+  transition: 0.2s;
+}
+.title:hover {
+  color: black;
+  text-shadow: 0px -1px 4px white;
+  /* box-shadow: 0px 5px 10px; */
+  /* background-image: url("../../assets/lightning/storm.gif"); */
+  /* background-image: url("../../assets/daftavatar.gif"); */
+  /* background-image: url("../../assets/neutron.gif"); */
+  /* background-image: url("../../assets/fire/fire-1.gif"); */
+  /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
+  /* background-image: url("../../assets/death/smokeskull.gif"); */
 }
 
 .empty-nav {
@@ -32,31 +60,7 @@
   color: var(--text-white);
 }
 
-.title {
-  /* border: 1px dashed white; */
-  padding-left: 10px;
-  padding-right: 10px;
-  margin: 0px;
-  /* color: black; */
-  text-shadow: 0px 0px 7px rgb(255, 255, 255);
-  color: white;
-  /* text-shadow: 0px 0px 7px rgb(0, 0, 0); */
-  /* border-radius: 10px; */
-  transition: 0.2s;
-}
 
-.title:hover {
-  color: black;
-  text-shadow: 0px -1px 4px white;
-  /* box-shadow: 0px 5px 10px; */
-  /* background-image: url("../../assets/myown/S7A7IC.gif"); */
-  /* background-image: url("../../assets/lightning/storm.gif"); */
-  /* background-image: url("../../assets/daftavatar.gif"); */
-  /* background-image: url("../../assets/neutron.gif"); */
-  /* background-image: url("../../assets/fire/fire-1.gif"); */
-  /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
-  /* background-image: url("../../assets/death/smokeskull.gif"); */
-}
 
 #edit-link {
   color: var(--text-red);

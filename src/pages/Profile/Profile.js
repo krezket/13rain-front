@@ -6,21 +6,20 @@ import API from '../../utils/API';
 import loading5 from '../../assets/red/redlightbar.gif'
 import './style.css'
 
-
 function Profile(props) {
   // console.log('profile props:', props);
   // const [username, setUsername] = useState("");
   const ID = sessionStorage.getItem("userId");
   const [ownerId, setOwnerId] = useState("")
   const [bio, setBio] = useState("");
-  const [userPages, setUserPages] = useState("")
+  const [user, setUser] = useState("")
   const navigate = useNavigate();
 
   useEffect(() => {
-    API.getUserPages(ID)
+    API.getProfile(ID)
       .then((data) => {
-        // console.log('pages data:', data)
-        setUserPages(data)
+        console.log('user:', data)
+        setUser(data)
       })
       .catch((err) => {
         console.log("oh noes");
@@ -79,36 +78,36 @@ function Profile(props) {
 
               <div className='usr-fri'>
 
-                <h1 className='profile-username'>{props.username}</h1>
+                <h1 className='profile-username'>{user.username}</h1>
 
                 {!props.friends ?
                   <h3 className='profile-pages'>Friends: 0</h3>
                   :
                   <h3 className='profile-pages'>Friends: {props.friends.length}</h3>
                 }
-                {!userPages ?
+                {!user ?
                   <h3 className='profile-pages'>No Pages Yet</h3>
                   :
-                  <h3 className='profile-pages'>Total Pages: {userPages.length}</h3>
+                  <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
                 }
 
               </div>
 
               <article className='profile-bio'>
-                {props.bio === "" ?
+                {user.bio === "" ?
                   <p>no bio yet</p>
                   :
-                  <p>{props.bio}</p>
+                  <p>{user.bio}</p>
                 }
               </article>
-              {!userPages ?
+              {!user ?
 
                 <img src={loading5} alt='loading'></img>
                 :
 
                 <section className='fp-section'>
-                  {userPages.map(({ id, title }) => (
-                    <Link id='fp-link' key={title} to={"/" + props.username + "/" + id}>
+                  {user.pages.map(({ id, title }) => (
+                    <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>
                       <div className='card' key={title}>
                         {title}
                       </div>

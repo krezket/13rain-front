@@ -35,105 +35,115 @@ export default function Header(props) {
         <>
             {props.type === "profile" ?
                 <header className='header'>
-                    <Link className='home-link' to='/home'>
-                        <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
-                    </Link>
-                    <>
-                        {ID?
-                            <>
-                                <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
-                                <Link id='create-link' to={"/create"}>Create a Page</Link>
-                                <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                            </>
-
-                            :
-                            <>
-                                <Link className='nav-p' to='/login'>Log In</Link>
-                            </>
-                        }
-                    </>
-                    <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                </header>
-
-                : props.type === "otherProfile" ?
-                    <header className='header'>
+                    <div className='header-div'>
                         <Link className='home-link' to='/home'>
                             <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
                         </Link>
                         <>
-                            {ID?
-
+                            {ID ?
                                 <>
+                                    <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
+                                    <Link id='create-link' to={"/create"}>Create a Page</Link>
                                     <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
                                 </>
 
                                 :
                                 <>
-                                    <Link className='nav-p' id='nav-p-log' to='/login'>Log In</Link>
+                                    <Link className='nav-p' to='/login'>Log In</Link>
                                 </>
                             }
                         </>
                         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                    </header>
+                    </div>
+                </header>
 
-                    : props.type === "edit" ?
-                        <header className='header'>
+                : props.type === "otherProfile" ?
+                    <header className='header'>
+                        <div className='header-div'>
                             <Link className='home-link' to='/home'>
                                 <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
                             </Link>
                             <>
-                                {ID?
+                                {ID ?
+
                                     <>
-                                        <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
                                         <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
                                     </>
+
                                     :
                                     <>
-                                        <Link id='login-link' to='/login'>Log In</Link>
+                                        <Link className='nav-p' id='nav-p-log' to='/login'>Log In</Link>
                                     </>
                                 }
                             </>
                             <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                        </div>
+                    </header>
+
+                    : props.type === "edit" ?
+                        <header className='header'>
+                            <div className='header-div'>
+                                <Link className='home-link' to='/home'>
+                                    <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
+                                </Link>
+                                <>
+                                    {ID ?
+                                        <>
+                                            <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                            <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                        </>
+                                        :
+                                        <>
+                                            <Link id='login-link' to='/login'>Log In</Link>
+                                        </>
+                                    }
+                                </>
+                                <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                            </div>
                         </header>
 
                         : props.type === "page" ?
                             <header className='header'>
-                                <Link className='home-link' to='/home'>
-                                    <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
-                                </Link>
-                                <>
-                                    {ID?
-                                        <>
-                                            <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                                            <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                                        </>
-                                        :
-                                        <>
-                                            <Link id='login-link' to='/login'>Log In</Link>
-                                        </>
-                                    }
-                                </>
-                                <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                                <div className='header-div'>
+                                    <Link className='home-link' to='/home'>
+                                        <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
+                                    </Link>
+                                    <>
+                                        {ID ?
+                                            <>
+                                                <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                                <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                            </>
+                                            :
+                                            <>
+                                                <Link id='login-link' to='/login'>Log In</Link>
+                                            </>
+                                        }
+                                    </>
+                                    <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                                </div>
                             </header>
 
                             :
                             <header className='header'>
-                                <Link className='home-link' to='/home'>
-                                    <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
-                                </Link>
-                                <>
-                                    {ID?
-                                        <>
-                                            <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                                            <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                                        </>
-                                        :
-                                        <>
-                                            <Link id='login-link' to='/login'>Log In</Link>
-                                        </>
-                                    }
-                                </>
-                                <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                                <div className='header-div'>
+                                    <Link className='home-link' to='/home'>
+                                        <h1 className='title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
+                                    </Link>
+                                    <>
+                                        {ID ?
+                                            <>
+                                                <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                                <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                            </>
+                                            :
+                                            <>
+                                                <Link id='login-link' to='/login'>Log In</Link>
+                                            </>
+                                        }
+                                    </>
+                                    <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                                </div>
                             </header>
             }
         </>
