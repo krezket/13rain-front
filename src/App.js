@@ -10,9 +10,14 @@ import UserPage from './pages/UserPage/UserPage.js';
 import CreatePage from './pages/CreatePage/CreatePage';
 import About from './pages/About/About.js';
 import OtherProfile from './pages/OtherProfile/OtherProfile';
+import LoadingPage from './pages/LoadingPage/LoadingPage';
 import './App.css';
 
 function App() {
+  const [usersLoading, setUsersLoading] = useState(false)
+  const [pagesLoading, setPagesLoading] = useState(false)
+  console.log("Users:", usersLoading)
+  console.log("Pages:", pagesLoading)
   const [userId, setUserId] = useState(null);
   const [fullName, setFullName] = useState("");
   const [bio, setBio] = useState("");
@@ -21,14 +26,19 @@ function App() {
   const [email, setEmail] = useState("");
 
   const [pages, setPages] = useState("")
+  console.log(pages)
   const [users, setUsers] = useState("")
+  console.log(users)
 
   useEffect(() => {
+    setUsersLoading(true)
     API.getProfiles()
       .then((data) => {
         setUsers(data)
+        setUsersLoading(false)
       })
       .catch((err) => {
+        setUsersLoading(false)
         console.log("oh noes");
         console.log(err);
       });
@@ -38,11 +48,15 @@ function App() {
     const paths = pathname.split("/").filter(entry => entry !== "");
     const lastPath = paths[paths.length - 1]
 
+    setPagesLoading(true)
+
     API.getPages(lastPath)
       .then((data) => {
         setPages(data)
+        setPagesLoading(false)
       })
       .catch((err) => {
+        setPagesLoading(false)
         console.log("oh noes");
         console.log(err);
       });
@@ -76,6 +90,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Enter />}></Route>
+
+        {/* <Route path={window.location.pathname} element={<LoadingPage/>}></Route> */}
 
         {/* HOME HOME HOME HOME */}
         <Route path="/home" element={
@@ -121,7 +137,6 @@ function App() {
         </Route>
 
         {/* PROFILE PROFILE PROFILE PROFILE */}
-
         <Route path={"/" + username} element={
           <Profile
             type='profile'
@@ -158,8 +173,23 @@ function App() {
         </Route>
 
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
+        {/* {
+                  !users ?
+                  <Route path={"bruh"} element={<OtherProfile />}>
+                  </Route>
+                  :
+                  users.map(({ username }) => (
+                    <Route key={username} path={'/&/' + username} element={
+                      <OtherProfile type='otherProfile' />}
+                    >
+                    </Route>
+                  ))
+        } */}
+        {usersLoading === true?
+                <Route path={window.location.pathname} element={<LoadingPage/>}></Route>
+                :
 
-        {!users ?
+        !users ?
           <Route path={"bruh"} element={<OtherProfile />}>
           </Route>
           :
@@ -169,10 +199,10 @@ function App() {
             >
             </Route>
           ))
+        
         }
 
         {/* PAGE PAGE PAGE PAGE */}
-
         {!pages ?
           <Route path={"/"} element={<UserPage />}>
           </Route>
@@ -199,7 +229,6 @@ function App() {
           ))}
 
         {/* CREATE PAGE CREATE PAGE CREATE PAGE */}
-
         <Route path='/create' element={
           <CreatePage
             userId={userId}
@@ -209,7 +238,6 @@ function App() {
         </Route>
 
         {/* ABOUT ABOUT ABOUT ABOUT */}
-        
         <Route path='/about' element={
           <About />
         }>
