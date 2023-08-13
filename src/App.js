@@ -11,6 +11,7 @@ import CreatePage from './pages/CreatePage/CreatePage';
 import About from './pages/About/About.js';
 import OtherProfile from './pages/OtherProfile/OtherProfile';
 import LoadingPage from './pages/LoadingPage/LoadingPage';
+import { Counter } from './features/counter/counter';
 import './App.css';
 
 function App() {
@@ -90,6 +91,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Enter />}></Route>
+
+        <Route path='/counter' element={<Counter/>}></Route>
 
         {/* <Route path={window.location.pathname} element={<LoadingPage/>}></Route> */}
 
@@ -173,34 +176,35 @@ function App() {
         </Route>
 
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
-        {/* {
-                  !users ?
-                  <Route path={"bruh"} element={<OtherProfile />}>
-                  </Route>
-                  :
-                  users.map(({ username }) => (
-                    <Route key={username} path={'/&/' + username} element={
-                      <OtherProfile type='otherProfile' />}
-                    >
-                    </Route>
-                  ))
-        } */}
-        {usersLoading === true?
-                <Route path={window.location.pathname} element={<LoadingPage/>}></Route>
-                :
-
-        !users ?
-          <Route path={"bruh"} element={<OtherProfile />}>
-          </Route>
-          :
-          users.map(({ username }) => (
-            <Route key={username} path={'/&/' + username} element={
-              <OtherProfile type='otherProfile' />}
-            >
+        {
+          !users ?
+            <Route path={"bruh"} element={<OtherProfile />}>
             </Route>
-          ))
-        
+            :
+            users.map(({ username }) => (
+              <Route key={username} path={'/&/' + username} element={
+                <OtherProfile type='otherProfile' />}
+              >
+              </Route>
+            ))
         }
+
+        {/* {usersLoading === true ?
+          <Route path={window.location.pathname} element={<LoadingPage />}></Route>
+          :
+
+          !users ?
+            <Route path={"bruh"} element={<OtherProfile />}>
+            </Route>
+            :
+            users.map(({ username }) => (
+              <Route key={username} path={'/&/' + username} element={
+                <OtherProfile type='otherProfile' />}
+              >
+              </Route>
+            ))
+
+        } */}
 
         {/* PAGE PAGE PAGE PAGE */}
         {!pages ?
