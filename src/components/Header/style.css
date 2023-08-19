@@ -14,8 +14,11 @@
 .header-div {
   min-height: 100px;
   margin: 10px 10px 10px 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: black;  
 }
