@@ -1,6 +1,7 @@
 .header {
   background-color: darkred;  
-  padding: 10px 10px 10px 10px;
+  position: fixed;
+  width: 100%;
   /* background-image: url("../../assets/lightning/storm.gif"); */
   /* background-image: url("../../assets/backgrounds/bg-12.gif"); */
   /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
@@ -12,7 +13,7 @@
 
 .header-div {
   min-height: 100px;
-  width: 100%;
+  margin: 10px 10px 10px 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
