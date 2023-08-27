@@ -8,6 +8,7 @@ import './style.css'
 
 function UserPage(props) {
   console.log("UserPage Props:", props)
+  window.sessionStorage.setItem('path', window.location.pathname)
 
   return (
     <>

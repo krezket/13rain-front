@@ -26,6 +26,8 @@ function App() {
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
 
+  const [page, setPage] = useState("")
+  console.log("page:",  page)
   const [pages, setPages] = useState("")
   console.log(pages)
   const [users, setUsers] = useState("")
@@ -45,19 +47,31 @@ function App() {
       });
   }, []);
   useEffect(() => {
-    const { pathname } = window.location
-    const paths = pathname.split("/").filter(entry => entry !== "");
-    const lastPath = paths[paths.length - 1]
-
     setPagesLoading(true)
-
-    API.getPages(lastPath)
+    API.getPages()
       .then((data) => {
+        console.log("bruh:",data)
         setPages(data)
         setPagesLoading(false)
       })
       .catch((err) => {
         setPagesLoading(false)
+        console.log("oh noes");
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+    const { pathname } = window.location
+    const paths = pathname.split("/").filter(entry => entry !== "");
+    const lastPath = paths[paths.length - 1]
+    console.log(lastPath)
+
+    API.getPage(lastPath)
+      .then((data) => {
+        console.log("bruh:",data)
+        setPage(data)
+      })
+      .catch((err) => {
         console.log("oh noes");
         console.log(err);
       });
@@ -208,14 +222,12 @@ function App() {
 
         {/* PAGE PAGE PAGE PAGE */}
         {!pages ?
-          <Route path={"/"} element={<UserPage />}>
+          <Route path={"/" + page.username + "/" + page.id} element={<UserPage />}>
           </Route>
           :
           pages.map(({ createdAt, text, title, users, id }) => (
             <Route key={title} path={"/" + users.username + "/" + id} element={
               <UserPage
-                // fullName={fullName}
-                // email={email}
                 type='page'
                 userId={userId}
                 username={username}
