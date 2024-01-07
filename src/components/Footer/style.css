@@ -7,30 +7,28 @@
     justify-content: center;
     text-align: center;
 }
-
-#link-footer {
-    color: darkred;
+.link-footer {
+    color: var(--text-white)
 }
 
 .footerbar {
     display: flex;
     justify-content: space-around;
-    padding-left: 500px;
-    padding-right: 500px;
+    padding:  20px 500px 20px 500px;
 }
 
-.footer-sc:hover {
+#footer-sc:hover {
     background-image: url('../../assets/music/cd-3.gif');
     text-shadow: 1px 1px 1px black;;
 }
   
-.footer-ig:hover {
+#footer-ig:hover {
     background-image: url('../../assets/fire/fire-3.gif');
     text-shadow: 1px 1px 1px black;;
 }
   
-.footer-yt:hover {
-    background-image: url('../../assets/twirl.gif');
+#footer-yt:hover {
+    background-image: url('../../assets/wizbiz/plasmaball.gif');
     text-shadow: 1px 1px 1px black;;
 }
 

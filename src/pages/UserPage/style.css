@@ -48,6 +48,7 @@ and (max-width : 1024px) {
 .page-username {
     color: var(--text-white);
     margin-top: 0%;
+    opacity: 1;
 }
 
 .page-text {

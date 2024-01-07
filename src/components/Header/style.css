@@ -12,7 +12,7 @@
 }
 
 .header-div {
-  min-height: 100px;
+  height: 100px;
   margin: 10px 10px 10px 10px;
   padding-left: 50px;
   padding-right: 50px;
@@ -23,7 +23,7 @@
   background-color: black;  
 }
 
-.title {
+.blog-title {
   padding-left: 10px;
   padding-right: 10px;
   margin: 0px;
@@ -33,7 +33,7 @@
   /* border-radius: 10px; */
   transition: 0.2s;
 }
-.title:hover {
+.blog-title:hover {
   color: black;
   text-shadow: 0px -1px 4px white;
   /* box-shadow: 0px 5px 10px; */

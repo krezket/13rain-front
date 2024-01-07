@@ -10,6 +10,7 @@
 .h1-ar {
     border: 1px solid red;
     display: flex;
+    height: 60vh;
     width: 100%;
     flex-direction: column;
     padding: 10px 77px 30px 77px;
@@ -39,7 +40,9 @@
 .profile-bio {
     /* border: 1px dashed white; */
     color: var(--text-white);
-    /* width: 100%; */
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .profile-email {
@@ -53,11 +56,11 @@
     resize: none;
 }
 
-#edit-link {
-    color: var(--text-red);
-  }
+#edit-link,
 #create-link {
     color: var(--text-red);
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 @media only screen

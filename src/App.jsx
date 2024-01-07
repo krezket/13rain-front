@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import API from "./utils/API";
-import Enter from './pages/Enter/theGate.js';
-import Home from './pages/Homepage/Home.js';
-import LogIn from './pages/LogIn/';
-import SignUp from './pages/SignUp/';
-import Profile from './pages/Profile/Profile.js';
-import UserPage from './pages/UserPage/UserPage.js';
-import CreatePage from './pages/CreatePage/CreatePage';
-import About from './pages/About/About.js';
-import OtherProfile from './pages/OtherProfile/OtherProfile';
-import LoadingPage from './pages/LoadingPage/LoadingPage';
-import { Counter } from './features/counter/counter';
+import API from "./utils/API.js";
+import Enter from './pages/Enter/theGate.jsx';
+import Home from './pages/Homepage/Home.jsx';
+import LogIn from './pages/LogIn/index.jsx';
+import SignUp from './pages/SignUp/index.jsx';
+import Profile from './pages/Profile/Profile.jsx';
+import UserPage from './pages/UserPage/UserPage.jsx';
+import CreatePage from './pages/CreatePage/CreatePage.jsx';
+import About from './pages/About/About.jsx';
+import OtherProfile from './pages/OtherProfile/OtherProfile.jsx';
+import LoadingPage from './pages/LoadingPage/LoadingPage.jsx';
+import { Counter } from './features/counter/counter.js';
 import './App.css';
 
 function App() {
