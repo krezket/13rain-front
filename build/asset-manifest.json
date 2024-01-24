@@ -1,19 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.2bd40b55.css",
-    "main.js": "/static/js/main.ad1d488b.js",
-    "static/media/daftavatar.gif": "/static/media/daftavatar.0b67c2f87050d254cd6d.gif",
-    "static/media/welcome-2.gif": "/static/media/welcome-2.e48ca99ebdc0be78d818.gif",
-    "static/media/chet.jpg": "/static/media/chet.c13f0bf1f5e02e3e38c4.jpg",
-    "static/media/chaso.png": "/static/media/chaso.a5b6b56a2eca1d6932f8.png",
-    "static/media/smokeskull.gif": "/static/media/smokeskull.c15223edd7d4c9177a31.gif",
-    "static/media/Fire_burns.gif": "/static/media/Fire_burns.50260aab8b2391248a81.gif",
-    "index.html": "/index.html",
-    "main.2bd40b55.css.map": "/static/css/main.2bd40b55.css.map",
-    "main.ad1d488b.js.map": "/static/js/main.ad1d488b.js.map"
+    "main.css": "/13ra.in/static/css/main.ea417863.css",
+    "main.js": "/13ra.in/static/js/main.c950b969.js",
+    "static/media/back-1.jpeg": "/13ra.in/static/media/back-1.c4c7f3d5134265f1627e.jpeg",
+    "static/media/bg-15.gif": "/13ra.in/static/media/bg-15.51dba8c08aab5ff3e2ed.gif",
+    "static/media/death-demon.gif": "/13ra.in/static/media/death-demon.d659982d08221429889b.gif",
+    "static/media/moon_eclipse.gif": "/13ra.in/static/media/moon_eclipse.446a94773de0850dcae1.gif",
+    "static/media/chaso.png": "/13ra.in/static/media/chaso.a5b6b56a2eca1d6932f8.png",
+    "static/media/plasmaball.gif": "/13ra.in/static/media/plasmaball.f97583fe4c49e87151ac.gif",
+    "static/media/smokeskull.gif": "/13ra.in/static/media/smokeskull.c15223edd7d4c9177a31.gif",
+    "static/media/enter-6.gif": "/13ra.in/static/media/enter-6.cde03d1b31b6a5ea4e96.gif",
+    "static/media/baraduur.gif": "/13ra.in/static/media/baraduur.54697dcfa3d914c16e80.gif",
+    "static/media/welcome-11.gif": "/13ra.in/static/media/welcome-11.bd0fbfc0bbdaaed6b6ab.gif",
+    "static/media/fire-3.gif": "/13ra.in/static/media/fire-3.50260aab8b2391248a81.gif",
+    "static/media/trash-4-_dragged_.svg": "/13ra.in/static/media/trash-4-_dragged_.ce335371ae7d6c57a8b83abbcf659e5d.svg",
+    "index.html": "/13ra.in/index.html",
+    "main.ea417863.css.map": "/13ra.in/static/css/main.ea417863.css.map",
+    "main.c950b969.js.map": "/13ra.in/static/js/main.c950b969.js.map"
   },
   "entrypoints": [
-    "static/css/main.2bd40b55.css",
-    "static/js/main.ad1d488b.js"
+    "static/css/main.ea417863.css",
+    "static/js/main.c950b969.js"
   ]
 }
